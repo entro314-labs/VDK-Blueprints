@@ -1,0 +1,64 @@
+---
+source: "VDK Rules"
+framework: "vdk"
+repository: "idominikosgr/VibeKit-VDK-AI-rules"
+cli_version: ">=1.2.0"
+description: "Analyzes a new project and generates an initial set of VDK rules to onboard it into the VibeKit ecosystem."
+globs: []
+alwaysApply: false
+version: "1.0.0"
+lastUpdated: "2025-07-04"
+compatibleWith:
+  - "Sequential-Thinking-Advanced"
+  - "Memory-MCP"
+---
+
+# Onboarding a New Project to VibeKit
+
+## Objective
+
+To analyze a new or existing codebase and generate a foundational set of VibeKit VDK rules. This task automates the initial setup, making any project instantly "project-aware" for an AI assistant.
+
+## Core Workflow
+
+This task should be executed by the VDK CLI and will use sequential thinking to perform a comprehensive analysis of the target project.
+
+### Step 1: Project Analysis
+
+- **Analyze `package.json`**: 
+  - Identify `dependencies`, `devDependencies`, and `peerDependencies` to determine the technology stack (e.g., React, Next.js, Express).
+  - Parse `scripts` to understand common workflows (e.g., `dev`, `build`, `test`).
+- **Scan Directory Structure**:
+  - Identify key directories like `src`, `app`, `components`, `server`, `api`, `lib`, etc.
+  - Detect common file types (`.ts`, `.tsx`, `.js`, `.py`, etc.) to infer language and patterns.
+- **Look for Configuration Files**:
+  - Check for `tsconfig.json`, `tailwind.config.js`, `vite.config.ts`, `.eslintrc.json`, etc. to understand project configuration.
+
+### Step 2: Generate `01-project-context.mdc`
+
+- Based on the analysis, generate a `01-project-context.mdc` file.
+- This file should include:
+  - A summary of the project's purpose (if a `README.md` exists).
+  - The detected technology stack.
+  - An overview of the directory structure.
+  - A list of important scripts.
+
+### Step 3: Suggest Technology Rules
+
+- Compare the detected technologies against the available rules in `.ai/rules/technologies`.
+- For each match, suggest the corresponding rule be included in the project's VDK configuration.
+- Example: If `next` is a dependency, suggest `NextJS.mdc`.
+
+### Step 4: Create a Summary Report
+
+- Output a summary of the actions taken:
+  - The generated `01-project-context.mdc` file.
+  - A list of suggested technology rules.
+  - Instructions on how to further customize the rules for the project.
+
+## AI Implementation Notes
+
+- Use the `Sequential-Thinking` MCP to structure the analysis.
+- Use the `Memory-MCP` to store findings during the analysis phase.
+- The VDK CLI should provide the file system access needed for the analysis.
+- This task is designed to be a powerful first-run experience for new VibeKit users.
