@@ -1,18 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: "Restructures existing code to improve its internal quality (readability, maintainability, simplicity, efficiency) without altering its external functionality. Addresses code smells and technical debt."
-globs:
-  - "**/*.{js,ts,py,java,cs,go,rb,php,swift,kt,rs,c,cpp,h,hpp,jsx,tsx,vue,svelte}"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "AI-Workflow-Integration"
-  - "Memory-Management"
+# === Core Identification ===
+id: "Refactor-Code"
+title: "Refactor Code"
+description: "Restructures existing code to improve its internal quality (readability, maintainability, simplicity, efficiency) without altering its external functionality. Addresses code smells and technical debt"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "tasks"
+complexity: "medium"
+scope: "component"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: true
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit", "Grep", "Bash"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.{js,ts,py,java,cs,go,rb,php,swift,kt,rs,c,cpp,h,hpp,jsx,tsx,vue,svelte}"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "tasks-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 7
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["refactor", "code", "tasks"]
+discussionUrl: ""
 ---
+
 
 # Improve Code: Refactoring Mode
 

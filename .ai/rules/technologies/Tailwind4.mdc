@@ -1,23 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: Tailwind CSS v4+ best practices for modern web applications.
-globs:
-  - "**/*.css"
-  - "**/*.tsx"
-  - "**/*.jsx"
-  - "**/*.vue"
-  - "**/*.svelte"
-  - "**/*.html"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "Memory-MCP"
-  - "Sequential-Thinking-Advanced"
+# === Core Identification ===
+id: "tailwind4"
+title: "Tailwind4 Technology Guidelines"
+description: "Tailwind CSS v4+ best practices for modern web applications"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "technologies"
+complexity: "medium"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.css", "**/*.tsx", "**/*.jsx", "**/*.vue", "**/*.svelte", "**/*.html"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "technologies-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 7
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["tailwind4", "technologies"]
+discussionUrl: ""
 ---
+
 
 # Tailwind CSS v4+ Best Practices
 

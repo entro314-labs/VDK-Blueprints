@@ -1,29 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: C++20/23 best practices and patterns for modern software development.
-globs:
-  - "**/*.c"
-  - "**/*.cpp"
-  - "**/*.h"
-  - "**/*.hpp"
-  - "**/*.cxx"
-  - "CMakeLists.txt"
-  - "*.cmake"
-  - "conanfile.txt"
-  - "conanfile.py"
-  - "vcpkg.json"
-  - "meson.build"
-  - "**/*.cc"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "CMake"
-  - "ModernCPP"
+# === Core Identification ===
+id: "cpp20"
+title: "Cpp20 Language Patterns"
+description: "C++20/23 best practices and patterns for modern software development"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "languages"
+complexity: "complex"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.c", "**/*.cpp", "**/*.h", "**/*.hpp", "**/*.cxx", "CMakeLists.txt", "*.cmake", "conanfile.txt", "conanfile.py", "vcpkg.json", "meson.build", "**/*.cc"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "languages-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 8
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["languages", "cpp20"]
+discussionUrl: ""
 ---
+
 
 # C++20/23 Programming Guidelines
 

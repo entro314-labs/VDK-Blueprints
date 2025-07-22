@@ -1,36 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: "Astro v4+ best practices for building fast content sites and web applications."
-globs:
-  - "**/*.astro"
-  - "astro.config.mjs"
-  - "astro.config.ts"
-  - "src/pages/**/*.astro"
-  - "src/pages/**/*.js"
-  - "src/pages/**/*.ts"
-  - "src/pages/**/*.md"
-  - "src/pages/**/*.mdx"
-  - "src/layouts/**/*.astro"
-  - "src/components/**/*.astro"
-  - "src/components/**/*.jsx"
-  - "src/components/**/*.tsx"
-  - "src/components/**/*.vue"
-  - "src/components/**/*.svelte"
-  - "src/content/config.ts"
-  - "src/content/**/*.mdx"
-  - "src/middleware.js"
-  - "src/middleware.ts"
-  - "src/env.d.ts"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "Memory-MCP"
-  - "Sequential-Thinking-Advanced"
+# === Core Identification ===
+id: "astro4"
+title: "Astro4 Technology Guidelines"
+description: "Astro v4+ best practices for building fast content sites and web applications"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "technologies"
+complexity: "medium"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.astro", "astro.config.mjs", "astro.config.ts", "src/pages/**/*.astro", "src/pages/**/*.js", "src/pages/**/*.ts", "src/pages/**/*.md", "src/pages/**/*.mdx", "src/layouts/**/*.astro", "src/components/**/*.astro", "src/components/**/*.jsx", "src/components/**/*.tsx", "src/components/**/*.vue", "src/components/**/*.svelte", "src/content/config.ts", "src/content/**/*.mdx", "src/middleware.js", "src/middleware.ts", "src/env.d.ts"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "technologies-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 7
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["technologies", "astro4"]
+discussionUrl: ""
 ---
+
 
 # Astro Development Best Practices (v4+)
 

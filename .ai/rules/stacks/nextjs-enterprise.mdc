@@ -1,21 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: Best practices for building enterprise-grade applications with Next.js, TypeScript, Tailwind CSS, and Shadcn UI.
-globs:
-  - "**/*.{ts,tsx}"
-  - "**/next.config.{js,mjs,ts}"
-  - "**/prisma/**"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "NextJS15"
-  - "TypeScript-Modern"
-  - "React19"
+# === Core Identification ===
+id: "nextjs-enterprise"
+title: "Nextjs Enterprise"
+description: "Best practices for building enterprise-grade applications with Next.js, TypeScript, Tailwind CSS, and Shadcn UI"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "stacks"
+complexity: "complex"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.{ts,tsx}", "**/next.config.{js,mjs,ts}", "**/prisma/**"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "stacks-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 7
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["nextjs", "enterprise", "stacks"]
+discussionUrl: ""
 ---
+
 
 # Next.js Enterprise Stack
 

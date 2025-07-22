@@ -1,13 +1,61 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: "Core instructions defining the AI assistant's persona, response format, general coding principles, communication guidelines, and specialized mode management."
-globs: []
-alwaysApply: true
+# === Core Identification ===
+id: "agent-behavior"
+title: "AI Developer Assistant Core Principles"
+description: "Core instructions defining the AI assistant's persona, response format, general coding principles, communication guidelines, and specialized mode management"
 version: "2.1.0"
-lastUpdated: "2025-07-04"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "core"
+subcategory: "behavior"
+complexity: "simple"
+scope: "system"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit", "Grep", "Bash"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "always"
+    globs: ["**/*"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "agent-behavior"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 9
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: ["code-quality", "error-prevention"]
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "integration-notes"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["behavior", "core", "assistant", "principles"]
+discussionUrl: ""
 ---
 
 # AI Developer Assistant - Core Principles

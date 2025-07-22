@@ -1,20 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: TypeScript coding standards and best practices.
-globs:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "tsconfig.json"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "TypeScript-Modern"
-  - "Python3"
+# === Core Identification ===
+id: "typescript5"
+title: "Typescript5 Language Patterns"
+description: "TypeScript coding standards and best practices"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "languages"
+complexity: "medium"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.ts", "**/*.tsx", "tsconfig.json"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "languages-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 8
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["typescript5", "languages"]
+discussionUrl: ""
 ---
+
 
 # TypeScript Best Practices
 

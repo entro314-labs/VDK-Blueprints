@@ -1,21 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: "Designs relational or NoSQL database schemas, defines tables/collections, fields, data types, relationships, indexes, and constraints based on application requirements."
-globs:
-  - "**/*.sql"
-  - "**/schema.{prisma,graphql}"
-  - "**/migrations/**"
-  - "**/*.dbml"
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "AI-Workflow-Integration"
-  - "Memory-Management"
+# === Core Identification ===
+id: "Database-Schema"
+title: "Database Schema"
+description: "Designs relational or NoSQL database schemas, defines tables/collections, fields, data types, relationships, indexes, and constraints based on application requirements"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "tasks"
+complexity: "complex"
+scope: "component"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: true
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit", "Grep", "Bash"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.sql", "**/schema.{prisma,graphql}", "**/migrations/**", "**/*.dbml"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "tasks-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 7
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["tasks", "schema", "database"]
+discussionUrl: ""
 ---
+
 
 # Design Database Mode
 

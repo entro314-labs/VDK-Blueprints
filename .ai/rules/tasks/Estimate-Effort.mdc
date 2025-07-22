@@ -1,17 +1,62 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: "Assists in estimating the relative effort or complexity of development tasks (features, user stories, bugs) using common techniques like T-shirt sizing or story points, based on task descriptions and context."
-globs: []
-alwaysApply: false
-version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "AI-Workflow-Integration"
-  - "Memory-Management"
+# === Core Identification ===
+id: "Estimate-Effort"
+title: "Estimate Effort"
+description: "Assists in estimating the relative effort or complexity of development tasks (features, user stories, bugs) using common techniques like T-shirt sizing or story points, based on task descriptions and context"
+version: ">=1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "tasks"
+complexity: "complex"
+scope: "component"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: true
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit", "Grep", "Bash"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "tasks-patterns"
+    characterLimit: 500
+  github-copilot:
+    compatible: true
+    priority: 7
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: []
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["tasks", "estimate", "effort"]
+discussionUrl: ""
 ---
+
 
 # Plan Estimation Mode
 

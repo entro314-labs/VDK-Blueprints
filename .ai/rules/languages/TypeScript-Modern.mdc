@@ -1,19 +1,63 @@
 ---
-source: "VDK Rules"
-framework: "vdk"
-repository: "entro314-labs/VibeKit-VDK-AI-rules"
-cli_version: ">=1.0.0"
-description: Modern TypeScript best practices focusing on functional programming, type safety, and maintainable code patterns.
-globs:
-  - "**/*.{ts,tsx}"
-  - "**/tsconfig.json"
-alwaysApply: false
+# === Core Identification ===
+id: "typescript-modern"
+title: "Modern TypeScript Best Practices"
+description: "Modern TypeScript best practices focusing on functional programming, type safety, and maintainable code patterns"
 version: "2.0.0"
-lastUpdated: "2025-07-04"
-compatibleWith:
-  - "React19"
-  - "NextJS15"
-  - "NodeExpress"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "language"
+subcategory: "patterns"
+framework: "TypeScript"
+language: "TypeScript"
+complexity: "medium"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit", "Grep"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "auto-attached"
+    globs: ["**/*.{ts,tsx}", "**/tsconfig.json"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "typescript-patterns"
+    characterLimit: 600
+  github-copilot:
+    compatible: true
+    priority: 8
+    reviewType: "code-quality"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: ["react19", "nextjs", "node-express"]
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: ["entro314-labs"]
+tags: ["typescript", "functional-programming", "type-safety", "language"]
+discussionUrl: ""
 ---
 
 # Modern TypeScript Best Practices
