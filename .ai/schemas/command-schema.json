@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Command Schema",
+  "description": "Schema for validating platform-specific command definitions",
+  "type": "object",
+  "required": ["id", "name", "description", "platform", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique command identifier in kebab-case"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50,
+      "description": "Command name for execution"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "Brief command description"
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["claude-code", "cursor", "windsurf", "github-copilot"],
+      "description": "Target platform"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["workflow", "meta", "quality", "security", "utility"],
+      "description": "Command category"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version number"
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Parameter name"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["string", "number", "boolean", "array", "object"],
+            "description": "Parameter type"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Is parameter required"
+          },
+          "description": {
+            "type": "string",
+            "description": "Parameter description"
+          },
+          "default": {
+            "description": "Default value"
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Required rules or commands"
+    },
+    "tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Required platform tools"
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["input", "description"],
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Example command input"
+          },
+          "description": {
+            "type": "string",
+            "description": "Example description"
+          },
+          "output": {
+            "type": "string",
+            "description": "Expected output"
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Searchable tags"
+    },
+    "author": {
+      "type": "string",
+      "description": "Command author"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Last update date"
+    }
+  }
+}

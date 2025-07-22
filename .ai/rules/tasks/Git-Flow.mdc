@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Assists with Git version control tasks, including providing specific commands, explaining branching strategies, formatting commit messages, managing repositories, and resolving common Git issues."
 globs:

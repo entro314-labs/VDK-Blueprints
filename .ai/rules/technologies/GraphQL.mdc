@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: Best practices for GraphQL API development and integration across client and server applications.
 globs:

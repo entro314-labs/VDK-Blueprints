@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Generates configuration files for various development tools, frameworks, or environments (e.g., linters, formatters, build tools, Docker, CI/CD) based on user requirements or project context."
 globs:

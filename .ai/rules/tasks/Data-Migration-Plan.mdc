@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Plans and designs strategies for migrating data between different schemas, databases, or storage systems, including steps, validation, rollback plans, and potential downtime considerations."
 globs:

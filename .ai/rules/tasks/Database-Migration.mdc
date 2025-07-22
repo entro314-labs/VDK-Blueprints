@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Designs and implements database migration strategies for schema changes, data transformations, and version management, ensuring seamless database evolution with minimal downtime."
 globs:

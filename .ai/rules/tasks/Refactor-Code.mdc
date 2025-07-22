@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Restructures existing code to improve its internal quality (readability, maintainability, simplicity, efficiency) without altering its external functionality. Addresses code smells and technical debt."
 globs:

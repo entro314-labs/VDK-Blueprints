@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Assists in estimating the relative effort or complexity of development tasks (features, user stories, bugs) using common techniques like T-shirt sizing or story points, based on task descriptions and context."
 globs: []

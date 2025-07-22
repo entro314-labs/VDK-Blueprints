@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: Writes automated tests (unit, integration, end-to-end) for code or features using the project's testing framework and conventions, focusing on clarity, effectiveness, and maintainability.
 globs: []

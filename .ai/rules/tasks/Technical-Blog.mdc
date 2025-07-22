@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Writes technical articles or blog posts aimed at developers or technical audiences, explaining concepts, tutorials, case studies, or opinions with appropriate depth, code examples, and structure."
 globs:

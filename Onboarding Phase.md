@@ -889,7 +889,7 @@ node cli.js lint .ai/rules/
 
 1. **Fork the Repository**
    ```bash
-   git clone https://github.com/idominikosgr/VibeKit-VDK-CLI.git
+   git clone https://github.com/entro314-labs/VibeKit-VDK-CLI.git
    cd VibeKit-VDK-CLI
    git checkout -b feature/new-rule-name
    ```

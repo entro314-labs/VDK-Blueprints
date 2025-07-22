@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Analyzes test coverage reports (if provided) or code structure to identify areas with low test coverage and suggest specific test cases or strategies to improve it."
 globs:

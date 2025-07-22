@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Generates or refines API reference documentation, detailing endpoints, parameters, request/response formats, authentication methods, and error codes. Focuses on technical accuracy and developer usability."
 globs:

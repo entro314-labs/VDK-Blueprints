@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Reviews code snippets or files, identifying potential issues related to code quality, style consistency, best practices, readability, maintainability, and potential logic flaws."
 globs:

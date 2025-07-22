@@ -1,0 +1,75 @@
+{
+  "platform": "your-platform",
+  "version": "1.0.0",
+  "capabilities": {
+    "maxRuleSize": 10000,
+    "supportedFormats": ["markdown", "json"],
+    "toolIntegration": true,
+    "memoryManagement": false,
+    "commandExecution": true,
+    "fileManipulation": true,
+    "codeCompletion": true,
+    "codeReview": false,
+    "contextAwareness": "project"
+  },
+  "constraints": {
+    "maxConcurrentRules": 50,
+    "ruleActivationDelay": 100,
+    "supportedLanguages": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "go",
+      "rust",
+      "swift"
+    ],
+    "requiresConfiguration": false,
+    "networkAccess": false
+  },
+  "integrations": {
+    "vscode": true,
+    "jetbrains": false,
+    "vim": false,
+    "github": true,
+    "gitlab": false,
+    "mcp": false
+  },
+  "ruleFormat": {
+    "frontmatter": "yaml",
+    "contentFormat": "markdown",
+    "xmlTags": false,
+    "customSyntax": false
+  },
+  "_comments": {
+    "platform": "Unique identifier for this platform (kebab-case)",
+    "version": "Platform specification version (semantic versioning)",
+    "capabilities": {
+      "maxRuleSize": "Maximum size of a single rule in characters",
+      "supportedFormats": "File formats the platform can process",
+      "toolIntegration": "Can integrate with external development tools",
+      "memoryManagement": "Has memory/context management features",
+      "commandExecution": "Can execute custom commands or scripts",
+      "fileManipulation": "Can read and write files in the workspace",
+      "codeCompletion": "Provides intelligent code completion",
+      "codeReview": "Can perform automated code review",
+      "contextAwareness": "Level of project/workspace context understanding"
+    },
+    "constraints": {
+      "maxConcurrentRules": "Maximum number of rules that can be active simultaneously",
+      "ruleActivationDelay": "Minimum delay between rule activations (milliseconds)",
+      "supportedLanguages": "Programming languages supported by the platform",
+      "requiresConfiguration": "Whether platform needs specific setup/configuration",
+      "networkAccess": "Whether platform can make network requests"
+    },
+    "integrations": {
+      "description": "Which IDEs and services this platform integrates with"
+    },
+    "ruleFormat": {
+      "frontmatter": "Format for rule metadata (yaml, json, toml)",
+      "contentFormat": "Primary format for rule content",
+      "xmlTags": "Whether platform supports XML-style tags in content",
+      "customSyntax": "Whether platform requires platform-specific syntax"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Assists in creating onboarding materials for new developers, such as generating project setup instructions, explaining the codebase structure, or outlining key development workflows."
 globs:

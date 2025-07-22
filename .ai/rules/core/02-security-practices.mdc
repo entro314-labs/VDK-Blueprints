@@ -1,0 +1,225 @@
+---
+# === Core Identification ===
+id: "security-practices"
+title: "Security Practices and Guidelines"
+description: "Universal security practices for AI-assisted development"
+version: "1.0.0"
+lastUpdated: "2025-01-22"
+
+# === Categorization ===
+category: "core"
+subcategory: "security"
+complexity: "medium"
+scope: "project"
+audience: "developer"
+maturity: "stable"
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true
+    command: false
+    memory: true
+    namespace: "project"
+    allowedTools: ["Read", "Write", "Edit", "Grep"]
+    mcpIntegration: false
+  cursor:
+    compatible: true
+    activation: "always"
+    globs: ["**/*"]
+    priority: "high"
+  windsurf:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "security-practices"
+    characterLimit: 300
+  github-copilot:
+    compatible: true
+    priority: 9
+    reviewType: "security"
+
+# === Dependencies & Relationships ===
+requires: []
+suggests: ["code-quality", "error-prevention"]
+conflicts: []
+supersedes: []
+
+# === Content Structure ===
+contentSections:
+  - "universal-guidelines"
+  - "platform-specific"
+  - "examples"
+  - "anti-patterns"
+
+# === Community Metadata ===
+author: "community"
+contributors: []
+tags: ["security", "best-practices", "vulnerabilities", "defensive-programming"]
+---
+
+# Security Practices and Guidelines
+
+## Universal Guidelines
+
+These security practices apply regardless of the AI assistant platform:
+
+### Secret Management
+- Never commit secrets, API keys, or credentials to version control
+- Use environment variables or secure secret management systems
+- Implement proper secret rotation policies
+- Use different secrets for different environments (dev, staging, prod)
+
+### Input Validation
+- Validate all user inputs at boundaries
+- Sanitize data before processing or storage
+- Use parameterized queries to prevent SQL injection
+- Implement proper input length limits and format validation
+
+### Authentication & Authorization
+- Implement proper authentication mechanisms
+- Use principle of least privilege for access control
+- Implement proper session management
+- Use secure password hashing algorithms (bcrypt, scrypt, argon2)
+
+### Data Protection
+- Encrypt sensitive data at rest and in transit
+- Use HTTPS for all communications
+- Implement proper data anonymization techniques
+- Follow GDPR/CCPA compliance requirements where applicable
+
+## Platform-Specific Instructions
+
+### Claude Code
+When implementing security features with Claude Code:
+
+1. **Security Analysis Phase**
+   - Use `Grep` tool to search for potential security vulnerabilities
+   - Check for hardcoded secrets or credentials
+   - Analyze authentication and authorization patterns
+
+2. **Implementation Phase**
+   - Use `Edit` tool to implement security fixes
+   - Add proper input validation and sanitization
+   - Implement secure coding patterns
+
+3. **Validation Phase**
+   - Verify no secrets are exposed in code
+   - Check for proper error handling that doesn't leak information
+   - Ensure secure communication protocols are used
+
+### Cursor
+Auto-triggers for security-sensitive code:
+
+- Flag potential security vulnerabilities during coding
+- Suggest secure alternatives for insecure patterns
+- Warn about hardcoded secrets or credentials
+- Recommend proper authentication implementations
+
+### Windsurf
+<security-practices>
+- Implement defense-in-depth security strategies
+- Use secure coding practices throughout development
+- Follow OWASP guidelines for web application security
+- Implement proper logging without exposing sensitive data
+</security-practices>
+
+### GitHub Copilot
+Focus on these security aspects during code review:
+
+- Proper input validation and sanitization
+- Secure authentication and authorization implementations
+- Prevention of common vulnerabilities (XSS, CSRF, injection attacks)
+- Secure configuration management
+
+## Code Examples
+
+### Secure Environment Variable Usage
+```typescript
+// ✅ Good: Using environment variables
+const apiKey = process.env.API_KEY;
+if (!apiKey) {
+  throw new Error('API_KEY environment variable is required');
+}
+
+// ❌ Bad: Hardcoded secrets
+const apiKey = 'sk-1234567890abcdef';
+```
+
+### Input Validation
+```typescript
+// ✅ Good: Proper input validation
+import { z } from 'zod';
+
+const userSchema = z.object({
+  email: z.string().email().max(255),
+  age: z.number().int().min(0).max(150),
+});
+
+function validateUser(input: unknown) {
+  return userSchema.parse(input);
+}
+
+// ❌ Bad: No input validation
+function processUser(user: any) {
+  // Direct use without validation
+  database.save(user);
+}
+```
+
+### Secure Database Queries
+```sql
+-- ✅ Good: Parameterized query
+SELECT * FROM users WHERE email = $1 AND status = $2;
+
+-- ❌ Bad: SQL injection vulnerable
+SELECT * FROM users WHERE email = '${email}' AND status = '${status}';
+```
+
+## Anti-Patterns to Avoid
+
+### Secret Management
+- ❌ Hardcoding API keys, passwords, or tokens in source code
+- ❌ Storing secrets in configuration files committed to version control
+- ❌ Using weak or default passwords
+- ❌ Sharing secrets through insecure channels
+
+### Input Handling
+- ❌ Trusting user input without validation
+- ❌ Using string concatenation for SQL queries
+- ❌ Storing user input directly without sanitization
+- ❌ Exposing detailed error messages to users
+
+### Authentication
+- ❌ Using weak authentication mechanisms
+- ❌ Storing passwords in plain text
+- ❌ Implementing custom crypto instead of using proven libraries
+- ❌ Not implementing proper session timeout
+
+### Communication
+- ❌ Using HTTP instead of HTTPS for sensitive data
+- ❌ Not validating SSL certificates
+- ❌ Exposing sensitive information in URLs or logs
+- ❌ Using weak encryption algorithms
+
+## Integration Notes
+
+### Security Testing
+- Implement security unit tests for authentication and authorization
+- Use security scanning tools in CI/CD pipeline
+- Perform regular dependency vulnerability scanning
+- Implement penetration testing for critical applications
+
+### Compliance
+- Follow industry-standard security frameworks (OWASP, NIST)
+- Implement audit logging for security-sensitive operations
+- Ensure compliance with relevant regulations (GDPR, HIPAA, SOX)
+- Document security controls and procedures
+
+### Monitoring
+- Implement security event monitoring and alerting
+- Log security-relevant events without exposing sensitive data
+- Monitor for unusual access patterns or behaviors
+- Implement incident response procedures
+
+---
+Note for AI Assistants: Security should be considered at every stage of development. Always prioritize security over convenience and err on the side of caution when implementing security controls.

@@ -1,0 +1,194 @@
+---
+# === Core Identification ===
+id: "your-rule-id"                    # Unique identifier (kebab-case)
+title: "Your Rule Title"              # Human-readable title
+description: "Brief description of what this rule does"
+version: "1.0.0"                      # Semantic versioning
+lastUpdated: "2025-01-22"             # ISO date format
+
+# === Categorization ===
+category: "task"                      # core, language, technology, stack, task, assistant, tool
+subcategory: "component"              # Optional fine-grained grouping
+framework: "React"                    # Specific technology (if applicable)
+language: "TypeScript"               # Programming language (if applicable)
+stack: "NextJS-Supabase"             # Technology stack (if applicable)
+
+# === Scope & Complexity ===
+complexity: "medium"                  # simple, medium, complex
+scope: "component"                    # file, component, feature, project, system
+audience: "developer"                # developer, architect, team-lead, junior
+maturity: "stable"                   # experimental, beta, stable, deprecated
+
+# === Platform Compatibility ===
+platforms:
+  claude-code:
+    compatible: true                  # Can this rule work with Claude Code?
+    command: false                    # Can become a slash command?
+    memory: true                      # Should be included in memory files?
+    namespace: "project"              # Command namespace: project, user
+    allowedTools: ["Read", "Write", "Edit"] # Claude-specific tool permissions
+    mcpIntegration: false             # Uses MCP servers?
+  cursor:
+    compatible: true                  # Can this rule work with Cursor?
+    activation: "auto-attached"       # auto-attached, agent-requested, manual, always
+    globs: ["**/*.tsx", "**/*.jsx"]   # File patterns for auto-attachment
+    priority: "high"                  # high, medium, low
+  windsurf:
+    compatible: true                  # Can this rule work with Windsurf?
+    mode: "workspace"                 # global, workspace
+    xmlTag: "your-rule-tag"           # XML tag for Windsurf formatting
+    characterLimit: 400               # Estimated character usage
+  github-copilot:
+    compatible: true                  # Can this rule work with GitHub Copilot?
+    priority: 8                       # 1-10 priority for guideline selection
+    reviewType: "code-quality"        # security, performance, code-quality, style
+
+# === Dependencies & Relationships ===
+requires: []                          # Hard dependencies
+suggests: []                          # Soft dependencies/recommendations
+conflicts: []                         # Incompatible rules
+supersedes: []                        # Rules this replaces
+
+# === Content Structure ===
+contentSections:                      # Define content organization
+  - "universal-guidelines"            # Applies to all platforms
+  - "platform-specific"              # Platform-specific instructions
+  - "examples"                        # Code examples
+  - "anti-patterns"                   # What to avoid
+
+# === Community Metadata ===
+author: "community"                   # Author identifier
+contributors: []                      # List of contributors
+tags: []                              # Searchable tags
+discussionUrl: ""                     # Community discussion URL (optional)
+---
+
+# Your Rule Title
+
+## Universal Guidelines
+
+These guidelines apply regardless of the AI assistant platform:
+
+### Primary Guideline
+- State your main rule or principle clearly
+- Use active voice and specific language
+- Provide context for why this matters
+
+### Secondary Guidelines
+- Additional principles that support the main guideline
+- Each guideline should be actionable
+- Include specific examples where helpful
+
+### Best Practices
+- List established patterns or conventions
+- Explain the reasoning behind each practice
+- Reference industry standards where applicable
+
+## Platform-Specific Instructions
+
+### Claude Code
+When implementing this rule with Claude Code:
+
+1. **Analysis Phase**
+   - Use specific tools to understand context
+   - Describe step-by-step investigation process
+   - Identify patterns to look for
+
+2. **Implementation Phase**
+   - Use appropriate tools for changes
+   - Follow systematic approach
+   - Maintain consistency with project patterns
+
+3. **Validation Phase**
+   - Verify implementation correctness
+   - Check for unintended side effects
+   - Ensure integration with existing code
+
+### Cursor
+Auto-triggers when working with relevant files:
+
+- Describe when and how the rule activates
+- What suggestions or completions to provide
+- How to validate user's implementation
+- Integration with existing Cursor features
+
+### Windsurf
+<your-rule-tag>
+- Provide concise, memory-optimized instructions
+- Focus on key principles and patterns
+- Include essential validation points
+- Maintain consistency with project architecture
+</your-rule-tag>
+
+### GitHub Copilot
+Focus on these aspects during code review:
+
+- Key validation points for this rule
+- Common mistakes to flag
+- Best practices to encourage
+- Integration with existing review processes
+
+## Code Examples
+
+### Basic Implementation
+```language
+// ✅ Good: Clear example of correct implementation
+// Include complete, working code snippets
+// Show imports, types, and context
+
+// ❌ Bad: Example of what NOT to do
+// Explain why this approach is problematic
+```
+
+### Advanced Implementation
+```language
+// ✅ More complex example showing advanced usage
+// Include error handling and edge cases
+// Demonstrate integration with related patterns
+```
+
+### Integration Pattern
+```language
+// ✅ Show how this rule integrates with other patterns
+// Include context about when to use this approach
+// Demonstrate proper architectural integration
+```
+
+## Anti-Patterns to Avoid
+
+### Implementation Anti-Patterns
+- ❌ Specific things NOT to do
+- ❌ Common mistakes developers make
+- ❌ Patterns that seem correct but are problematic
+- ❌ Explain why each anti-pattern is harmful
+
+### Design Anti-Patterns
+- ❌ Architectural decisions to avoid
+- ❌ Integration approaches that cause issues
+- ❌ Scaling problems that arise from poor patterns
+- ❌ Maintenance challenges from bad design
+
+## Integration Notes
+
+### Related Patterns
+- How this rule works with other rules
+- Dependencies and relationships
+- Complementary patterns to consider
+
+### Testing Considerations
+- How to test implementations of this rule
+- What to verify in tests
+- Edge cases to consider
+
+### Performance Implications
+- Performance considerations for this rule
+- Optimization opportunities
+- Scaling considerations
+
+### Maintenance
+- Long-term maintenance considerations
+- Evolution and migration strategies
+- Documentation requirements
+
+---
+Note for AI Assistants: [Include any specific notes or reminders for AI assistants when applying this rule]

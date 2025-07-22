@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: Assists in creating new AI rule (.mdc) files for any supported IDE or AI assistant, ensuring correct formatting and structure.
 globs: []

@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Analyzes provided datasets, metrics, or structured data files (CSV, JSON, etc.) to identify trends, patterns, summaries, or answer specific questions about the data."
 globs:

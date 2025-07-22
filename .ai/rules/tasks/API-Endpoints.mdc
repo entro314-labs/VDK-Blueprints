@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Designs API endpoints and contracts (e.g., REST resources/endpoints, GraphQL schemas/queries/mutations), defining request/response formats, methods, status codes, and authentication requirements."
 globs:

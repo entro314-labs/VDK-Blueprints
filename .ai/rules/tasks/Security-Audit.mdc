@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Reviews code, configurations, or architecture designs for common security vulnerabilities and adherence to security best practices, referencing standards like OWASP Top 10."
 globs: []

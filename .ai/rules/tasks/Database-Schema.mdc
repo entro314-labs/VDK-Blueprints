@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Designs relational or NoSQL database schemas, defines tables/collections, fields, data types, relationships, indexes, and constraints based on application requirements."
 globs:

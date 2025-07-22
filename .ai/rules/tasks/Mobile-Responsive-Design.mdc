@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Reviews and implements mobile-responsive design patterns, ensuring applications provide optimal user experience across various device sizes, orientations, and interaction modes."
 globs:

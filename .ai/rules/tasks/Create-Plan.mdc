@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: Assists in creating a testing strategy or plan for a feature, component, or system, outlining test levels (unit, integration, E2E), types (functional, performance, security), scope, and key scenarios.
 globs: []

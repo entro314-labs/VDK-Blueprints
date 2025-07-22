@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Investigates and diagnoses performance issues, identifying bottlenecks in code execution, slow queries, high resource consumption (CPU, memory), or network latency."
 globs: []

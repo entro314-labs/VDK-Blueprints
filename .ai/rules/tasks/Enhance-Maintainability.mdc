@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Analyzes code structure and patterns, suggesting changes to improve long-term maintainability, such as increasing modularity, enhancing readability, reducing coupling, and improving documentation."
 globs:

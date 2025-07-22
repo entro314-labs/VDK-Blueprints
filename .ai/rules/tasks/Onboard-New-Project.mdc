@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.2.0"
 description: "Analyzes a new project and generates an initial set of VDK rules to onboard it into the VibeKit ecosystem."
 globs: []

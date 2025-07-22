@@ -1,7 +1,7 @@
 ---
 source: "VDK Rules"
 framework: "vdk"
-repository: "idominikosgr/VibeKit-VDK-AI-rules"
+repository: "entro314-labs/VibeKit-VDK-AI-rules"
 cli_version: ">=1.0.0"
 description: "Analyzes requirement descriptions (PRDs, user stories, feature requests) to extract, clarify, and structure functional and non-functional requirements, identifying ambiguities and potential conflicts."
 globs:
