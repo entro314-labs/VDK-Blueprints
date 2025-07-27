@@ -3,8 +3,8 @@
 id: "github-copilot"
 title: "Github Copilot"
 description: "Guidelines for optimizing interactions with GitHub Copilot AI assistant for code generation and development workflows"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "assistants"
@@ -116,20 +116,20 @@ GitHub Copilot is an AI pair programmer that offers context-aware code suggestio
   ```python
   def process_image(image_path, options=None):
       """Process an image with the given options.
-      
+
       Args:
           image_path (str): Path to the image file
           options (dict, optional): Processing options
               - resize (tuple): Width and height to resize to
               - format (str): Output format (jpg, png, etc.)
               - quality (int): Output quality (1-100)
-      
+
       Returns:
           bytes: Processed image data
       """
       if options is None:
           options = {}
-          
+
       # Copilot will likely continue with implementation
   ```
 
@@ -139,10 +139,10 @@ GitHub Copilot is an AI pair programmer that offers context-aware code suggestio
       # Given a valid username and password
       username = "test_user"
       password = "valid_password"
-      
+
       # When authenticate is called
       result = authenticate(username, password)
-      
+
       # Then it should return a valid session token
       assert result.success == True
       assert len(result.token) > 0
@@ -186,7 +186,7 @@ GitHub Copilot is an AI pair programmer that offers context-aware code suggestio
   } catch (error) {
     handleApiError(error);
   }
-  
+
   // Start writing similarly, and Copilot will continue the pattern
   try {
     const user = await
@@ -198,7 +198,7 @@ GitHub Copilot is an AI pair programmer that offers context-aware code suggestio
     if (!userData) {
       // Likely to suggest error handling
     }
-    
+
     const {
       // Likely to suggest destructuring relevant fields
     } = userData;

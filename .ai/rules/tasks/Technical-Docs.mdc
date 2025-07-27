@@ -3,8 +3,8 @@
 id: "Technical-Docs"
 title: "Technical Docs"
 description: "Writes or refines technical documentation, focusing on clarity, accuracy, completeness, and structure. Covers READMEs, conceptual guides, setup instructions, feature explanations, etc"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

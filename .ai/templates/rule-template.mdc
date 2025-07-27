@@ -1,10 +1,10 @@
 ---
 # === Core Identification ===
-id: "your-rule-id"                    # Unique identifier (kebab-case)
-title: "Your Rule Title"              # Human-readable title
-description: "Brief description of what this rule does"
+id: "your-Blueprint-id"                    # Unique identifier (kebab-case)
+title: "Your Blueprint Title"              # Human-readable title
+description: "Brief description of what this Blueprint does"
 version: "1.0.0"                      # Semantic versioning
-lastUpdated: "2025-01-22"             # ISO date format
+lastUpdated: "2025-07-25"             # ISO date format
 
 # === Categorization ===
 category: "task"                      # core, language, technology, stack, task, assistant, tool
@@ -22,32 +22,32 @@ maturity: "stable"                   # experimental, beta, stable, deprecated
 # === Platform Compatibility ===
 platforms:
   claude-code:
-    compatible: true                  # Can this rule work with Claude Code?
+    compatible: true                  # Can this Blueprint work with Claude Code?
     command: false                    # Can become a slash command?
     memory: true                      # Should be included in memory files?
     namespace: "project"              # Command namespace: project, user
     allowedTools: ["Read", "Write", "Edit"] # Claude-specific tool permissions
     mcpIntegration: false             # Uses MCP servers?
   cursor:
-    compatible: true                  # Can this rule work with Cursor?
+    compatible: true                  # Can this Blueprint work with Cursor?
     activation: "auto-attached"       # auto-attached, agent-requested, manual, always
     globs: ["**/*.tsx", "**/*.jsx"]   # File patterns for auto-attachment
     priority: "high"                  # high, medium, low
   windsurf:
-    compatible: true                  # Can this rule work with Windsurf?
+    compatible: true                  # Can this Blueprint work with Windsurf?
     mode: "workspace"                 # global, workspace
-    xmlTag: "your-rule-tag"           # XML tag for Windsurf formatting
+    xmlTag: "your-Blueprint-tag"           # XML tag for Windsurf formatting
     characterLimit: 400               # Estimated character usage
   github-copilot:
-    compatible: true                  # Can this rule work with GitHub Copilot?
+    compatible: true                  # Can this Blueprint work with GitHub Copilot?
     priority: 8                       # 1-10 priority for guideline selection
     reviewType: "code-quality"        # security, performance, code-quality, style
 
 # === Dependencies & Relationships ===
 requires: []                          # Hard dependencies
 suggests: []                          # Soft dependencies/recommendations
-conflicts: []                         # Incompatible rules
-supersedes: []                        # Rules this replaces
+conflicts: []                         # Incompatible Blueprints
+supersedes: []                        # Blueprints this replaces
 
 # === Content Structure ===
 contentSections:                      # Define content organization
@@ -63,14 +63,14 @@ tags: []                              # Searchable tags
 discussionUrl: ""                     # Community discussion URL (optional)
 ---
 
-# Your Rule Title
+# Your Blueprint Title
 
 ## Universal Guidelines
 
 These guidelines apply regardless of the AI assistant platform:
 
 ### Primary Guideline
-- State your main rule or principle clearly
+- State your main Blueprint or principle clearly
 - Use active voice and specific language
 - Provide context for why this matters
 
@@ -87,7 +87,7 @@ These guidelines apply regardless of the AI assistant platform:
 ## Platform-Specific Instructions
 
 ### Claude Code
-When implementing this rule with Claude Code:
+When implementing this Blueprint with Claude Code:
 
 1. **Analysis Phase**
    - Use specific tools to understand context
@@ -107,23 +107,23 @@ When implementing this rule with Claude Code:
 ### Cursor
 Auto-triggers when working with relevant files:
 
-- Describe when and how the rule activates
+- Describe when and how the Blueprint activates
 - What suggestions or completions to provide
 - How to validate user's implementation
 - Integration with existing Cursor features
 
 ### Windsurf
-<your-rule-tag>
+<your-Blueprint-tag>
 - Provide concise, memory-optimized instructions
 - Focus on key principles and patterns
 - Include essential validation points
 - Maintain consistency with project architecture
-</your-rule-tag>
+</your-Blueprint-tag>
 
 ### GitHub Copilot
 Focus on these aspects during code review:
 
-- Key validation points for this rule
+- Key validation points for this Blueprint
 - Common mistakes to flag
 - Best practices to encourage
 - Integration with existing review processes
@@ -149,7 +149,7 @@ Focus on these aspects during code review:
 
 ### Integration Pattern
 ```language
-// ✅ Show how this rule integrates with other patterns
+// ✅ Show how this Blueprint integrates with other patterns
 // Include context about when to use this approach
 // Demonstrate proper architectural integration
 ```
@@ -171,17 +171,17 @@ Focus on these aspects during code review:
 ## Integration Notes
 
 ### Related Patterns
-- How this rule works with other rules
+- How this Blueprint works with other Blueprints
 - Dependencies and relationships
 - Complementary patterns to consider
 
 ### Testing Considerations
-- How to test implementations of this rule
+- How to test implementations of this Blueprint
 - What to verify in tests
 - Edge cases to consider
 
 ### Performance Implications
-- Performance considerations for this rule
+- Performance considerations for this Blueprint
 - Optimization opportunities
 - Scaling considerations
 
@@ -191,4 +191,4 @@ Focus on these aspects during code review:
 - Documentation requirements
 
 ---
-Note for AI Assistants: [Include any specific notes or reminders for AI assistants when applying this rule]
+Note for AI Assistants: [Include any specific notes or reminders for AI assistants when applying this Blueprint]

@@ -3,8 +3,8 @@
 id: "Cross-Browser-Compatibility"
 title: "Cross Browser Compatibility"
 description: "Reviews and ensures application compatibility across different browsers, addressing browser-specific issues, feature support, and rendering differences to provide consistent user experience"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

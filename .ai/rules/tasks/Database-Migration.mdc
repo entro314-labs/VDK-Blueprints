@@ -3,8 +3,8 @@
 id: "Database-Migration"
 title: "Database Migration"
 description: "Designs and implements database migration strategies for schema changes, data transformations, and version management, ensuring seamless database evolution with minimal downtime"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

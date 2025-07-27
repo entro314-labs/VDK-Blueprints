@@ -3,8 +3,8 @@
 id: "Technical-Blog"
 title: "Technical Blog"
 description: "Writes technical articles or blog posts aimed at developers or technical audiences, explaining concepts, tutorials, case studies, or opinions with appropriate depth, code examples, and structure"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

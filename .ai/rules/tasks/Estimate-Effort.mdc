@@ -3,8 +3,8 @@
 id: "Estimate-Effort"
 title: "Estimate Effort"
 description: "Assists in estimating the relative effort or complexity of development tasks (features, user stories, bugs) using common techniques like T-shirt sizing or story points, based on task descriptions and context"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

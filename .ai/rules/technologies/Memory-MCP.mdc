@@ -3,8 +3,8 @@
 id: "Memory-MCP"
 title: "Memory Mcp Technology Guidelines"
 description: "Best practices for utilizing the Memory MCP server to enhance AI code generation through persistent context and pattern recognition"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -206,7 +206,7 @@ const memories = search_memories({
 ```javascript
 update_memory({
   id: "memory_123",
-  title: "Updated React Component Pattern", 
+  title: "Updated React Component Pattern",
   content: "Revised standard structure for React functional components with TypeScript and hooks",
   // Additional fields to update
 });

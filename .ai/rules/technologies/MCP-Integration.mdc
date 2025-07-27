@@ -3,8 +3,8 @@
 id: "MCP-Integration"
 title: "Mcp Integration Technology Guidelines"
 description: "Defines the available Model Context Protocol (MCP) servers and their capabilities based on the user"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

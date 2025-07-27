@@ -3,8 +3,8 @@
 id: "Generate-Types"
 title: "Generate Types"
 description: "Generates type definitions (e.g., TypeScript interfaces/types, Flow types, Python type hints, GraphQL SDL types) based on examples like JSON data, API responses, database schemas, or descriptions"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

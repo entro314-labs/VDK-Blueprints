@@ -3,8 +3,8 @@
 id: "Sequential-Thinking"
 title: "Sequential Thinking Technology Guidelines"
 description: "Best practices for using Sequential Thinking MCP server for structured, step-by-step code generation and problem-solving"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

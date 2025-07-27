@@ -3,8 +3,8 @@
 id: "Data-Migration-Plan"
 title: "Data Migration Plan"
 description: "Plans and designs strategies for migrating data between different schemas, databases, or storage systems, including steps, validation, rollback plans, and potential downtime considerations"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

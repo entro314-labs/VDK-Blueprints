@@ -3,8 +3,8 @@
 id: "01-code-quality"
 title: "AI 01 Code Quality"
 description: "Provides project-specific context like tech stack, directory structure, coding conventions, and key libraries. Needs user customization"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "core"
@@ -178,7 +178,7 @@ This file provides project-specific context to ensure the AI assistant understan
 - **Prioritize Dependencies**: Create foundational components before dependent ones to maintain logical flow.
 
 ### Long File Handling
-- **When File Splitting is Possible**: 
+- **When File Splitting is Possible**:
   - Use modular organization with clear separation of concerns
   - Use index files to re-export functionality from multiple implementation files
   - Create each component in dependency order to ensure completeness

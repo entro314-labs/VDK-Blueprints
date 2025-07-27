@@ -4,7 +4,7 @@ id: "agent-behavior"
 title: "AI Developer Assistant Core Principles"
 description: "Core instructions defining the AI assistant's persona, response format, general coding principles, communication guidelines, and specialized mode management"
 version: "2.1.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "core"

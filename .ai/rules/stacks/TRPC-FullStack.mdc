@@ -3,8 +3,8 @@
 id: "trpc-fullstack"
 title: "Trpc Fullstack"
 description: "Best practices for building end-to-end type-safe applications with tRPC, Next.js, and Prisma"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "stacks"

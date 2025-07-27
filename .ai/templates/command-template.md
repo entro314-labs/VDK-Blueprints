@@ -1,17 +1,17 @@
 ---
-id: "your-command-id"                 # Unique command identifier (kebab-case)
-name: "your-command"                  # Command name for execution
-description: "Brief description of what this command does"
-platform: "claude-code"              # claude-code, cursor, windsurf, github-copilot
-type: "workflow"                      # workflow, meta, quality, security, utility
-version: "1.0.0"                      # Semantic version number
+id: "your-command-id"                 # Unique command identifier (kebab-case, required)
+name: "your-command"                  # Command name for execution (1-50 chars, required)
+description: "Brief description of what this command does"  # Brief command description (10-200 chars, required)
+platform: "claude-code"              # claude-code, cursor, windsurf, github-copilot (required)
+type: "workflow"                      # workflow, meta, quality, security, utility (required)
+version: "1.0.0"                      # Semantic version number (optional, format: x.y.z)
 
 # === Parameters ===
 parameters:
-  - name: "target"                    # Parameter name
-    type: "string"                    # string, number, boolean, array, object
-    required: true                    # Is parameter required
-    description: "Target file or component to process"
+  - name: "target"                    # Parameter name (required)
+    type: "string"                    # string, number, boolean, array, object (required)
+    required: true                    # Is parameter required (optional)
+    description: "Target file or component to process"  # Parameter description (optional)
     default: ""                       # Default value (optional)
   - name: "options"
     type: "object"
@@ -20,22 +20,22 @@ parameters:
     default: {}
 
 # === Dependencies ===
-dependencies: []                      # Required rules or commands
-tools: ["Read", "Write", "Edit"]      # Required platform tools
+dependencies: []                      # Required Blueprints or commands (optional)
+tools: ["Read", "Write", "Edit"]      # Required platform tools (optional)
 
 # === Examples ===
 examples:
-  - input: "/your-command target=components/Button"
-    description: "Process a specific component"
-    output: "Expected result description"
+  - input: "/your-command target=components/Button"  # Example command input (required)
+    description: "Process a specific component"      # Example description (required)
+    output: "Expected result description"            # Expected output (optional)
   - input: "/your-command target=src/utils options={recursive:true}"
     description: "Process with additional options"
     output: "Expected result description"
 
 # === Metadata ===
-tags: ["workflow", "automation"]      # Searchable tags
-author: "community"                   # Command author
-lastUpdated: "2025-01-22"             # Last update date
+tags: ["workflow", "automation"]      # Searchable tags (optional)
+author: "community"                   # Command author (optional)
+lastUpdated: "2025-07-27"             # Last update date (optional, format: YYYY-MM-DD)
 ---
 
 # Your Command Name
@@ -59,7 +59,7 @@ Clearly explain what this command does and when to use it. Include:
 #### target (required)
 - **Type**: string
 - **Description**: Detailed description of what this parameter does
-- **Examples**: 
+- **Examples**:
   - `components/Button`
   - `src/utils/helpers.ts`
   - `pages/dashboard`
@@ -82,7 +82,7 @@ Clearly explain what this command does and when to use it. Include:
 
 **Description**: Process the UserProfile component with default settings.
 
-**Expected Outcome**: 
+**Expected Outcome**:
 - Analyzes the component structure
 - Applies standard patterns and conventions
 - Updates imports and exports if needed
@@ -205,7 +205,7 @@ This provides detailed logging of each processing step.
 
 ## Version History
 
-### 1.0.0
+### 1.0.0 (2025-07-27)
 - Initial implementation
 - Basic target processing
 - Standard options support

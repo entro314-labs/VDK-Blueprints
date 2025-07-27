@@ -3,8 +3,8 @@
 id: "nextjs-supabase"
 title: "Nextjs Supabase"
 description: "Best practices for building applications with the Supabase-Next.js full stack, including TypeScript, Tailwind CSS, and Shadcn UI"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "stacks"
@@ -146,7 +146,7 @@ import { Database } from '@/types/supabase'
 
 export function createClient() {
   const cookieStore = cookies()
-  
+
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -197,7 +197,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const supabase = createClient()
-  
+
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
@@ -205,22 +205,22 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
         setIsLoading(false)
       }
     )
-    
+
     return () => {
       subscription.unsubscribe()
     }
   }, [supabase])
-  
+
   const signOut = async () => {
     await supabase.auth.signOut()
   }
-  
+
   const value = {
     user,
     isLoading,
     signOut
   }
-  
+
   return (
     <SupabaseAuthContext.Provider value={value}>
       {children}
@@ -302,7 +302,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // Redirect logged in users away from auth pages
-  if (session && (request.nextUrl.pathname.startsWith('/login') || 
+  if (session && (request.nextUrl.pathname.startsWith('/login') ||
                   request.nextUrl.pathname.startsWith('/register'))) {
     return NextResponse.redirect(new URL('/dashboard', request.url))
   }
@@ -327,21 +327,21 @@ export const revalidate = 60 // Revalidate every 60 seconds
 
 export default async function PostsPage() {
   const supabase = createClient()
-  
+
   const { data: posts, error } = await supabase
     .from('posts')
     .select('id, title, content, created_at, users(name)')
     .order('created_at', { ascending: false })
-  
+
   if (error) {
     console.error(error)
     return <div>Failed to load posts</div>
   }
-  
+
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold">Recent Posts</h1>
-      
+
       <div className="grid gap-4 md:grid-cols-2">
         {posts.map((post) => (
           <div key={post.id} className="p-4 border rounded-lg">
@@ -369,7 +369,7 @@ import { PostSchema, type Post } from '@/lib/validations/post'
 export function usePosts() {
   const supabase = createClient()
   const queryClient = useQueryClient()
-  
+
   // Fetch posts
   const postsQuery = useQuery({
     queryKey: ['posts'],
@@ -378,23 +378,23 @@ export function usePosts() {
         .from('posts')
         .select('id, title, content, created_at, user_id, users(name)')
         .order('created_at', { ascending: false })
-      
+
       if (error) throw error
       return data as Post[]
     },
   })
-  
+
   // Create post
   const createPostMutation = useMutation({
     mutationFn: async (newPost: Omit<Post, 'id' | 'created_at' | 'users'>) => {
       // Validate post data with Zod
       const validatedPost = PostSchema.parse(newPost)
-      
+
       const { data, error } = await supabase
         .from('posts')
         .insert(validatedPost)
         .select()
-      
+
       if (error) throw error
       return data[0] as Post
     },
@@ -402,7 +402,7 @@ export function usePosts() {
       queryClient.invalidateQueries({ queryKey: ['posts'] })
     },
   })
-  
+
   return {
     posts: postsQuery.data ?? [],
     isLoading: postsQuery.isLoading,
@@ -427,7 +427,7 @@ export function useRealtimePosts() {
   const supabase = createClient()
   const queryClient = useQueryClient()
   const { posts, isLoading, error, createPost } = usePosts()
-  
+
   useEffect(() => {
     const channel = supabase
       .channel('posts-channel')
@@ -440,12 +440,12 @@ export function useRealtimePosts() {
         queryClient.invalidateQueries({ queryKey: ['posts'] })
       })
       .subscribe()
-    
+
     return () => {
       supabase.removeChannel(channel)
     }
   }, [supabase, queryClient])
-  
+
   return { posts, isLoading, error, createPost }
 }
 ```
@@ -477,7 +477,7 @@ import { usePosts } from "@/hooks/use-posts"
 export function CreatePostForm() {
   const { user } = useSupabaseAuth()
   const { createPost, isCreating } = usePosts()
-  
+
   const form = useForm<PostFormValues>({
     resolver: zodResolver(PostSchema),
     defaultValues: {
@@ -485,18 +485,18 @@ export function CreatePostForm() {
       content: "",
     },
   })
-  
+
   function onSubmit(values: PostFormValues) {
     if (!user) return
-    
+
     createPost({
       ...values,
       user_id: user.id,
     })
-    
+
     form.reset()
   }
-  
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -513,7 +513,7 @@ export function CreatePostForm() {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="content"
@@ -521,7 +521,7 @@ export function CreatePostForm() {
             <FormItem>
               <FormLabel>Content</FormLabel>
               <FormControl>
-                <Textarea 
+                <Textarea
                   placeholder="Write your post content here..."
                   className="min-h-[120px]"
                   {...field}
@@ -531,7 +531,7 @@ export function CreatePostForm() {
             </FormItem>
           )}
         />
-        
+
         <Button type="submit" disabled={isCreating}>
           {isCreating ? "Creating..." : "Create Post"}
         </Button>
@@ -628,13 +628,13 @@ interface WebhookPayload {
 
 serve(async (req) => {
   const payload: WebhookPayload = await req.json()
-  
+
   // Create Supabase client with service role key to access any data
   const supabaseAdmin = createClient(
     Deno.env.get("SUPABASE_URL") ?? '',
     Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ''
   )
-  
+
   if (payload.type === "INSERT" && payload.table === "posts") {
     // Get post author details
     const { data: user } = await supabaseAdmin
@@ -642,11 +642,11 @@ serve(async (req) => {
       .select('email, name')
       .eq('id', payload.record.user_id)
       .single()
-    
+
     if (user) {
       // Send notification logic here
       console.log(`Sending notification to ${user.email} for new post: ${payload.record.title}`)
-      
+
       // Record the notification
       await supabaseAdmin
         .from('notifications')
@@ -657,7 +657,7 @@ serve(async (req) => {
         })
     }
   }
-  
+
   return new Response(JSON.stringify({ success: true }), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
@@ -669,7 +669,7 @@ serve(async (req) => {
 
 1. **Type Safety**: Use TypeScript throughout with proper types for Supabase tables
 
-2. **Security**: 
+2. **Security**:
    - Apply Row Level Security (RLS) policies in Supabase
    - Validate all inputs with Zod
    - Use environment variables for sensitive information

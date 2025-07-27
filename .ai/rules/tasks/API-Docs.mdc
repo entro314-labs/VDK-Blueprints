@@ -3,8 +3,8 @@
 id: "API-Docs"
 title: "Api Docs"
 description: "Generates or refines API reference documentation, detailing endpoints, parameters, request/response formats, authentication methods, and error codes. Focuses on technical accuracy and developer usability"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

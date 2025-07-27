@@ -3,8 +3,8 @@
 id: "Refactor-Code"
 title: "Refactor Code"
 description: "Restructures existing code to improve its internal quality (readability, maintainability, simplicity, efficiency) without altering its external functionality. Addresses code smells and technical debt"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

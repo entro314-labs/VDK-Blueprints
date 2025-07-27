@@ -4,7 +4,7 @@ id: "command-execution"
 title: "Command Execution"
 description: "Guidelines for AI assistants to safely and effectively execute terminal commands in development environments"
 version: "2.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tools"
@@ -86,7 +86,7 @@ Command execution is a powerful capability that allows AI assistants to interact
 ### Safe Commands (Generally Auto-runnable)
 
 - **Read-only operations**: Commands that only read state without modification
-  - File listings (`ls`, `dir`, `find`)  
+  - File listings (`ls`, `dir`, `find`)
   - Status checks (`git status`, `npm list`)
   - Information retrieval (`echo`, `printenv`, `systeminfo`)
   - Version checks (`node -v`, `python --version`)
@@ -122,19 +122,19 @@ async function executeCommand(command, options = {}) {
     blocking = true,
     safeToAutoRun = false
   } = options;
-  
+
   // 1. Validate command
   if (!command || typeof command !== 'string') {
     throw new Error('Command must be a non-empty string');
   }
-  
+
   // 2. Check for unsafe patterns
   const safetyCheck = checkCommandSafety(command);
   if (safetyCheck.potentiallyDestructive && !userConfirmed) {
     // Request user confirmation
     throw new Error(`This command requires explicit user confirmation: ${safetyCheck.reason}`);
   }
-  
+
   // 3. Prepare execution context
   const execOptions = {
     cwd: workingDirectory,
@@ -142,7 +142,7 @@ async function executeCommand(command, options = {}) {
     timeout,
     maxBuffer: 1024 * 1024 * 10, // 10 MB output buffer
   };
-  
+
   // 4. Execute command with appropriate method based on blocking preference
   try {
     if (blocking) {
@@ -155,7 +155,7 @@ async function executeCommand(command, options = {}) {
         shell: true,
         detached: true
       });
-      
+
       return {
         success: true,
         processId: childProcess.pid,
@@ -185,31 +185,31 @@ async function executeCommandSequence(commands, options = {}) {
     workingDirectory = process.cwd(),
     environment = {}
   } = options;
-  
+
   // 1. Validate commands array
   if (!Array.isArray(commands) || commands.length === 0) {
     throw new Error('Commands must be a non-empty array');
   }
-  
+
   const results = [];
   let context = { env: { ...process.env, ...environment } };
-  
+
   // 2. Execute commands in sequence
   for (const cmd of commands) {
     // 3. Resolve command (could be string or function returning string based on context)
-    const resolvedCommand = typeof cmd === 'function' 
+    const resolvedCommand = typeof cmd === 'function'
       ? cmd(context)
       : cmd;
-    
+
     // 4. Execute with proper error handling
     try {
       const result = await executeCommand(resolvedCommand, {
         workingDirectory,
         environment: context.env
       });
-      
+
       results.push(result);
-      
+
       // 5. Update context with new information
       if (result.success) {
         context = {
@@ -228,7 +228,7 @@ async function executeCommandSequence(commands, options = {}) {
       }
     }
   }
-  
+
   return { success: true, results };
 }
 ```
@@ -245,26 +245,26 @@ async function executeLongRunningCommand(command, options = {}) {
     terminationSignal = null,
     maxRuntime = 0 // 0 means no limit
   } = options;
-  
+
   // 1. Validate command
   if (!command || typeof command !== 'string') {
     throw new Error('Command must be a non-empty string');
   }
-  
+
   // 2. Prepare execution context
   const execOptions = {
     cwd: workingDirectory,
     env: { ...process.env, ...environment },
     shell: true
   };
-  
+
   return new Promise((resolve, reject) => {
     // 3. Spawn process
     const childProcess = spawn(command, [], execOptions);
     let stdout = '';
     let stderr = '';
     let terminated = false;
-    
+
     // 4. Set up timeout if specified
     let timeoutId;
     if (maxRuntime > 0) {
@@ -273,7 +273,7 @@ async function executeLongRunningCommand(command, options = {}) {
         childProcess.kill('SIGTERM');
       }, maxRuntime);
     }
-    
+
     // 5. Handle termination signal if provided
     if (terminationSignal) {
       terminationSignal.subscribe(() => {
@@ -282,20 +282,20 @@ async function executeLongRunningCommand(command, options = {}) {
         if (timeoutId) clearTimeout(timeoutId);
       });
     }
-    
+
     // 6. Handle output streams
     childProcess.stdout.on('data', (data) => {
       const output = data.toString();
       stdout += output;
       if (outputCallback) outputCallback('stdout', output);
     });
-    
+
     childProcess.stderr.on('data', (data) => {
       const output = data.toString();
       stderr += output;
       if (outputCallback) outputCallback('stderr', output);
     });
-    
+
     // 7. Handle process completion
     childProcess.on('close', (code) => {
       if (timeoutId) clearTimeout(timeoutId);
@@ -308,7 +308,7 @@ async function executeLongRunningCommand(command, options = {}) {
         command
       });
     });
-    
+
     childProcess.on('error', (error) => {
       if (timeoutId) clearTimeout(timeoutId);
       reject({
@@ -329,12 +329,12 @@ async function executeLongRunningCommand(command, options = {}) {
 // Pattern for project initialization
 async function initializeProject(projectType, options = {}) {
   const commands = [];
-  
+
   // 1. Create project directory if needed
   if (options.createDirectory) {
     commands.push(`mkdir -p ${options.projectPath}`);
   }
-  
+
   // 2. Initialize based on project type
   switch (projectType) {
     case 'node':
@@ -351,7 +351,7 @@ async function initializeProject(projectType, options = {}) {
       break;
     // Add other project types as needed
   }
-  
+
   // 3. Execute setup commands
   return executeCommandSequence(commands, {
     workingDirectory: options.projectPath || process.cwd()
@@ -370,10 +370,10 @@ async function buildAndTest(options = {}) {
     workingDirectory = process.cwd(),
     skipTestsOnBuildFailure = true
   } = options;
-  
+
   // 1. Run build
   const buildResult = await executeCommand(buildCommand, { workingDirectory });
-  
+
   // 2. Check build success
   if (!buildResult.success && skipTestsOnBuildFailure) {
     return {
@@ -382,10 +382,10 @@ async function buildAndTest(options = {}) {
       message: 'Build failed, tests skipped'
     };
   }
-  
+
   // 3. Run tests
   const testResult = await executeCommand(testCommand, { workingDirectory });
-  
+
   // 4. Return combined results
   return {
     success: buildResult.success && testResult.success,
@@ -407,19 +407,19 @@ async function startDevServer(options = {}) {
     waitForReady = true,
     readyPattern = 'ready|started|listening on|running at'
   } = options;
-  
+
   // 1. Build full command
-  const fullCommand = command.includes('PORT=') 
-    ? command 
+  const fullCommand = command.includes('PORT=')
+    ? command
     : `PORT=${port} ${command}`;
-  
+
   // 2. Start server as non-blocking process
   const serverProcess = spawn(fullCommand, [], {
     cwd: workingDirectory,
     shell: true,
     detached: true
   });
-  
+
   if (!waitForReady) {
     return {
       success: true,
@@ -429,12 +429,12 @@ async function startDevServer(options = {}) {
       message: 'Server started (not waiting for ready signal)'
     };
   }
-  
+
   // 3. Wait for ready signal if requested
   return new Promise((resolve) => {
     const readyRegex = new RegExp(readyPattern, 'i');
     let output = '';
-    
+
     const timeoutId = setTimeout(() => {
       // If server doesn't report ready in 30 seconds, resolve anyway
       resolve({
@@ -447,11 +447,11 @@ async function startDevServer(options = {}) {
         output
       });
     }, 30000);
-    
+
     function checkForReadySignal(data) {
       const text = data.toString();
       output += text;
-      
+
       if (readyRegex.test(text)) {
         clearTimeout(timeoutId);
         resolve({
@@ -465,10 +465,10 @@ async function startDevServer(options = {}) {
         });
       }
     }
-    
+
     serverProcess.stdout.on('data', checkForReadySignal);
     serverProcess.stderr.on('data', checkForReadySignal);
-    
+
     serverProcess.on('error', (error) => {
       clearTimeout(timeoutId);
       resolve({
@@ -490,20 +490,20 @@ async function startDevServer(options = {}) {
 function prepareEnvironment(baseEnv, additionalEnv = {}) {
   // 1. Start with current or provided base environment
   const environment = { ...(baseEnv || process.env) };
-  
+
   // 2. Add/override with additional variables
   Object.assign(environment, additionalEnv);
-  
+
   // 3. Filter out potentially sensitive information when logging
   const safeEnvironment = { ...environment };
   const sensitiveKeys = ['TOKEN', 'KEY', 'SECRET', 'PASSWORD', 'PASS', 'AUTH'];
-  
+
   for (const key of Object.keys(safeEnvironment)) {
     if (sensitiveKeys.some(sensitive => key.toUpperCase().includes(sensitive))) {
       safeEnvironment[key] = '***REDACTED***';
     }
   }
-  
+
   return { environment, safeEnvironment };
 }
 ```
@@ -519,17 +519,17 @@ function determineWorkingDirectory(options = {}) {
     defaultToProjectRoot = true,
     fallbackToUserHomeDirectory = true
   } = options;
-  
+
   // 1. Use explicitly specified directory if provided
   if (specifiedDirectory && directoryExists(specifiedDirectory)) {
     return specifiedDirectory;
   }
-  
+
   // 2. Use project root if available and preferred
   if (defaultToProjectRoot && projectRoot && directoryExists(projectRoot)) {
     return projectRoot;
   }
-  
+
   // 3. Use current working directory if it exists and is accessible
   try {
     const currentDir = process.cwd();
@@ -539,7 +539,7 @@ function determineWorkingDirectory(options = {}) {
   } catch (error) {
     // Current directory might not be accessible
   }
-  
+
   // 4. Fall back to user home directory if allowed
   if (fallbackToUserHomeDirectory) {
     const homeDir = os.homedir();
@@ -547,7 +547,7 @@ function determineWorkingDirectory(options = {}) {
       return homeDir;
     }
   }
-  
+
   // 5. If all else fails, throw an error
   throw new Error('Could not determine a valid working directory');
 }
@@ -613,36 +613,36 @@ async function executeWithErrorHandling(command, options = {}) {
       // Add more common error patterns
     ]
   } = options;
-  
+
   let lastError = null;
-  
+
   // 1. Try execution with retries
   for (let attempt = 0; attempt <= retryCount; attempt++) {
     try {
       const result = await executeCommand(command, { workingDirectory });
-      
+
       // 2. Check for success based on exit code
       if (result.success) {
         return result;
       }
-      
+
       // 3. Check for known error patterns in output
       const errorDiagnosis = diagnoseCLIError(result, errorPatterns);
       lastError = { ...result, diagnosis: errorDiagnosis };
-      
+
       // 4. Wait before retry if this isn't the last attempt
       if (attempt < retryCount) {
         await new Promise(resolve => setTimeout(resolve, retryDelay));
       }
     } catch (error) {
       lastError = error;
-      
+
       if (attempt < retryCount) {
         await new Promise(resolve => setTimeout(resolve, retryDelay));
       }
     }
   }
-  
+
   // 5. Return detailed error information after all retries fail
   return {
     success: false,
@@ -655,7 +655,7 @@ async function executeWithErrorHandling(command, options = {}) {
 // Helper function to diagnose common CLI errors
 function diagnoseCLIError(result, errorPatterns) {
   const output = `${result.stderr || ''} ${result.stdout || ''}`;
-  
+
   for (const pattern of errorPatterns) {
     if (pattern.regex.test(output)) {
       return {
@@ -664,7 +664,7 @@ function diagnoseCLIError(result, errorPatterns) {
       };
     }
   }
-  
+
   return { type: 'unknown', suggestions: ['Check command syntax and environment'] };
 }
 ```

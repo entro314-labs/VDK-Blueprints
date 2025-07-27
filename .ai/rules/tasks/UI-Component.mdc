@@ -3,8 +3,8 @@
 id: "UI-Component"
 title: "Ui Component"
 description: "Implements frontend user interface components and layouts using HTML, CSS, JavaScript/TypeScript, and relevant frameworks (React, Vue, Angular, etc.) based on design specifications or requirements"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

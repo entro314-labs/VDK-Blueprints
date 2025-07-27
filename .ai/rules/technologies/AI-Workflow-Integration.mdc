@@ -3,8 +3,8 @@
 id: "AI-Workflow-Integration"
 title: "Ai Workflow Integration Technology Guidelines"
 description: "Best practices for integrating AI into development workflows, with task-specific patterns and code generation templates"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -74,10 +74,10 @@ discussionUrl: ""
   ```
   # For Code Generation
   "Create a React component that displays a paginated list of users with the following requirements:..."
-  
+
   # For Code Transformation
   "Refactor this function to use async/await instead of promises:..."
-  
+
   # For Error Diagnosis
   "This code is producing the following error: [error message]. Help me identify and fix the issue:..."
   ```
@@ -174,7 +174,7 @@ discussionUrl: ""
   - UI Requirements: [description of UI elements and behavior]
   - Special Requirements: [accessibility, performance, animations, etc.]
   - Framework details: [React version, TypeScript/JavaScript, styling approach]
-  
+
   Please include:
   1. Import statements
   2. Component definition
@@ -197,7 +197,7 @@ discussionUrl: ""
   - Authentication requirements: [auth approach if needed]
   - Error handling: [expected error scenarios and responses]
   - Framework details: [Express/FastAPI/Rails/etc.]
-  
+
   Please include:
   1. Route definition
   2. Parameter validation
@@ -218,7 +218,7 @@ discussionUrl: ""
   - Relationships: [connections to other models]
   - Indexes: [any required database indexes]
   - Framework details: [ORM framework, language]
-  
+
   Please include:
   1. Model definition
   2. Field definitions with types and constraints
@@ -238,7 +238,7 @@ discussionUrl: ""
   - Test scenarios: [list of behaviors or cases to test]
   - Mocking requirements: [dependencies that should be mocked]
   - Coverage goals: [specific coverage targets if applicable]
-  
+
   Please include:
   1. Test setup
   2. Mock definitions
@@ -253,43 +253,43 @@ discussionUrl: ""
 - Use this pattern for thorough code reviews:
   ```
   Please review this code with attention to the following aspects:
-  
+
   1. Functionality: Does it correctly implement the requirements?
    - [specific functionality concerns]
-  
+
   2. Code Quality:
    - Readability and clarity
    - Appropriate abstractions
    - DRY (Don't Repeat Yourself) principle
    - Naming conventions
-  
+
   3. Performance:
    - Algorithmic efficiency
    - Resource usage
    - Potential bottlenecks
-  
+
   4. Security:
    - Input validation
    - Authentication/authorization
    - Data exposure risks
    - Common vulnerabilities
-  
+
   5. Error Handling:
    - Edge cases covered
    - Appropriate error messages
    - Graceful failure modes
-  
+
   6. Testing:
    - Test coverage
    - Test quality and thoroughness
    - Edge case testing
-  
+
   For each issue found, please:
   1. Identify the specific location
   2. Explain why it's an issue
   3. Suggest a specific improvement
   4. Provide example code when applicable
-  
+
   [CODE TO REVIEW]
   ```
 
@@ -306,9 +306,9 @@ discussionUrl: ""
   - Secure data handling and storage
   - Secret management
   - Secure communications
-  
+
   For each issue, explain the vulnerability, its potential impact, and provide a specific fix.
-  
+
   # Performance-focused review
   Please review this code focusing specifically on performance concerns:
   - Algorithmic complexity
@@ -318,7 +318,7 @@ discussionUrl: ""
   - Network request optimization
   - Caching opportunities
   - Resource cleanup
-  
+
   For each issue, explain the performance impact, how it might scale with usage, and suggest specific optimizations.
   ```
 

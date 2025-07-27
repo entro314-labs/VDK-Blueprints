@@ -3,8 +3,8 @@
 id: "GraphQL"
 title: "Graphql Technology Guidelines"
 description: "Best practices for GraphQL API development and integration across client and server applications"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

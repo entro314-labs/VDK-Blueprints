@@ -3,8 +3,8 @@
 id: "cpp20"
 title: "Cpp20 Language Patterns"
 description: "C++20/23 best practices and patterns for modern software development"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "languages"

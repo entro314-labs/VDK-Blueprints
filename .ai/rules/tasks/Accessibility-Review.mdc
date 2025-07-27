@@ -3,8 +3,8 @@
 id: "Accessibility-Review"
 title: "Accessibility Review"
 description: "Reviews web interfaces, content, or code snippets for common accessibility (a11y) issues based on WCAG guidelines, ensuring usability for people with disabilities"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

@@ -3,8 +3,8 @@
 id: "Optimize-Performance"
 title: "Optimize Performance"
 description: "Analyzes existing code or system behavior to identify performance bottlenecks and implements optimizations to improve speed, reduce latency, or decrease resource consumption (CPU, memory)"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

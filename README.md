@@ -1,30 +1,30 @@
-# VibeKit VDK AI Rules
+# VDK Blueprints
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://github.com/your-org/VibeKit-VDK-AI-rules)
-[![Rules](https://img.shields.io/badge/Rules-109-green.svg)](#rule-categories)
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://github.com/your-org/VDK-Blueprints)
+[![Blueprints](https://img.shields.io/badge/Blueprints-109-green.svg)](#Blueprint-categories)
 [![Platforms](https://img.shields.io/badge/Platforms-4-orange.svg)](#supported-platforms)
 
 > **Transform generic AI coding assistants into project-aware experts**
 
-The VibeKit VDK AI Rules repository is the centralized knowledge base for structured AI development patterns, providing 109+ curated rules that work across multiple AI assistant platforms to deliver consistent, project-specific guidance.
+The VDK Blueprints repository is the centralized knowledge base for structured AI development patterns, providing 109+ curated Blueprints that work across multiple AI assistant platforms to deliver consistent, project-specific guidance.
 
 ## 🚀 Quick Start
 
 ### For Developers
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/VibeKit-VDK-AI-rules.git
+git clone https://github.com/your-org/VDK-Blueprints.git
 
-# Navigate to rules directory
-cd VibeKit-VDK-AI-rules/.ai/rules
+# Navigate to Blueprints directory
+cd VDK-Blueprints/.ai/rules
 
 # Use with your AI assistant (see Platform Integration)
 ```
 
 ### For AI Assistants
 - **Claude Code**: Add `.ai/rules/` to your memory configuration
-- **Cursor**: Import rules to `.cursorrules` file  
+- **Cursor**: Import rules to `.cursorrules` file
 - **Windsurf**: Load rules in workspace configuration
 - **GitHub Copilot**: Configure rules in review settings
 
@@ -32,18 +32,18 @@ cd VibeKit-VDK-AI-rules/.ai/rules
 
 ## 🎯 What This Repository Provides
 
-### 🧠 Intelligent Rule System
-- **109+ curated rules** covering languages, frameworks, stacks, and tasks
+### 🧠 Intelligent Blueprint System
+- **109+ curated Blueprints** covering languages, frameworks, stacks, and tasks
 - **Multi-platform compatibility** with Claude Code, Cursor, Windsurf, GitHub Copilot
 - **Project-aware guidance** that understands your specific technology stack
 - **Community-driven** with contribution workflows and templates
 
 ### 🏗️ Ecosystem Integration
-This repository is part of the **VibeKit VDK three-tier architecture**:
+This repository is part of the **VDK three-tier architecture**:
 
 ```
 ┌─────────────────┐    ┌───────────────────┐    ┌─────────────────┐
-│   VDK CLI       │◄──►│  Rules Repository │◄──►│   VDK Hub       │
+│   VDK CLI       │◄──►│  Blueprints Repository │◄──►│   VDK Hub       │
 │ (Local Engine)  │    │ (Knowledge Base)  │    │ (Web Platform)  │
 └─────────────────┘    └───────────────────┘    └─────────────────┘
          │                        │                        │
@@ -55,15 +55,15 @@ This repository is part of the **VibeKit VDK three-tier architecture**:
 └─────────────────┘    └───────────────────┘    └─────────────────┘
 ```
 
-- **[VibeKit VDK CLI](https://github.com/your-org/VibeKit-VDK-CLI)**: Local analysis and rule generation engine
-- **VibeKit VDK Rules** (this repo): Centralized knowledge base and templates
-- **[VibeKit VDK Hub](https://hub.vibekit.dev)**: Web platform for collaboration and management
+- **[VDK CLI](https://github.com/your-org/VDK-CLI)**: Local analysis and Blueprint generation engine
+- **VDK Blueprints** (this repo): Centralized knowledge base and templates
+- **[VDK Hub](https://vdk.tools)**: Web platform for collaboration and management
 
 ## 📂 Repository Structure
 
 ```
 .ai/
-├── rules/                         # 109 Universal AI Rules
+├── rules/                         # 109 Universal AI Blueprints
 │   ├── core/                      # 4 Fundamental AI behavior patterns
 │   │   ├── 00-agent-behavior.mdc     # AI assistant persona & principles
 │   │   ├── 01-code-quality.mdc       # Code quality guidelines
@@ -103,7 +103,7 @@ This repository is part of the **VibeKit VDK three-tier architecture**:
 └── docs/                         # 📚 Comprehensive documentation
 ```
 
-## 🎯 Rule Categories
+## 🎯 Blueprint Categories
 
 | Category | Count | Description | Examples |
 |----------|--------|-------------|----------|
@@ -128,10 +128,10 @@ This repository is part of the **VibeKit VDK three-tier architecture**:
 
 ### 🔄 Platform Integration Features
 
-- **Cross-Platform Compatibility**: Rules work consistently across all platforms
+- **Cross-Platform Compatibility**: Blueprints work consistently across all platforms
 - **Platform-Specific Optimization**: Tailored instructions for each AI assistant
-- **Automatic Rule Loading**: Seamless integration with minimal setup
-- **Priority Management**: Smart rule activation based on context
+- **Automatic Blueprint Loading**: Seamless integration with minimal setup
+- **Priority Management**: Smart Blueprint activation based on context
 
 ## 📖 Documentation
 
@@ -139,12 +139,12 @@ This repository is part of the **VibeKit VDK three-tier architecture**:
 - **[Platform Integration Guide](.ai/docs/platform-integration.md)** - Setup and configuration for each AI platform
 - **[Migration Guide](.ai/docs/migration-guide.md)** - Upgrading from legacy versions
 
-### 👨‍💻 Developer Guides  
-- **[Contributing Guide](.ai/docs/CONTRIBUTING.md)** - How to contribute rules and improvements
-- **[Rule Writing Guide](.ai/docs/rule-writing-guide.md)** - Comprehensive guide to writing effective rules
+### 👨‍💻 Developer Guides
+- **[Contributing Guide](.ai/docs/CONTRIBUTING.md)** - How to contribute Blueprints and improvements
+- **[Blueprint Writing Guide](.ai/docs/Blueprint-writing-guide.md)** - Comprehensive guide to writing effective Blueprints
 
 ### 🔧 Technical References
-- **[Schema Documentation](.ai/schemas/)** - Rule validation schemas and specifications
+- **[Schema Documentation](.ai/schemas/)** - Blueprint validation schemas and specifications
 - **[Template Library](.ai/templates/)** - Standardized templates for contributions
 
 ## 🚀 Getting Started
@@ -154,7 +154,7 @@ This repository is part of the **VibeKit VDK three-tier architecture**:
 #### Option A: Direct Integration (Recommended)
 ```bash
 # Clone repository
-git clone https://github.com/your-org/VibeKit-VDK-AI-rules.git
+git clone https://github.com/your-org/VDK-Blueprints.git
 
 # Add to your AI assistant
 # - Claude Code: Add .ai/rules/ to CLAUDE.md
@@ -163,23 +163,23 @@ git clone https://github.com/your-org/VibeKit-VDK-AI-rules.git
 # - GitHub Copilot: Configure in settings
 ```
 
-#### Option B: Via VibeKit VDK CLI (Advanced)
+#### Option B: Via VDK CLI (Advanced)
 ```bash
 # Install CLI (coming soon)
-npm install -g @vibekit/vdk-cli
+npm install -g @vdk-cli
 
-# Generate project-specific rules
+# Generate project-specific Blueprints
 vdk analyze --project-path ./my-project
 
 # Deploy to AI assistants
 vdk deploy --platforms claude-code,cursor
 ```
 
-#### Option C: Via VibeKit VDK Hub (Team Management)
-Visit **[hub.vibekit.dev](https://hub.vibekit.dev)** for:
-- Web-based rule generation
-- Team collaboration features  
-- Custom rule management
+#### Option C: Via VDK Hub (Team Management)
+Visit **[vdk.tools](https://vdk.tools)** for:
+- Web-based Blueprint generation
+- Team collaboration features
+- Custom Blueprint management
 - Analytics and insights
 
 ### 2. Platform-Specific Setup
@@ -189,9 +189,9 @@ Visit **[hub.vibekit.dev](https://hub.vibekit.dev)** for:
 
 Add to your `CLAUDE.md` file:
 ```markdown
-# AI Rules Integration
+# AI Blueprints Integration
 
-Active rules from VibeKit VDK Rules repository:
+Active Blueprints from VDK Blueprints repository:
 - Core behaviors: .ai/rules/core/
 - Language patterns: .ai/rules/languages/
 - Technology guidelines: .ai/rules/technologies/
@@ -204,12 +204,12 @@ Active rules from VibeKit VDK Rules repository:
 
 Create or update your `.cursorrules` file:
 ```markdown
-# VibeKit VDK AI Rules - Cursor Integration
+# VDK Blueprints - Cursor Integration
 
 ## Core Development Principles
 {Include content from .ai/rules/core/}
 
-## Language-Specific Guidelines  
+## Language-Specific Guidelines
 {Include content from .ai/rules/languages/ based on project}
 ```
 </details>
@@ -251,25 +251,25 @@ We welcome contributions from the community! Here's how to get involved:
 ### 🎯 Quick Contribution Guide
 
 1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/new-rule`
+2. **Create a feature branch**: `git checkout -b feature/new-Blueprint`
 3. **Use our templates**: Copy from `.ai/templates/`
-4. **Follow our standards**: See [Rule Writing Guide](.ai/docs/rule-writing-guide.md)
+4. **Follow our standards**: See [Blueprint Writing Guide](.ai/docs/Blueprint-writing-guide.md)
 5. **Submit a pull request**
 
 ### 📝 Contribution Types
 
 | Type | Description | Template |
 |------|-------------|----------|
-| **New Rule** | Add support for new technology/pattern | [Rule Template](.ai/templates/rule-template.mdc) |
+| **New Blueprint** | Add support for new technology/pattern | [Blueprint Template](.ai/templates/Blueprint-template.mdc) |
 | **Command** | Platform-specific implementation | [Command Template](.ai/templates/command-template.md) |
 | **Documentation** | Improve guides and examples | [Contributing Guide](.ai/docs/CONTRIBUTING.md) |
-| **Bug Fix** | Fix existing rule issues | Standard PR process |
+| **Bug Fix** | Fix existing Blueprint issues | Standard PR process |
 
 ### 🏆 Recognition
 
 Contributors are recognized through:
-- Rule metadata attribution
-- Community showcase features  
+- Blueprint metadata attribution
+- Community showcase features
 - Release note acknowledgments
 - GitHub contribution graphs
 
@@ -277,7 +277,7 @@ Contributors are recognized through:
 
 | Metric | Count | Status |
 |--------|-------|--------|
-| **Total Rules** | 109 | ✅ Active |
+| **Total Blueprints** | 109 | ✅ Active |
 | **Supported Platforms** | 4 | ✅ Production |
 | **Documentation Pages** | 750+ | ✅ Complete |
 | **Schema Validation** | 100% | ✅ Passing |
@@ -286,21 +286,21 @@ Contributors are recognized through:
 ## 🗺️ Roadmap
 
 ### 🎯 Current Focus (Q1 2025)
-- [x] **Multi-platform rule refactoring** - Complete ✅
-- [x] **Enhanced documentation** - Complete ✅  
+- [x] **Multi-platform Blueprint refactoring** - Complete ✅
+- [x] **Enhanced documentation** - Complete ✅
 - [ ] **Community onboarding** - In Progress 🔄
 - [ ] **CLI integration** - Planning 📋
 
 ### 🚀 Coming Soon (Q2 2025)
-- [ ] **Advanced rule generation** - AI-assisted rule creation
+- [ ] **Advanced Blueprint generation** - AI-assisted Blueprint creation
 - [ ] **Platform expansion** - Support for new AI assistants
 - [ ] **Enterprise features** - Team management and analytics
-- [ ] **Performance optimization** - Rule loading and execution improvements
+- [ ] **Performance optimization** - Blueprint loading and execution improvements
 
 ### 🌟 Future Vision (Q3-Q4 2025)
-- [ ] **Intelligent rule adaptation** - Context-aware rule selection
-- [ ] **Cross-project learning** - Rule recommendations based on similar projects
-- [ ] **Integration marketplace** - Third-party rule packages
+- [ ] **Intelligent Blueprint adaptation** - Context-aware Blueprint selection
+- [ ] **Cross-project learning** - Blueprint recommendations based on similar projects
+- [ ] **Integration marketplace** - Third-party Blueprint packages
 - [ ] **Advanced analytics** - Usage insights and optimization recommendations
 
 ## 📄 License
@@ -311,24 +311,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 | Project | Description | Repository |
 |---------|-------------|------------|
-| **VibeKit VDK CLI** | Local analysis and rule generation engine | [GitHub](https://github.com/your-org/VibeKit-VDK-CLI) |
-| **VibeKit VDK Hub** | Web platform for collaboration and management | [Website](https://hub.vibekit.dev) |
-| **Community Rules** | Community-contributed rule packages | [GitHub](https://github.com/your-org/VibeKit-Community-Rules) |
+| **VDK CLI** | Local analysis and Blueprint generation engine | [GitHub](https://github.com/your-org/VDK-CLI) |
+| **VDK Hub** | Web platform for collaboration and management | [Website](https://vdk.tools) |
+| **Community Blueprints** | Community-contributed Blueprint packages | [GitHub](https://github.com/your-org/VDK-Community-Blueprints) |
 
 ## 🆘 Support
 
 ### 📞 Getting Help
 
 - **Documentation**: Start with our [comprehensive guides](.ai/docs/)
-- **GitHub Issues**: [Report bugs or request features](https://github.com/your-org/VibeKit-VDK-AI-rules/issues)
-- **GitHub Discussions**: [Community Q&A and ideas](https://github.com/your-org/VibeKit-VDK-AI-rules/discussions)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/your-org/VDK-Blueprints/issues)
+- **GitHub Discussions**: [Community Q&A and ideas](https://github.com/your-org/VDK-Blueprints/discussions)
 - **Discord Community**: [Join our Discord](https://discord.gg/vibekit) for real-time help
 
 ### 🐛 Reporting Issues
 
 When reporting issues, please include:
 - AI assistant platform and version
-- Rule category and specific file
+- Blueprint category and specific file
 - Expected vs actual behavior
 - Steps to reproduce
 - Error messages or logs
@@ -344,7 +344,7 @@ We love new ideas! Please:
 ## 🌟 Acknowledgments
 
 Special thanks to:
-- **Contributors**: Everyone who has contributed rules, documentation, and feedback
+- **Contributors**: Everyone who has contributed Blueprints, documentation, and feedback
 - **AI Assistant Teams**: Claude, Cursor, Windsurf, and GitHub Copilot teams for platform support
 - **Open Source Community**: For inspiration and collaboration
 - **Early Adopters**: For testing and feedback during development
@@ -353,11 +353,11 @@ Special thanks to:
 
 <div align="center">
 
-**[🚀 Get Started](.ai/docs/platform-integration.md)** • 
-**[📚 Documentation](.ai/docs/)** • 
-**[🤝 Contribute](.ai/docs/CONTRIBUTING.md)** • 
-**[💬 Community](https://github.com/your-org/VibeKit-VDK-AI-rules/discussions)**
+**[🚀 Get Started](.ai/docs/platform-integration.md)** •
+**[📚 Documentation](.ai/docs/)** •
+**[🤝 Contribute](.ai/docs/CONTRIBUTING.md)** •
+**[💬 Community](https://github.com/your-org/VDK-Blueprints/discussions)**
 
-**Made with ❤️ by the VibeKit team and community**
+**Made with ❤️ by the VDK team and community**
 
 </div>

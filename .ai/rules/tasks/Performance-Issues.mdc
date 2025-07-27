@@ -3,8 +3,8 @@
 id: "Performance-Issues"
 title: "Performance Issues"
 description: "Investigates and diagnoses performance issues, identifying bottlenecks in code execution, slow queries, high resource consumption (CPU, memory), or network latency"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

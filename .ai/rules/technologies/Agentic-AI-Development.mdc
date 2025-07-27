@@ -3,8 +3,8 @@
 id: "Agentic-AI-Development"
 title: "Agentic Ai Development Technology Guidelines"
 description: "Best practices for developing agentic AI applications with different AI models and frameworks"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -150,10 +150,10 @@ discussionUrl: ""
           self.short_term = deque(maxlen=10)  # Recent interactions
           self.working_memory = {}  # Current task state
           self.long_term = VectorStore()  # Persistent memories
-          
+
       def remember(self, memory, memory_type="short_term"):
           # Implementation
-          
+
       def recall(self, query, memory_type="all"):
           # Implementation
   ```
@@ -173,7 +173,7 @@ discussionUrl: ""
           self.description = description  # Clear description for the agent
           self.function = function  # The actual implementation
           self.parameters = parameters  # Parameter schema
-          
+
       def execute(self, **kwargs):
           # Parameter validation
           # Function execution
@@ -202,13 +202,13 @@ discussionUrl: ""
   def solve_problem(agent, problem):
       # 1. Problem understanding
       problem_analysis = agent.analyze(problem)
-      
+
       # 2. Break down into sub-problems
       sub_problems = agent.decompose(problem_analysis)
-      
+
       # 3. Plan solution approach
       solution_plan = agent.create_plan(sub_problems)
-      
+
       # 4. Execute plan with reflection
       partial_results = []
       for step in solution_plan:
@@ -217,7 +217,7 @@ discussionUrl: ""
           if reflection.requires_revision:
               # Revise plan and continue
           partial_results.append(result)
-      
+
       # 5. Synthesize final solution
       return agent.synthesize(partial_results)
   ```
@@ -241,7 +241,7 @@ discussionUrl: ""
   ```python
   from langchain.agents import create_structured_chat_agent
   from langchain.memory import ConversationBufferMemory
-  
+
   memory = ConversationBufferMemory()
   agent = create_structured_chat_agent(
       llm=gpt4,
@@ -253,7 +253,7 @@ discussionUrl: ""
 - Leverage LlamaIndex for knowledge retrieval and indexing:
   ```python
   from llama_index import VectorStoreIndex, SimpleDirectoryReader
-  
+
   documents = SimpleDirectoryReader('data').load_data()
   index = VectorStoreIndex.from_documents(documents)
   query_engine = index.as_query_engine()

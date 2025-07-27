@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "AI Rule Schema",
-  "description": "Schema for validating AI rule frontmatter and structure",
+  "title": "VDK Blueprint Schema",
+  "description": "Schema for validating AI Blueprint frontmatter and structure",
   "type": "object",
   "required": ["id", "title", "description", "version", "category", "platforms"],
   "properties": {
@@ -20,7 +20,7 @@
       "type": "string",
       "minLength": 10,
       "maxLength": 500,
-      "description": "Detailed description of the rule"
+      "description": "Detailed description of the Blueprint"
     },
     "version": {
       "type": "string",
@@ -56,7 +56,7 @@
     "complexity": {
       "type": "string",
       "enum": ["simple", "medium", "complex"],
-      "description": "Rule complexity level"
+      "description": "Blueprint complexity level"
     },
     "scope": {
       "type": "string",
@@ -71,7 +71,7 @@
     "maturity": {
       "type": "string",
       "enum": ["experimental", "beta", "stable", "deprecated"],
-      "description": "Rule maturity level"
+      "description": "Blueprint maturity level"
     },
     "platforms": {
       "type": "object",
@@ -96,12 +96,12 @@
     "conflicts": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Incompatible rules"
+      "description": "Incompatible Blueprints"
     },
     "supersedes": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Rules this replaces"
+      "description": "Blueprints this replaces"
     },
     "contentSections": {
       "type": "array",
@@ -135,7 +135,7 @@
       "properties": {
         "compatible": {
           "type": "boolean",
-          "description": "Can this rule work with Claude Code?"
+          "description": "Can this Blueprint work with Claude Code?"
         },
         "command": {
           "type": "boolean",
@@ -167,12 +167,12 @@
       "properties": {
         "compatible": {
           "type": "boolean",
-          "description": "Can this rule work with Cursor?"
+          "description": "Can this Blueprint work with Cursor?"
         },
         "activation": {
           "type": "string",
           "enum": ["auto-attached", "agent-requested", "manual", "always"],
-          "description": "How the rule is activated"
+          "description": "How the Blueprint is activated"
         },
         "globs": {
           "type": "array",
@@ -182,7 +182,7 @@
         "priority": {
           "type": "string",
           "enum": ["high", "medium", "low"],
-          "description": "Rule priority"
+          "description": "Blueprint priority"
         }
       }
     },
@@ -192,12 +192,12 @@
       "properties": {
         "compatible": {
           "type": "boolean",
-          "description": "Can this rule work with Windsurf?"
+          "description": "Can this Blueprint work with Windsurf?"
         },
         "mode": {
           "type": "string",
           "enum": ["global", "workspace"],
-          "description": "Rule application mode"
+          "description": "Blueprint application mode"
         },
         "xmlTag": {
           "type": "string",
@@ -216,7 +216,7 @@
       "properties": {
         "compatible": {
           "type": "boolean",
-          "description": "Can this rule work with GitHub Copilot?"
+          "description": "Can this Blueprint work with GitHub Copilot?"
         },
         "priority": {
           "type": "number",

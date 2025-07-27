@@ -14,7 +14,7 @@ This guide helps you migrate from the legacy rules structure to the new multi-pl
 
 ## Overview
 
-The VibeKit VDK AI Rules project has been restructured to support multi-platform AI assistant integration while maintaining backward compatibility where possible.
+The VDK Blueprints project has been restructured to support multi-platform AI assistant integration while maintaining backward compatibility where possible.
 
 ### What's Changed
 
@@ -97,7 +97,7 @@ id: "rule-identifier"
 title: "Rule Title"
 description: "Rule description"
 version: "1.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "task"
@@ -194,13 +194,13 @@ Platform-specific commands: .ai/commands/claude-code/
 ```bash
 # Generate new .cursorrules file
 cat > .cursorrules << 'EOF'
-# VibeKit VDK AI Rules - Cursor Integration
+# VDK Blueprints - Cursor Integration
 # Auto-generated from .ai/rules/ - DO NOT EDIT MANUALLY
 
 # Core Development Principles
 {Include content from .ai/rules/core/}
 
-# Language-Specific Guidelines  
+# Language-Specific Guidelines
 {Include content from .ai/rules/languages/ based on project}
 
 # Technology Patterns
@@ -235,7 +235,7 @@ id: "typescript-modern"
 title: "Modern TypeScript Patterns"
 description: "Guidelines for using modern TypeScript features effectively"
 version: "1.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "language"

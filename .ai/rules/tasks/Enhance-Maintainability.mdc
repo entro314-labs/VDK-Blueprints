@@ -3,8 +3,8 @@
 id: "Enhance-Maintainability"
 title: "Enhance Maintainability"
 description: "Analyzes code structure and patterns, suggesting changes to improve long-term maintainability, such as increasing modularity, enhancing readability, reducing coupling, and improving documentation"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

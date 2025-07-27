@@ -3,8 +3,8 @@
 id: "astro4"
 title: "Astro4 Technology Guidelines"
 description: "Astro v4+ best practices for building fast content sites and web applications"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

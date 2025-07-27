@@ -3,8 +3,8 @@
 id: "User-Guide"
 title: "User Guide"
 description: "Writes step-by-step user guides, tutorials, or feature walkthroughs aimed at end-users, focusing on clarity, task completion, and ease of understanding for non-technical or semi-technical audiences"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

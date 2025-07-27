@@ -3,8 +3,8 @@
 id: "python3"
 title: "Python3 Language Patterns"
 description: "Python 3 best practices and patterns for modern software development"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "languages"

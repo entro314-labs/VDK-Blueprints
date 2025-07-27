@@ -3,8 +3,8 @@
 id: "Sequential-Thinking-Advanced"
 title: "Sequential Thinking Advanced Technology Guidelines"
 description: "Advanced techniques for sequential thinking and complex problem decomposition with AI assistants"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -141,7 +141,7 @@ discussionUrl: ""
     totalThoughts: 7,  // Initial estimate of required thoughts
     nextThoughtNeeded: true
   });
-  
+
   await sequentialThinking({
     thought: "The problem involves designing a caching system for API responses with considerations for:
     1. Cache invalidation strategies
@@ -179,7 +179,7 @@ discussionUrl: ""
     totalThoughts: 9,
     nextThoughtNeeded: true
   });
-  
+
   // Alternative approach branch
   await sequentialThinking({
     thought: "An alternative approach would be event-based invalidation using a pub/sub system to notify cache nodes when underlying data changes.",
@@ -272,7 +272,7 @@ discussionUrl: ""
     totalThoughts: 8,
     nextThoughtNeeded: true
   });
-  
+
   // Store important insights in memory
   await createMemory({
     title: "Authentication System Requirements",
@@ -285,7 +285,7 @@ discussionUrl: ""
   ```typescript
   // Search for relevant memories
   const memories = await searchMemory("authentication system requirements");
-  
+
   // Use memories to inform thinking
   await sequentialThinking({
     thought: `Building on our previously identified requirements (${memories[0].content}), let's now consider implementation approaches that satisfy these constraints.`,
@@ -309,7 +309,7 @@ discussionUrl: ""
       observations: ["Connects to existing directory", "Handles user lookup and validation"]
     }
   ]);
-  
+
   // Create relationships between concepts
   await createRelations([
     {

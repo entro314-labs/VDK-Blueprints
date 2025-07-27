@@ -3,8 +3,8 @@
 id: "AI-Session-Handoff"
 title: "Ai Session Handoff"
 description: "Guidelines for creating effective AI session handoffs to maintain continuity across development sessions, preserving context and progress"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

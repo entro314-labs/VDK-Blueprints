@@ -3,8 +3,8 @@
 id: "Tauri"
 title: "Tauri Technology Guidelines"
 description: "Best practices for Tauri - a framework for building lightweight, secure desktop applications with web technologies"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -109,7 +109,7 @@ discussionUrl: ""
       name: String,
       age: u8,
   }
-  
+
   #[tauri::command]
   fn process_user(user: User) -> Result<(), String> {
       // Implementation

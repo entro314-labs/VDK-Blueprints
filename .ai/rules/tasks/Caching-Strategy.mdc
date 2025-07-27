@@ -3,8 +3,8 @@
 id: "Caching-Strategy"
 title: "Caching Strategy"
 description: "Designs caching strategies to improve application performance and reduce load on backend systems, considering cache placement, data types, invalidation methods, and consistency trade-offs"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

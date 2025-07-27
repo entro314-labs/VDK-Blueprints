@@ -3,8 +3,8 @@
 id: "Develop-Roadmap"
 title: "Develop Roadmap"
 description: "Assists in creating high-level project roadmaps, sequencing features or milestones over time, considering dependencies, priorities, and potential phases or releases"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

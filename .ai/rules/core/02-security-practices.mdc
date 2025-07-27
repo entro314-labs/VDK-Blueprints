@@ -4,7 +4,7 @@ id: "security-practices"
 title: "Security Practices and Guidelines"
 description: "Universal security practices for AI-assisted development"
 version: "1.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "core"

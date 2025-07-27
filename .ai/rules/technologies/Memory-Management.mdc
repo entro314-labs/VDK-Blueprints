@@ -3,8 +3,8 @@
 id: "Memory-Management"
 title: "Memory Management Technology Guidelines"
 description: "Best practices for managing AI memories across development sessions, capturing key milestones, and maintaining project context"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -94,8 +94,8 @@ discussionUrl: ""
      ```
      Title: Session Handoff - 2025-05-14
      Tags: [session_handoff, context]
-     Content: In this session we: 1) Enhanced Swift and SwiftUI rule files with modern patterns, 
-     2) Added PySide6 asyncio integration, 3) Created new technology files for GraphQL, Docker/Kubernetes, 
+     Content: In this session we: 1) Enhanced Swift and SwiftUI rule files with modern patterns,
+     2) Added PySide6 asyncio integration, 3) Created new technology files for GraphQL, Docker/Kubernetes,
      Tauri, and SwiftData. Next session will focus on creating an interactive setup wizard and adding version indicators.
      ```
 
@@ -129,16 +129,16 @@ discussionUrl: ""
     content: `
     # Session Summary
     ${sessionSummary}
-    
+
     ## Key Accomplishments
     ${bulletedList(accomplishments)}
-    
+
     ## Decisions Made
     ${bulletedList(decisions)}
-    
+
     ## Current Status
     ${currentStatus}
-    
+
     ## Next Steps
     ${bulletedList(nextSteps)}
     `,
@@ -165,14 +165,14 @@ discussionUrl: ""
   ```typescript
   // At the start of a new session, retrieve the most recent handoff
   const recentHandoffs = await searchMemory("session_handoff");
-  const mostRecentHandoff = recentHandoffs.sort((a, b) => 
+  const mostRecentHandoff = recentHandoffs.sort((a, b) =>
     new Date(b.title.split(' - ')[1]) - new Date(a.title.split(' - ')[1]))[0];
   ```
 - Retrieve context-specific memories based on the current task:
   ```typescript
   // When working on authentication
   const authMemories = await searchMemory("authentication");
-  
+
   // When making database decisions
   const dbDecisions = await searchMemory("database technical_decision");
   ```
@@ -207,20 +207,20 @@ discussionUrl: ""
     title: "Comprehensive Authentication System Overview",
     content: `
     # Authentication System Overview
-    
+
     ## Architecture
     ${authArchitectureMemory.content}
-    
+
     ## Implementation Details
     ${authImplementationMemory.content}
-    
+
     ## Known Issues
     ${authIssuesMemory.content}
     `,
     tags: ["authentication", "comprehensive", "technical_overview"],
     userTriggered: false
   });
-  
+
   // Optionally delete or mark the original memories as consolidated
   ```
 - Remove outdated or incorrect memories:
@@ -248,7 +248,7 @@ discussionUrl: ""
       observations: ["Frontend component", "Displays user information", "Allows profile editing"]
     }
   ]);
-  
+
   // Creating relationships between components
   await createRelations([
     {

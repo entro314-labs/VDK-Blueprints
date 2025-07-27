@@ -1,0 +1,282 @@
+name: 🔍 Validate Blueprints
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-structure:
+    name: 📁 Validate Repository Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Check Required Files
+        run: |
+          echo "::group::Checking required files"
+          required_files=(
+            "README.md"
+            "LICENSE"
+            "CODE_OF_CONDUCT.md"
+            "CONTRIBUTING.md"
+            "SECURITY.md"
+            ".ai/rules"
+            ".ai/schemas"
+            ".ai/templates"
+            ".ai/docs"
+          )
+          
+          for file in "${required_files[@]}"; do
+            if [[ -e "$file" ]]; then
+              echo "✅ $file exists"
+            else
+              echo "❌ $file is missing"
+              exit 1
+            fi
+          done
+          echo "::endgroup::"
+
+      - name: 📊 Count Blueprints
+        run: |
+          echo "::group::Blueprint Statistics"
+          find .ai/rules -name "*.mdc" -type f | wc -l | xargs echo "📋 Total .mdc files:"
+          find .ai/rules -name "*.md" -type f | wc -l | xargs echo "📄 Total .md files:"
+          echo "📁 Directory structure:"
+          tree .ai/rules -I "__pycache__|*.pyc" || ls -la .ai/rules
+          echo "::endgroup::"
+
+  validate-yaml:
+    name: 📝 Validate YAML Frontmatter
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install Dependencies
+        run: |
+          pip install pyyaml jsonschema
+
+      - name: 🔍 Validate Blueprint YAML
+        run: |
+          echo "::group::YAML Validation"
+          python3 << 'EOF'
+          import os
+          import yaml
+          import sys
+          from pathlib import Path
+          
+          def validate_yaml_frontmatter(file_path):
+              try:
+                  with open(file_path, 'r', encoding='utf-8') as f:
+                      content = f.read()
+                  
+                  if not content.startswith('---'):
+                      print(f"❌ {file_path}: Missing YAML frontmatter")
+                      return False
+                  
+                  # Extract YAML frontmatter
+                  parts = content.split('---', 2)
+                  if len(parts) < 3:
+                      print(f"❌ {file_path}: Invalid YAML frontmatter structure")
+                      return False
+                  
+                  yaml_content = parts[1]
+                  
+                  # Parse YAML
+                  try:
+                      metadata = yaml.safe_load(yaml_content)
+                      if not isinstance(metadata, dict):
+                          print(f"❌ {file_path}: YAML frontmatter must be a dictionary")
+                          return False
+                  except yaml.YAMLError as e:
+                      print(f"❌ {file_path}: YAML parsing error - {e}")
+                      return False
+                  
+                  # Check required fields
+                  required_fields = ['id', 'title', 'description', 'version', 'category']
+                  for field in required_fields:
+                      if field not in metadata:
+                          print(f"❌ {file_path}: Missing required field '{field}'")
+                          return False
+                  
+                  print(f"✅ {file_path}: Valid")
+                  return True
+                  
+              except Exception as e:
+                  print(f"❌ {file_path}: Error - {e}")
+                  return False
+          
+          # Find all .mdc files
+          mdc_files = list(Path('.ai/rules').rglob('*.mdc'))
+          
+          if not mdc_files:
+              print("⚠️ No .mdc files found")
+              sys.exit(0)
+          
+          print(f"Found {len(mdc_files)} .mdc files to validate")
+          
+          valid_count = 0
+          for file_path in mdc_files:
+              if validate_yaml_frontmatter(file_path):
+                  valid_count += 1
+          
+          print(f"\n📊 Results: {valid_count}/{len(mdc_files)} files valid")
+          
+          if valid_count != len(mdc_files):
+              sys.exit(1)
+          EOF
+          echo "::endgroup::"
+
+  validate-links:
+    name: 🔗 Check Documentation Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔗 Check Internal Links
+        run: |
+          echo "::group::Link Validation"
+          # Simple link checking for markdown files
+          find . -name "*.md" -o -name "*.mdc" | while read -r file; do
+            echo "Checking $file"
+            # Check for broken relative links
+            grep -n '\[.*\]([^http].*\.md)' "$file" || true
+          done
+          echo "::endgroup::"
+
+  security-scan:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Scan for Secrets
+        run: |
+          echo "::group::Secret Scanning"
+          # Basic secret pattern detection
+          patterns=(
+            "password\s*=\s*['\"][^'\"]+['\"]"
+            "api[_-]?key\s*=\s*['\"][^'\"]+['\"]"
+            "secret\s*=\s*['\"][^'\"]+['\"]"
+            "token\s*=\s*['\"][^'\"]+['\"]"
+            "ghp_[a-zA-Z0-9]{36}"
+            "xoxb-[0-9]{10,12}-[0-9]{10,12}-[a-zA-Z0-9]{24}"
+          )
+          
+          found_secrets=false
+          for pattern in "${patterns[@]}"; do
+            if grep -r -i -E "$pattern" .ai/ --exclude-dir=node_modules 2>/dev/null; then
+              echo "❌ Potential secret found matching pattern: $pattern"
+              found_secrets=true
+            fi
+          done
+          
+          if [ "$found_secrets" = true ]; then
+            echo "❌ Security scan failed - potential secrets detected"
+            exit 1
+          else
+            echo "✅ No secrets detected"
+          fi
+          echo "::endgroup::"
+
+  compatibility-check:
+    name: 🤖 Platform Compatibility Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Check Platform Support
+        run: |
+          echo "::group::Platform Compatibility"
+          python3 << 'EOF'
+          import os
+          import yaml
+          from pathlib import Path
+          
+          supported_platforms = ['claude-code', 'cursor', 'windsurf', 'github-copilot']
+          
+          mdc_files = list(Path('.ai/rules').rglob('*.mdc'))
+          
+          for file_path in mdc_files:
+              try:
+                  with open(file_path, 'r', encoding='utf-8') as f:
+                      content = f.read()
+                  
+                  if content.startswith('---'):
+                      parts = content.split('---', 2)
+                      if len(parts) >= 3:
+                          metadata = yaml.safe_load(parts[1])
+                          
+                          if 'platforms' in metadata:
+                              platforms = metadata['platforms']
+                              for platform in platforms:
+                                  if platform not in supported_platforms:
+                                      print(f"⚠️ {file_path}: Unknown platform '{platform}'")
+                              
+                              if len(platforms) == 0:
+                                  print(f"⚠️ {file_path}: No platforms specified")
+                          else:
+                              print(f"⚠️ {file_path}: No platform compatibility info")
+              except Exception as e:
+                  print(f"❌ {file_path}: Error checking platforms - {e}")
+          
+          print("✅ Platform compatibility check completed")
+          EOF
+          echo "::endgroup::"
+
+  summary:
+    name: 📊 Validation Summary
+    runs-on: ubuntu-latest
+    needs: [validate-structure, validate-yaml, validate-links, security-scan, compatibility-check]
+    if: always()
+    steps:
+      - name: 📊 Generate Summary
+        run: |
+          echo "## 🔍 Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ needs.validate-structure.result }}" == "success" ]]; then
+            echo "✅ **Structure Validation**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Structure Validation**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.validate-yaml.result }}" == "success" ]]; then
+            echo "✅ **YAML Validation**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **YAML Validation**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.validate-links.result }}" == "success" ]]; then
+            echo "✅ **Link Validation**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Link Validation**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.security-scan.result }}" == "success" ]]; then
+            echo "✅ **Security Scan**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Security Scan**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.compatibility-check.result }}" == "success" ]]; then
+            echo "✅ **Compatibility Check**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Compatibility Check**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi

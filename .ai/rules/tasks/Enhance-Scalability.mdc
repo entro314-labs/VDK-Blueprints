@@ -3,8 +3,8 @@
 id: "Enhance-Scalability"
 title: "Enhance Scalability"
 description: "Analyzes code or system architecture and suggests modifications to improve its ability to handle increased load (more users, more data, higher throughput) efficiently"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

@@ -3,8 +3,8 @@
 id: "tailwind4"
 title: "Tailwind4 Technology Guidelines"
 description: "Tailwind CSS v4+ best practices for modern web applications"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

@@ -1,6 +1,6 @@
-# Contributing to VibeKit VDK AI Rules
+# Contributing to VDK Blueprints
 
-Welcome to the VibeKit VDK AI Rules project! This guide will help you understand how to contribute rules, commands, and documentation to support multi-platform AI assistant integration.
+Welcome to the VDK Blueprints project! This guide will help you understand how to contribute rules, commands, agents and documentation to support multi-platform AI assistant integration.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ Welcome to the VibeKit VDK AI Rules project! This guide will help you understand
 ### Setting Up
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/VibeKit-VDK-AI-rules.git`
+2. Clone your fork: `git clone https://github.com/your-username/VDK-Blueprints.git`
 3. Create a new branch for your contribution: `git checkout -b feature/your-rule-name`
 4. Make your changes following the guidelines below
 5. Test your changes using the validation tools
@@ -87,7 +87,7 @@ id: "your-rule-id"                    # Unique identifier (kebab-case)
 title: "Your Rule Title"              # Human-readable title
 description: "Brief description"       # What this rule does
 version: "1.0.0"                      # Semantic versioning
-lastUpdated: "2025-01-22"             # ISO date format
+lastUpdated: "2025-07-25"             # ISO date format
 
 # === Categorization ===
 category: "task"                      # See categories above
@@ -278,4 +278,4 @@ Contributors are recognized in:
 - Community showcase for innovative rules
 - Documentation acknowledgments
 
-Thank you for contributing to VibeKit VDK AI Rules! Your contributions help make AI-assisted development better for everyone.
+Thank you for contributing to VDK Blueprints! Your contributions help make AI-assisted development better for everyone.

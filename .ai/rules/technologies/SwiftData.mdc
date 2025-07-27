@@ -3,8 +3,8 @@
 id: "SwiftData"
 title: "Swiftdata Technology Guidelines"
 description: "Best practices for SwiftData, Apple"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -70,7 +70,7 @@ discussionUrl: ""
       var startDate: Date
       var endDate: Date
       var observations: [Observation]?
-      
+
       init(name: String, destination: String, startDate: Date, endDate: Date) {
           self.name = name
           self.destination = destination
@@ -111,7 +111,7 @@ discussionUrl: ""
   ```swift
   struct TripsView: View {
       @Query var trips: [Trip]
-      
+
       var body: some View {
           List(trips) { trip in
               Text(trip.name)
@@ -122,7 +122,7 @@ discussionUrl: ""
 - Apply sorting and filtering to queries as needed:
   ```swift
   @Query(sort: \Trip.startDate, order: .reverse) var trips: [Trip]
-  
+
   // With predicates
   @Query(filter: #Predicate<Trip> { trip in
       trip.name.contains("vacation")
@@ -131,9 +131,9 @@ discussionUrl: ""
 - Use `@Environment(\.modelContext)` to access the model context for operations:
   ```swift
   @Environment(\.modelContext) private var modelContext
-  
+
   func addNewTrip() {
-      let newTrip = Trip(name: "Summer Vacation", destination: "Beach", 
+      let newTrip = Trip(name: "Summer Vacation", destination: "Beach",
                          startDate: Date(), endDate: Date().addingTimeInterval(86400 * 7))
       modelContext.insert(newTrip)
   }
@@ -167,7 +167,7 @@ discussionUrl: ""
   ```
 - Apply appropriate sorting to your queries:
   ```swift
-  let descriptor = FetchDescriptor<Trip>(predicate: inProgress, 
+  let descriptor = FetchDescriptor<Trip>(predicate: inProgress,
                                          sortBy: [SortDescriptor(\Trip.startDate)])
   ```
 - Consider batch size and pagination for large datasets:
@@ -196,10 +196,10 @@ discussionUrl: ""
   ```swift
   try modelContext.transaction {
       // Multiple operations
-      let trip = Trip(name: "Road Trip", destination: "Mountains", 
+      let trip = Trip(name: "Road Trip", destination: "Mountains",
                      startDate: Date(), endDate: Date().addingTimeInterval(86400 * 3))
       modelContext.insert(trip)
-      
+
       let observation = Observation(title: "Wildlife", description: "Saw deer")
       observation.trip = trip
       modelContext.insert(observation)
@@ -234,8 +234,8 @@ discussionUrl: ""
 - Design your data models with future changes in mind.
 - Implement versioned schema migrations when making breaking changes:
   ```swift
-  let container = ModelContainer(for: Trip.self, Observation.self, 
-                               configurations: ModelConfiguration(schema: Schema([Trip.self, Observation.self], 
+  let container = ModelContainer(for: Trip.self, Observation.self,
+                               configurations: ModelConfiguration(schema: Schema([Trip.self, Observation.self],
                                                                                 version: 2))
   ```
 - Follow these migration strategies:

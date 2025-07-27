@@ -3,8 +3,8 @@
 id: "Analyze-Requirements"
 title: "Analyze Requirements"
 description: "Analyzes requirement descriptions (PRDs, user stories, feature requests) to extract, clarify, and structure functional and non-functional requirements, identifying ambiguities and potential conflicts"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

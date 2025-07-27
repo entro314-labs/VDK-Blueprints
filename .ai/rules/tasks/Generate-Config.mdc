@@ -3,8 +3,8 @@
 id: "Generate-Config"
 title: "Generate Config"
 description: "Generates configuration files for various development tools, frameworks, or environments (e.g., linters, formatters, build tools, Docker, CI/CD) based on user requirements or project context"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

@@ -3,8 +3,8 @@
 id: "AI-Refactoring"
 title: "Ai Refactoring"
 description: "Specialized instructions for AI assistants performing code refactoring, focusing on improving code structure and quality while maintaining functionality"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

@@ -3,8 +3,8 @@
 id: "DevOps-Tasks"
 title: "Devops Tasks"
 description: "Assists with DevOps tasks like setting up CI/CD pipelines, writing deployment scripts, configuring infrastructure as code (IaC), managing environments, and setting up monitoring/alerting"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

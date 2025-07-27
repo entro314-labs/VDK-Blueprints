@@ -1,0 +1,193 @@
+name: 📋 Blueprint Request
+description: Request a new blueprint for a technology, framework, or pattern
+title: "[Blueprint]: "
+labels: ["blueprint-request", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Request a new blueprint to be added to the VDK Blueprints collection. This helps us prioritize which technologies and patterns to support.
+
+  - type: input
+    id: technology
+    attributes:
+      label: Technology/Framework Name
+      description: What technology or framework should this blueprint cover?
+      placeholder: e.g., Vue 4, Angular 18, Astro 5, FastAPI
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Blueprint Category
+      description: What type of blueprint is this?
+      options:
+        - Programming Language
+        - Frontend Framework
+        - Backend Framework
+        - Full-Stack Solution
+        - Development Tool
+        - Testing Framework
+        - Database/ORM
+        - Cloud Platform
+        - DevOps/CI-CD
+        - Mobile Framework
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Technology Description
+      description: Brief description of the technology and its primary use cases
+      placeholder: |
+        What is this technology?
+        What is it primarily used for?
+        Why would developers use it?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Technology Maturity
+      description: How mature/stable is this technology?
+      options:
+        - Experimental/Alpha
+        - Beta/Release Candidate
+        - Stable/Production Ready
+        - Mature/Widely Adopted
+        - Legacy/Maintenance Mode
+
+  - type: textarea
+    id: patterns
+    attributes:
+      label: Key Patterns/Practices
+      description: What specific patterns, best practices, or conventions should the blueprint cover?
+      placeholder: |
+        - File organization patterns
+        - Code structure conventions
+        - Common configurations
+        - Best practices
+        - Anti-patterns to avoid
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example Use Cases
+      description: Provide specific examples of how this blueprint would be helpful
+      placeholder: |
+        Example 1: When creating components...
+        Example 2: When setting up routing...
+        Example 3: When configuring build tools...
+
+  - type: checkboxes
+    id: integrations
+    attributes:
+      label: Common Integrations
+      description: What technologies does this commonly integrate with?
+      options:
+        - label: TypeScript
+        - label: JavaScript
+        - label: React
+        - label: Vue
+        - label: Angular
+        - label: Node.js
+        - label: Tailwind CSS
+        - label: Vite
+        - label: Webpack
+        - label: ESLint
+        - label: Prettier
+        - label: Jest/Vitest
+        - label: Docker
+        - label: Other (specify in additional info)
+
+  - type: input
+    id: version
+    attributes:
+      label: Target Version
+      description: What version of the technology should we target?
+      placeholder: e.g., v4.0.0, latest stable, upcoming release
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Official Resources
+      description: Links to official documentation, guides, or resources
+      placeholder: |
+        - Official docs: https://...
+        - GitHub repository: https://...
+        - Best practices guide: https://...
+        - Migration guide: https://...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Request Priority
+      description: How urgent is this blueprint request?
+      options:
+        - Nice to have - future consideration
+        - Would improve my workflow
+        - Important for my current project
+        - Critical - blocking my work
+
+  - type: textarea
+    id: team-usage
+    attributes:
+      label: Team/Community Usage
+      description: How many people would benefit from this blueprint?
+      placeholder: |
+        - Personal project
+        - Small team (2-5 people)
+        - Medium team (6-20 people)
+        - Large organization (20+ people)
+        - Open source community
+
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Target AI Platforms
+      description: Which platforms should support this blueprint?
+      options:
+        - label: Claude Code
+        - label: Cursor
+        - label: Windsurf
+        - label: GitHub Copilot
+        - label: All platforms (preferred)
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Any other relevant information about this blueprint request
+      placeholder: |
+        - Related existing blueprints
+        - Similar technologies already supported
+        - Special considerations
+        - Community interest/demand
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution Interest
+      options:
+        - label: I would be willing to help create this blueprint
+        - label: I can provide domain expertise and review
+        - label: I can help with testing across platforms
+        - label: I can provide real-world usage examples
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched for existing blueprints covering this technology
+          required: true
+        - label: I have provided sufficient detail about the technology and patterns
+          required: true
+        - label: I have included relevant resources and documentation links
+          required: true

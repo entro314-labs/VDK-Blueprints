@@ -3,8 +3,8 @@
 id: "SEO-Best-Practices-Review"
 title: "Seo Best Practices Review"
 description: "Reviews web pages, content, or site structure for common Search Engine Optimization (SEO) issues and best practices related to technical SEO, on-page factors, and content optimization"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

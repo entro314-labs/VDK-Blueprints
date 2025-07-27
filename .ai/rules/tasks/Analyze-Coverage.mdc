@@ -3,8 +3,8 @@
 id: "Analyze-Coverage"
 title: "Analyze Coverage"
 description: "Analyzes test coverage reports (if provided) or code structure to identify areas with low test coverage and suggest specific test cases or strategies to improve it"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

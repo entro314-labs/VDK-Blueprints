@@ -2,7 +2,7 @@
   "platform": "your-platform",
   "version": "1.0.0",
   "capabilities": {
-    "maxRuleSize": 10000,
+    "maxBlueprintSize": 10000,
     "supportedFormats": ["markdown", "json"],
     "toolIntegration": true,
     "memoryManagement": false,
@@ -13,8 +13,8 @@
     "contextAwareness": "project"
   },
   "constraints": {
-    "maxConcurrentRules": 50,
-    "ruleActivationDelay": 100,
+    "maxConcurrentBlueprints": 50,
+    "BlueprintActivationDelay": 100,
     "supportedLanguages": [
       "javascript",
       "typescript",
@@ -35,7 +35,7 @@
     "gitlab": false,
     "mcp": false
   },
-  "ruleFormat": {
+  "BlueprintFormat": {
     "frontmatter": "yaml",
     "contentFormat": "markdown",
     "xmlTags": false,
@@ -45,7 +45,7 @@
     "platform": "Unique identifier for this platform (kebab-case)",
     "version": "Platform specification version (semantic versioning)",
     "capabilities": {
-      "maxRuleSize": "Maximum size of a single rule in characters",
+      "maxBlueprintSize": "Maximum size of a single Blueprint in characters",
       "supportedFormats": "File formats the platform can process",
       "toolIntegration": "Can integrate with external development tools",
       "memoryManagement": "Has memory/context management features",
@@ -56,8 +56,8 @@
       "contextAwareness": "Level of project/workspace context understanding"
     },
     "constraints": {
-      "maxConcurrentRules": "Maximum number of rules that can be active simultaneously",
-      "ruleActivationDelay": "Minimum delay between rule activations (milliseconds)",
+      "maxConcurrentBlueprints": "Maximum number of Blueprints that can be active simultaneously",
+      "BlueprintActivationDelay": "Minimum delay between Blueprint activations (milliseconds)",
       "supportedLanguages": "Programming languages supported by the platform",
       "requiresConfiguration": "Whether platform needs specific setup/configuration",
       "networkAccess": "Whether platform can make network requests"
@@ -65,9 +65,9 @@
     "integrations": {
       "description": "Which IDEs and services this platform integrates with"
     },
-    "ruleFormat": {
-      "frontmatter": "Format for rule metadata (yaml, json, toml)",
-      "contentFormat": "Primary format for rule content",
+    "BlueprintFormat": {
+      "frontmatter": "Format for Blueprint metadata (yaml, json, toml)",
+      "contentFormat": "Primary format for Blueprint content",
       "xmlTags": "Whether platform supports XML-style tags in content",
       "customSyntax": "Whether platform requires platform-specific syntax"
     }

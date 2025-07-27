@@ -4,7 +4,7 @@ id: "code-search"
 title: "Code Search"
 description: "Guidelines for AI assistants to effectively search and navigate codebases"
 version: "2.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tools"
@@ -94,16 +94,16 @@ async function searchCodebaseText(searchDirectory, query, options = {}) {
     excludePatterns = ['**/node_modules/**', '**/build/**', '**/dist/**'],
     maxResults = 50
   } = options;
-  
+
   // 1. Validate inputs
   if (!directoryExists(searchDirectory)) {
     throw new Error(`Search directory does not exist: ${searchDirectory}`);
   }
-  
+
   if (!query || typeof query !== 'string') {
     throw new Error('Search query must be a non-empty string');
   }
-  
+
   // 2. Build search command (using grep or similar)
   const searchCommand = buildSearchCommand({
     directory: searchDirectory,
@@ -114,11 +114,11 @@ async function searchCodebaseText(searchDirectory, query, options = {}) {
     excludePatterns,
     maxResults
   });
-  
+
   // 3. Execute search with proper error handling
   try {
     const results = await executeCommand(searchCommand);
-    
+
     // 4. Parse and format results
     return parseSearchResults(results);
   } catch (error) {
@@ -139,12 +139,12 @@ async function searchCodebaseSemantic(searchDirectory, query, options = {}) {
     includeDefinitions = true,
     includeReferences = true
   } = options;
-  
+
   // 1. Validate inputs
   if (!directoryExists(searchDirectory)) {
     throw new Error(`Search directory does not exist: ${searchDirectory}`);
   }
-  
+
   // 2. Build semantic search query
   const searchQuery = buildSemanticSearchQuery({
     query,
@@ -154,11 +154,11 @@ async function searchCodebaseSemantic(searchDirectory, query, options = {}) {
     includeReferences,
     maxResults
   });
-  
+
   // 3. Execute semantic search
   try {
     const results = await executeSemanticSearch(searchDirectory, searchQuery);
-    
+
     // 4. Process and return results
     return processSemanticResults(results);
   } catch (error) {
@@ -177,19 +177,19 @@ async function findByStructure(searchDirectory, structurePattern, options = {}) 
     maxDepth = Infinity,
     maxResults = 30
   } = options;
-  
+
   // 1. Validate structure pattern
   if (!isValidStructurePattern(structurePattern)) {
     throw new Error('Invalid structure pattern');
   }
-  
+
   // 2. Build structure query
   const query = buildStructureQuery(structurePattern, language);
-  
+
   // 3. Execute structure search
   try {
     const results = await executeStructureSearch(searchDirectory, query, maxDepth, maxResults);
-    
+
     // 4. Format and return results
     return formatStructureResults(results);
   } catch (error) {
@@ -210,12 +210,12 @@ async function exploreProjectStructure(rootDirectory, options = {}) {
     includeFiles = true,
     excludePatterns = ['**/node_modules/**', '**/build/**', '**/dist/**']
   } = options;
-  
+
   // 1. Validate root directory
   if (!directoryExists(rootDirectory)) {
     throw new Error(`Directory does not exist: ${rootDirectory}`);
   }
-  
+
   // 2. Build directory exploration command
   const explorationCommand = buildExplorationCommand({
     directory: rootDirectory,
@@ -223,11 +223,11 @@ async function exploreProjectStructure(rootDirectory, options = {}) {
     includeFiles,
     excludePatterns
   });
-  
+
   // 3. Execute exploration
   try {
     const output = await executeCommand(explorationCommand);
-    
+
     // 4. Parse and structure results
     return parseDirectoryStructure(output);
   } catch (error) {
@@ -246,23 +246,23 @@ async function navigateToSymbol(codebase, symbolName, options = {}) {
     exactMatch = false,
     maxResults = 10
   } = options;
-  
+
   // 1. Validate inputs
   if (!symbolName || typeof symbolName !== 'string') {
     throw new Error('Symbol name must be a non-empty string');
   }
-  
+
   // 2. Build symbol search query
   const symbolQuery = buildSymbolQuery({
     name: symbolName,
     type: symbolType,
     exactMatch
   });
-  
+
   // 3. Execute symbol search
   try {
     const results = await findSymbolDefinitions(codebase, symbolQuery, maxResults);
-    
+
     // 4. Format and return results
     return formatSymbolResults(results);
   } catch (error) {
@@ -283,12 +283,12 @@ async function analyzeDependencies(targetFile, options = {}) {
     depth = 2,
     includeExternal = false
   } = options;
-  
+
   // 1. Validate target file
   if (!fileExists(targetFile)) {
     throw new Error(`Target file does not exist: ${targetFile}`);
   }
-  
+
   // 2. Build dependency analysis query
   const analysisQuery = buildDependencyQuery({
     file: targetFile,
@@ -296,11 +296,11 @@ async function analyzeDependencies(targetFile, options = {}) {
     depth,
     includeExternal
   });
-  
+
   // 3. Execute dependency analysis
   try {
     const dependencyMap = await executeAnalysis(analysisQuery);
-    
+
     // 4. Process and visualize dependencies
     return processDependencyResults(dependencyMap);
   } catch (error) {
@@ -320,23 +320,23 @@ async function buildCodeContext(codeElement, options = {}) {
     includeRelated = true,
     maxRelated = 5
   } = options;
-  
+
   // 1. Get element definition
   let context = {};
   if (includeDefinition) {
     context.definition = await getElementDefinition(codeElement);
   }
-  
+
   // 2. Find usages
   if (includeUsages) {
     context.usages = await findElementUsages(codeElement);
   }
-  
+
   // 3. Find related elements
   if (includeRelated) {
     context.related = await findRelatedElements(codeElement, maxRelated);
   }
-  
+
   // 4. Build comprehensive context
   return formatCodeContext(context);
 }
@@ -400,19 +400,19 @@ async function buildCodeContext(codeElement, options = {}) {
 // Pattern for processing and prioritizing search results
 function prioritizeResults(searchResults, context) {
   // 1. Remove irrelevant results
-  const filteredResults = searchResults.filter(result => 
+  const filteredResults = searchResults.filter(result =>
     isRelevantResult(result, context));
-  
+
   // 2. Score results based on relevance factors
   const scoredResults = filteredResults.map(result => ({
     ...result,
     relevanceScore: calculateRelevanceScore(result, context)
   }));
-  
+
   // 3. Sort by relevance score
-  const sortedResults = scoredResults.sort((a, b) => 
+  const sortedResults = scoredResults.sort((a, b) =>
     b.relevanceScore - a.relevanceScore);
-  
+
   // 4. Group related results
   return groupRelatedResults(sortedResults);
 }
@@ -428,22 +428,22 @@ function summarizeSearchResults(results, options = {}) {
     includeSummaryStats = true,
     groupByCategory = true
   } = options;
-  
+
   // 1. Generate detailed information for top results
   const detailedResults = results
     .slice(0, maxDetailedResults)
     .map(result => generateDetailedInfo(result));
-  
+
   // 2. Create brief summaries for remaining results
   const briefSummaries = results
     .slice(maxDetailedResults)
     .map(result => generateBriefSummary(result));
-  
+
   // 3. Generate summary statistics if requested
   const summaryStats = includeSummaryStats
     ? generateResultStatistics(results)
     : null;
-  
+
   // 4. Structure the complete summary
   return formatSearchSummary({
     detailedResults,

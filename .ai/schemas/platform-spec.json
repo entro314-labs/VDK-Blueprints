@@ -17,9 +17,9 @@
     "capabilities": {
       "type": "object",
       "properties": {
-        "maxRuleSize": {
+        "maxBlueprintSize": {
           "type": "number",
-          "description": "Maximum rule size in characters"
+          "description": "Maximum Blueprint size in characters"
         },
         "supportedFormats": {
           "type": "array",
@@ -60,13 +60,13 @@
     "constraints": {
       "type": "object",
       "properties": {
-        "maxConcurrentRules": {
+        "maxConcurrentBlueprints": {
           "type": "number",
-          "description": "Maximum number of rules that can be active"
+          "description": "Maximum number of Blueprints that can be active"
         },
-        "ruleActivationDelay": {
+        "BlueprintActivationDelay": {
           "type": "number",
-          "description": "Delay before rule activation (milliseconds)"
+          "description": "Delay before Blueprint activation (milliseconds)"
         },
         "supportedLanguages": {
           "type": "array",
@@ -112,7 +112,7 @@
         }
       }
     },
-    "ruleFormat": {
+    "BlueprintFormat": {
       "type": "object",
       "properties": {
         "frontmatter": {

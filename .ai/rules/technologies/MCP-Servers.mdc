@@ -3,8 +3,8 @@
 id: "MCP-Servers"
 title: "Mcp Servers Technology Guidelines"
 description: "Best practices for leveraging Model Context Protocol (MCP) servers for advanced code generation capabilities"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

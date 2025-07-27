@@ -4,7 +4,7 @@ id: "file-operations"
 title: "File Operations"
 description: "Guidelines for AI assistants to effectively perform file operations within codebases"
 version: "2.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tools"
@@ -92,12 +92,12 @@ async function readEntireFile(absolutePath) {
   if (!isValidPath(absolutePath)) {
     throw new Error(`Invalid path: ${absolutePath}`);
   }
-  
+
   // 2. Check existence
   if (!fileExists(absolutePath)) {
     throw new Error(`File does not exist: ${absolutePath}`);
   }
-  
+
   // 3. Read with proper error handling
   try {
     const content = await fs.readFile(absolutePath, 'utf-8');
@@ -117,12 +117,12 @@ async function readFileLines(absolutePath, startLine, endLine) {
   if (!isValidPath(absolutePath) || startLine < 0 || endLine < startLine) {
     throw new Error(`Invalid parameters for file reading`);
   }
-  
+
   // 2. Check existence
   if (!fileExists(absolutePath)) {
     throw new Error(`File does not exist: ${absolutePath}`);
   }
-  
+
   // 3. Read with proper error handling
   try {
     const content = await fs.readFile(absolutePath, 'utf-8');
@@ -145,18 +145,18 @@ async function createNewFile(absolutePath, content) {
   if (!isValidPath(absolutePath)) {
     throw new Error(`Invalid path: ${absolutePath}`);
   }
-  
+
   // 2. Check if file already exists to prevent overwrites
   if (fileExists(absolutePath)) {
     throw new Error(`File already exists: ${absolutePath}`);
   }
-  
+
   // 3. Ensure directory exists
   const directory = path.dirname(absolutePath);
   if (!directoryExists(directory)) {
     await fs.mkdir(directory, { recursive: true });
   }
-  
+
   // 4. Write file with proper error handling
   try {
     await fs.writeFile(absolutePath, content, 'utf-8');
@@ -176,12 +176,12 @@ async function modifyFile(absolutePath, modifications) {
   if (!isValidPath(absolutePath)) {
     throw new Error(`Invalid path: ${absolutePath}`);
   }
-  
+
   // 2. Check file exists
   if (!fileExists(absolutePath)) {
     throw new Error(`File does not exist: ${absolutePath}`);
   }
-  
+
   // 3. Read current content
   let content;
   try {
@@ -189,7 +189,7 @@ async function modifyFile(absolutePath, modifications) {
   } catch (error) {
     throw new Error(`Failed to read file for modification: ${error.message}`);
   }
-  
+
   // 4. Apply modifications (with potential backup)
   const originalContent = content;
   try {
@@ -201,7 +201,7 @@ async function modifyFile(absolutePath, modifications) {
         // Handle other modification types
       }
     }
-    
+
     // 5. Write back with proper error handling
     await fs.writeFile(absolutePath, content, 'utf-8');
     return true;
@@ -221,12 +221,12 @@ async function safelyReplaceFile(absolutePath, newContent) {
   if (!isValidPath(absolutePath) || newContent === undefined) {
     throw new Error(`Invalid parameters for file replacement`);
   }
-  
+
   // 2. Check file exists
   if (!fileExists(absolutePath)) {
     throw new Error(`File does not exist: ${absolutePath}`);
   }
-  
+
   // 3. Create backup
   const backupPath = `${absolutePath}.bak`;
   try {
@@ -234,7 +234,7 @@ async function safelyReplaceFile(absolutePath, newContent) {
   } catch (error) {
     throw new Error(`Failed to create backup: ${error.message}`);
   }
-  
+
   // 4. Write new content
   try {
     await fs.writeFile(absolutePath, newContent, 'utf-8');
@@ -265,13 +265,13 @@ async function createDirectory(absolutePath) {
   if (!isValidPath(absolutePath)) {
     throw new Error(`Invalid path: ${absolutePath}`);
   }
-  
+
   // 2. Check if already exists
   if (directoryExists(absolutePath)) {
     // Already exists - not an error
     return true;
   }
-  
+
   // 3. Create with proper error handling
   try {
     await fs.mkdir(absolutePath, { recursive: true });
@@ -291,16 +291,16 @@ async function listDirectory(absolutePath) {
   if (!isValidPath(absolutePath)) {
     throw new Error(`Invalid path: ${absolutePath}`);
   }
-  
+
   // 2. Check directory exists
   if (!directoryExists(absolutePath)) {
     throw new Error(`Directory does not exist: ${absolutePath}`);
   }
-  
+
   // 3. List contents with proper error handling
   try {
     const entries = await fs.readdir(absolutePath, { withFileTypes: true });
-    
+
     // 4. Format and return results
     return entries.map(entry => ({
       name: entry.name,

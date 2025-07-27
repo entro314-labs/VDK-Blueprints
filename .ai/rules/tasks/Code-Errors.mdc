@@ -3,8 +3,8 @@
 id: "Code-Errors"
 title: "Code Errors"
 description: "Systematically diagnoses and helps resolve general coding errors, runtime exceptions, logic flaws, or unexpected behavior in application code"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

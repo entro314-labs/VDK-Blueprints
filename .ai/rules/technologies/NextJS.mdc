@@ -3,8 +3,8 @@
 id: "nextjs"
 title: "Nextjs Technology Guidelines"
 description: "Comprehensive guide for Next.js development with App Router, TypeScript, and Tailwind CSS, focusing on modern patterns and performance optimization"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

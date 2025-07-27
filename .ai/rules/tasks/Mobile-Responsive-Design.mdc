@@ -3,8 +3,8 @@
 id: "Mobile-Responsive-Design"
 title: "Mobile Responsive Design"
 description: "Reviews and implements mobile-responsive design patterns, ensuring applications provide optimal user experience across various device sizes, orientations, and interaction modes"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

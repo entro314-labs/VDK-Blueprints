@@ -3,8 +3,8 @@
 id: "System-Architecture"
 title: "System Architecture"
 description: "Designs high-level system architecture, defining components, their responsibilities, interactions, and addressing non-functional requirements like scalability, reliability, and maintainability"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

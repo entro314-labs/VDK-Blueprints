@@ -1,6 +1,6 @@
 # Platform Integration Guide
 
-This guide explains how to integrate VibeKit VDK AI Rules with different AI assistant platforms, including setup, configuration, and optimization strategies.
+This guide explains how to integrate VDK Blueprints with different AI assistant platforms, including setup, configuration, and optimization strategies.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This guide explains how to integrate VibeKit VDK AI Rules with different AI assi
 
 ## Overview
 
-VibeKit VDK AI Rules supports four major AI assistant platforms, each with unique capabilities and integration patterns:
+VDK Blueprints supports four major AI assistant platforms, each with unique capabilities and integration patterns:
 
 | Platform | Strengths | Integration Type | Rule Format |
 |----------|-----------|-----------------|-------------|

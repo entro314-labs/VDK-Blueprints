@@ -3,8 +3,8 @@
 id: "ShadcnUI-Integration"
 title: "Shadcnui Integration Technology Guidelines"
 description: "Best practices for integrating and customizing Shadcn UI in modern React applications with a focus on Next.js, TypeScript, and Tailwind CSS"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -106,7 +106,7 @@ discussionUrl: ""
   // tailwind.config.ts
   import type { Config } from "tailwindcss";
   import { fontFamily } from "tailwindcss/defaultTheme";
-  
+
   const config: Config = {
     darkMode: ["class"],
     content: [
@@ -187,7 +187,7 @@ discussionUrl: ""
       require("@tailwindcss/typography"),
     ],
   };
-  
+
   export default config;
   ```
 
@@ -245,60 +245,60 @@ discussionUrl: ""
     :root {
       --background: 0 0% 100%;
       --foreground: 222.2 84% 4.9%;
-      
+
       --card: 0 0% 100%;
       --card-foreground: 222.2 84% 4.9%;
-      
+
       --popover: 0 0% 100%;
       --popover-foreground: 222.2 84% 4.9%;
-      
+
       --primary: 222.2 47.4% 11.2%;
       --primary-foreground: 210 40% 98%;
-      
+
       --secondary: 210 40% 96.1%;
       --secondary-foreground: 222.2 47.4% 11.2%;
-      
+
       --muted: 210 40% 96.1%;
       --muted-foreground: 215.4 16.3% 46.9%;
-      
+
       --accent: 210 40% 96.1%;
       --accent-foreground: 222.2 47.4% 11.2%;
-      
+
       --destructive: 0 84.2% 60.2%;
       --destructive-foreground: 210 40% 98%;
-      
+
       --border: 214.3 31.8% 91.4%;
       --input: 214.3 31.8% 91.4%;
       --ring: 222.2 84% 4.9%;
-      
+
       --radius: 0.5rem;
     }
-    
+
     .dark {
       --background: 222.2 84% 4.9%;
       --foreground: 210 40% 98%;
-      
+
       --card: 222.2 84% 4.9%;
       --card-foreground: 210 40% 98%;
-      
+
       --popover: 222.2 84% 4.9%;
       --popover-foreground: 210 40% 98%;
-      
+
       --primary: 210 40% 98%;
       --primary-foreground: 222.2 47.4% 11.2%;
-      
+
       --secondary: 217.2 32.6% 17.5%;
       --secondary-foreground: 210 40% 98%;
-      
+
       --muted: 217.2 32.6% 17.5%;
       --muted-foreground: 215 20.2% 65.1%;
-      
+
       --accent: 217.2 32.6% 17.5%;
       --accent-foreground: 210 40% 98%;
-      
+
       --destructive: 0 62.8% 30.6%;
       --destructive-foreground: 210 40% 98%;
-      
+
       --border: 217.2 32.6% 17.5%;
       --input: 217.2 32.6% 17.5%;
       --ring: 212.7 26.8% 83.9%;
@@ -354,11 +354,11 @@ discussionUrl: ""
   ```tsx
   // src/components/theme-provider.tsx
   "use client"
-  
+
   import * as React from "react"
   import { ThemeProvider as NextThemesProvider } from "next-themes"
   import { type ThemeProviderProps } from "next-themes/dist/types"
-  
+
   export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     return <NextThemesProvider {...props}>{children}</NextThemesProvider>
   }
@@ -368,15 +368,15 @@ discussionUrl: ""
   ```tsx
   // src/app/layout.tsx
   import { ThemeProvider } from "@/components/theme-provider"
-  
+
   export default function RootLayout({ children }: RootLayoutProps) {
     return (
       <html lang="en" suppressHydrationWarning>
         <body>
-          <ThemeProvider 
-            attribute="class" 
-            defaultTheme="system" 
-            enableSystem 
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
             disableTransitionOnChange
           >
             {children}
@@ -391,14 +391,14 @@ discussionUrl: ""
   ```tsx
   // src/components/theme-toggle.tsx
   "use client"
-  
+
   import { useTheme } from "next-themes"
   import { Button } from "@/components/ui/button"
   import { Moon, Sun } from "lucide-react"
-  
+
   export function ThemeToggle() {
     const { theme, setTheme } = useTheme()
-    
+
     return (
       <Button
         variant="ghost"
@@ -420,11 +420,11 @@ discussionUrl: ""
 - Implement proper form structure using Shadcn UI components:
   ```tsx
   "use client"
-  
+
   import { zodResolver } from "@hookform/resolvers/zod"
   import { useForm } from "react-hook-form"
   import * as z from "zod"
-  
+
   import { Button } from "@/components/ui/button"
   import {
     Form,
@@ -436,15 +436,15 @@ discussionUrl: ""
     FormMessage,
   } from "@/components/ui/form"
   import { Input } from "@/components/ui/input"
-  
+
   const formSchema = z.object({
     username: z.string().min(2).max(50),
     email: z.string().email(),
     password: z.string().min(8),
   })
-  
+
   export function SignupForm() {
-    const form = useForm<z.infer<typeof formSchema>>({  
+    const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
         username: "",
@@ -452,12 +452,12 @@ discussionUrl: ""
         password: "",
       },
     })
-    
+
     function onSubmit(values: z.infer<typeof formSchema>) {
       // Handle form submission
       console.log(values)
     }
-    
+
     return (
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -477,7 +477,7 @@ discussionUrl: ""
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="email"
@@ -491,7 +491,7 @@ discussionUrl: ""
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="password"
@@ -505,7 +505,7 @@ discussionUrl: ""
               </FormItem>
             )}
           />
-          
+
           <Button type="submit">Submit</Button>
         </form>
       </Form>
@@ -537,7 +537,7 @@ discussionUrl: ""
   ```tsx
   import { motion } from "framer-motion"
   import { Button } from "@/components/ui/button"
-  
+
   export function AnimatedButton({ children, ...props }) {
     return (
       <motion.div
@@ -560,7 +560,7 @@ discussionUrl: ""
   ```tsx
   import { Search, User, Settings } from "lucide-react"
   import { Button } from "@/components/ui/button"
-  
+
   export function IconButtons() {
     return (
       <div className="flex gap-2">
@@ -609,11 +609,11 @@ discussionUrl: ""
   // lib/utils.ts
   import { type ClassValue, clsx } from "clsx"
   import { twMerge } from "tailwind-merge"
-  
+
   export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
   }
-  
+
   // Create a custom variant generator
   export function createVariants(baseClasses: string, variants: Record<string, Record<string, string>>) {
     return cva(baseClasses, { variants })

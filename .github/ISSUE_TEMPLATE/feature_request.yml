@@ -1,0 +1,141 @@
+name: ✨ Feature Request
+description: Suggest a new feature or enhancement for VDK Blueprints
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please provide detailed information to help us understand your request.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: A brief, clear summary of the feature you'd like to see
+      placeholder: Describe the feature in 1-2 sentences
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What type of feature is this?
+      options:
+        - New Blueprint/Rule
+        - Platform Integration
+        - Documentation Enhancement
+        - Tooling/Automation
+        - Performance Improvement
+        - API/Schema Enhancement
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve?
+      placeholder: |
+        Currently, when I try to...
+        The issue is that...
+        This makes it difficult to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution
+      placeholder: |
+        I would like to see...
+        This could work by...
+        The feature should...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions?
+      placeholder: I've also considered... but that wouldn't work because...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - Nice to have
+        - Would improve my workflow
+        - Important for my use case
+        - Critical/blocking issue
+
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Target Platforms
+      description: Which AI platforms should support this feature?
+      options:
+        - label: Claude Code
+        - label: Cursor
+        - label: Windsurf
+        - label: GitHub Copilot
+        - label: All platforms
+        - label: Platform agnostic
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case Examples
+      description: Provide specific examples of how this feature would be used
+      placeholder: |
+        Example 1: When working on a React project...
+        Example 2: During code review...
+        Example 3: When setting up a new project...
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Ideas
+      description: Do you have any ideas about how this could be implemented?
+      placeholder: |
+        This could be implemented by...
+        The blueprint structure might look like...
+        Integration points could include...
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How would you know this feature is working correctly?
+      placeholder: |
+        - [ ] The feature should...
+        - [ ] When I do X, it should...
+        - [ ] It should not...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution Interest
+      options:
+        - label: I would be interested in contributing to this feature
+        - label: I can help with testing
+        - label: I can help with documentation
+        - label: I have domain expertise in this area
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues and feature requests
+          required: true
+        - label: I have provided a clear problem statement and solution
+          required: true
+        - label: I have considered the impact on different AI platforms
+          required: true

@@ -3,8 +3,8 @@
 id: "Architecture-Design-Review"
 title: "Architecture Design Review"
 description: "Reviews an existing software architecture design (provided via diagrams, documents, or code structure overview) against best practices, project requirements, and non-functional goals like scalability, maintainability, and security"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

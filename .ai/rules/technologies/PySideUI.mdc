@@ -3,8 +3,8 @@
 id: "PySideUI"
 title: "Pysideui Technology Guidelines"
 description: "Best practices for PySide/PyQt UI development in Python for cross-platform desktop applications"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"
@@ -108,7 +108,7 @@ discussionUrl: ""
 - Use Python's typing module for complex type definitions:
   ```python
   from typing import List, Dict, Optional, Union, Callable
-  
+
   class DataModel:
       def get_items(self) -> List[Dict[str, Union[str, int]]]:
           # Implementation...
@@ -134,20 +134,20 @@ discussionUrl: ""
   ```python
   import asyncio
   from PySide6.QtCore import QObject, Signal, Slot
-  
+
   class AsyncWorker(QObject):
       finished = Signal(object)
       error = Signal(str)
-      
+
       def __init__(self):
           super().__init__()
           self.loop = asyncio.get_event_loop()
-          
+
       @Slot()
       def run_task(self, coro):
           task = self.loop.create_task(coro)
           task.add_done_callback(self._task_done)
-          
+
       def _task_done(self, task):
           try:
               result = task.result()
@@ -160,15 +160,15 @@ discussionUrl: ""
   from PySide6.QtCore import QEventLoop
   from qasync import QEventLoop
   import asyncio
-  
+
   app = QApplication([])
   loop = QEventLoop(app)
   asyncio.set_event_loop(loop)
-  
+
   async def main():
       # Async operations
       pass
-      
+
   loop.create_task(main())
   loop.run_forever()
   ```
@@ -178,7 +178,7 @@ discussionUrl: ""
   import qasync
   import asyncio
   from PySide6.QtWidgets import QApplication
-  
+
   app = QApplication([])
   loop = qasync.QEventLoop(app)
   asyncio.set_event_loop(loop)
@@ -186,7 +186,7 @@ discussionUrl: ""
 - Use `asyncSlot` decorator for async signal handlers:
   ```python
   from qasync import asyncSlot
-  
+
   class MyWidget(QWidget):
       @asyncSlot()
       async def on_button_clicked(self):
@@ -307,7 +307,7 @@ discussionUrl: ""
   [build-system]
   requires = ["setuptools>=42", "wheel"]
   build-backend = "setuptools.build_meta"
-  
+
   [project]
   name = "your-app-name"
   version = "0.1.0"
@@ -317,7 +317,7 @@ discussionUrl: ""
       "PySide6>=6.5.0",
       "qasync>=0.24.0"
   ]
-  
+
   [project.optional-dependencies]
   dev = [
       "pytest>=7.0.0",
@@ -328,7 +328,7 @@ discussionUrl: ""
   ```python
   # setup.py
   from setuptools import setup, find_packages
-  
+
   setup(
       name="your-app-name",
       version="0.1.0",
@@ -349,7 +349,7 @@ discussionUrl: ""
   ```python
   # In your app
   from importlib.resources import files, as_file
-  
+
   with as_file(files('your_package').joinpath('resources/icon.png')) as icon_path:
       app.setWindowIcon(QIcon(str(icon_path)))
   ```
@@ -381,6 +381,6 @@ discussionUrl: ""
 - Handle application data directories properly:
   ```python
   from PySide6.QtCore import QStandardPaths
-  
+
   app_data_path = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
   ```

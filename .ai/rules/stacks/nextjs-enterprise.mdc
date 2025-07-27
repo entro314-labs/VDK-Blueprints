@@ -3,8 +3,8 @@
 id: "nextjs-enterprise"
 title: "Nextjs Enterprise"
 description: "Best practices for building enterprise-grade applications with Next.js, TypeScript, Tailwind CSS, and Shadcn UI"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "stacks"
@@ -313,18 +313,18 @@ export const authOptions: NextAuthOptions = {
       if (token.sub && session.user) {
         session.user.id = token.sub
       }
-      
+
       if (token.role && session.user) {
         session.user.role = token.role as 'USER' | 'ADMIN'
       }
-      
+
       return session
     },
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role
       }
-      
+
       return token
     }
   },
@@ -359,26 +359,26 @@ import type { NextRequest } from 'next/server'
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request })
   const isAuthenticated = !!token
-  
+
   // Protected routes check
   if (!isAuthenticated && request.nextUrl.pathname.startsWith('/dashboard')) {
     const redirectUrl = new URL('/login', request.url)
     redirectUrl.searchParams.set('callbackUrl', request.nextUrl.pathname)
     return NextResponse.redirect(redirectUrl)
   }
-  
+
   // Redirect authenticated users away from auth pages
-  if (isAuthenticated && (request.nextUrl.pathname.startsWith('/login') || 
+  if (isAuthenticated && (request.nextUrl.pathname.startsWith('/login') ||
                          request.nextUrl.pathname.startsWith('/register'))) {
     return NextResponse.redirect(new URL('/dashboard', request.url))
   }
-  
+
   // Admin route protection
-  if (request.nextUrl.pathname.startsWith('/admin') && 
+  if (request.nextUrl.pathname.startsWith('/admin') &&
       token?.role !== 'ADMIN') {
     return NextResponse.redirect(new URL('/unauthorized', request.url))
   }
-  
+
   return NextResponse.next()
 }
 
@@ -422,11 +422,11 @@ export default async function PostsPage() {
       createdAt: 'desc',
     },
   })
-  
+
   return (
     <div className="container py-10">
       <h1 className="text-3xl font-bold mb-8">Blog Posts</h1>
-      
+
       {posts.length === 0 ? (
         <p className="text-gray-500">No posts published yet.</p>
       ) : (
@@ -455,17 +455,17 @@ import { PostCreateSchema } from '@/lib/validations/post'
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
-    
+
     if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
-    
+
     const json = await request.json()
     const validatedData = PostCreateSchema.parse(json)
-    
+
     const post = await prisma.post.create({
       data: {
         title: validatedData.title,
@@ -474,7 +474,7 @@ export async function POST(request: NextRequest) {
         authorId: session.user.id,
       },
     })
-    
+
     return NextResponse.json(post, { status: 201 })
   } catch (error: any) {
     if (error.name === 'ZodError') {
@@ -483,7 +483,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
-    
+
     console.error(error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -497,7 +497,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const published = searchParams.get('published')
     const authorId = searchParams.get('authorId')
-    
+
     const posts = await prisma.post.findMany({
       where: {
         ...(published !== null ? { published: published === 'true' } : {}),
@@ -515,7 +515,7 @@ export async function GET(request: NextRequest) {
         createdAt: 'desc',
       },
     })
-    
+
     return NextResponse.json(posts)
   } catch (error) {
     console.error(error)
@@ -541,12 +541,12 @@ async function getPosts(published?: boolean) {
   if (published !== undefined) {
     params.set('published', String(published))
   }
-  
+
   const response = await fetch(`/api/posts?${params.toString()}`)
   if (!response.ok) {
     throw new Error('Failed to fetch posts')
   }
-  
+
   return response.json()
 }
 
@@ -558,12 +558,12 @@ async function createPost(data: Pick<Post, 'title' | 'content' | 'published'>) {
     },
     body: JSON.stringify(data),
   })
-  
+
   if (!response.ok) {
     const error = await response.json()
     throw new Error(error.error || 'Failed to create post')
   }
-  
+
   return response.json()
 }
 
@@ -576,7 +576,7 @@ export function usePosts(published?: boolean) {
 
 export function useCreatePost() {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: createPost,
     onSuccess: () => {
@@ -619,7 +619,7 @@ import { PostCreateSchema, type PostCreateInput } from "@/lib/validations/post"
 export function CreatePostForm() {
   const router = useRouter()
   const { mutate: createPost, isPending } = useCreatePost()
-  
+
   const form = useForm<PostCreateInput>({
     resolver: zodResolver(PostCreateSchema),
     defaultValues: {
@@ -628,7 +628,7 @@ export function CreatePostForm() {
       published: false,
     },
   })
-  
+
   function onSubmit(values: PostCreateInput) {
     createPost(values, {
       onSuccess: () => {
@@ -637,7 +637,7 @@ export function CreatePostForm() {
       },
     })
   }
-  
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -648,9 +648,9 @@ export function CreatePostForm() {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input 
-                  placeholder="Post title" 
-                  {...field} 
+                <Input
+                  placeholder="Post title"
+                  {...field}
                 />
               </FormControl>
               <FormDescription>
@@ -660,7 +660,7 @@ export function CreatePostForm() {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="content"
@@ -668,7 +668,7 @@ export function CreatePostForm() {
             <FormItem>
               <FormLabel>Content</FormLabel>
               <FormControl>
-                <Textarea 
+                <Textarea
                   placeholder="Write your post content here..."
                   className="min-h-[200px]"
                   {...field}
@@ -678,7 +678,7 @@ export function CreatePostForm() {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="published"
@@ -701,7 +701,7 @@ export function CreatePostForm() {
             </FormItem>
           )}
         />
-        
+
         <Button type="submit" disabled={isPending}>
           {isPending ? "Creating..." : "Create Post"}
         </Button>

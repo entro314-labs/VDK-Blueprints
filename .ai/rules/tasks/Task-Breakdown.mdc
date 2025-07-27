@@ -3,8 +3,8 @@
 id: "Task-Breakdown"
 title: "Task Breakdown"
 description: "Breaks down a given feature, user story, bug fix, or technical task into a sequence of smaller, manageable implementation steps or sub-tasks"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

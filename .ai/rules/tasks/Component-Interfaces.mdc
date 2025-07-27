@@ -3,8 +3,8 @@
 id: "Component-Interfaces"
 title: "Component Interfaces"
 description: "Defines clear contracts (interfaces, protocols, function signatures) between different software components, modules, microservices, or layers within an application to ensure clear boundaries and interactions"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

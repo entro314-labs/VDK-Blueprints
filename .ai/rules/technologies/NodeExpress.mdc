@@ -3,8 +3,8 @@
 id: "NodeExpress"
 title: "Nodeexpress Technology Guidelines"
 description: "Node.js and Express.js best practices for backend development, emphasizing modern ESM usage"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "technologies"

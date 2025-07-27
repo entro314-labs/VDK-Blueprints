@@ -3,8 +3,8 @@
 id: "Compliance-Check"
 title: "Compliance Check"
 description: "Performs a preliminary check of code, configuration, or processes against specified compliance requirements (e.g., HIPAA, GDPR, PCI-DSS - based on provided checklists or rules), identifying potential gaps. Requires specific compliance rules as input"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

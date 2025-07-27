@@ -3,8 +3,8 @@
 id: "Release-Plan"
 title: "Release Plan"
 description: "Helps plan and outline the steps involved in a software release process, including versioning, building, testing, tagging, documenting changes, and deploying"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

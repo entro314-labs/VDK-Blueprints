@@ -3,8 +3,8 @@
 id: "Analyze-Dependencies"
 title: "Analyze Dependencies"
 description: "Analyzes project dependencies listed in configuration files (e.g., package.json, requirements.txt, pom.xml, go.mod) to check for updates, potential vulnerabilities, unused packages, or licensing issues"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

@@ -4,7 +4,7 @@ id: "typescript-modern"
 title: "Modern TypeScript Best Practices"
 description: "Modern TypeScript best practices focusing on functional programming, type safety, and maintainable code patterns"
 version: "2.0.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "language"
@@ -79,14 +79,14 @@ discussionUrl: ""
   ```typescript
   // Instead of enum:
   // enum Status { PENDING, ACTIVE, COMPLETE }
-  
+
   // Use const object:
   const Status = {
     PENDING: 'PENDING',
     ACTIVE: 'ACTIVE',
     COMPLETE: 'COMPLETE'
   } as const;
-  
+
   type Status = typeof Status[keyof typeof Status];
   ```
 
@@ -138,16 +138,16 @@ if (condition) {
     children: React.ReactNode;
     onClick?: () => void;
   }
-  
-  const Button = ({ 
-    variant = 'primary', 
-    size = 'medium', 
-    children, 
-    onClick 
+
+  const Button = ({
+    variant = 'primary',
+    size = 'medium',
+    children,
+    onClick
   }: ButtonProps) => {
     return (
-      <button 
-        className={`btn btn-${variant} btn-${size}`} 
+      <button
+        className={`btn btn-${variant} btn-${size}`}
         onClick={onClick}
       >
         {children}
@@ -169,16 +169,16 @@ if (condition) {
 - Use Zod for data validation and parsing
   ```typescript
   import { z } from 'zod';
-  
+
   const UserSchema = z.object({
     id: z.string().uuid(),
     name: z.string().min(2).max(100),
     email: z.string().email(),
     age: z.number().int().positive().optional(),
   });
-  
+
   type User = z.infer<typeof UserSchema>;
-  
+
   function processUserData(data: unknown): User {
     return UserSchema.parse(data);
   }
@@ -216,11 +216,11 @@ if (condition) {
   // Third-party imports
   import React, { useState, useEffect } from 'react';
   import { z } from 'zod';
-  
+
   // Internal imports
   import { Button } from '@/components/ui';
   import { useAuth } from '@/hooks';
-  
+
   // Types and utilities
   import type { User } from '@/types';
   import { formatDate } from '@/utils';

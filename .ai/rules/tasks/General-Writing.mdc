@@ -3,8 +3,8 @@
 id: "General-Writing"
 title: "General Writing"
 description: "Writes or refines general content such as articles, blog posts, website copy, marketing materials, or emails, focusing on engagement, clarity, tone, and audience appropriateness"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

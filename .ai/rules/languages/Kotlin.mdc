@@ -3,8 +3,8 @@
 id: "kotlin"
 title: "Kotlin Language Patterns"
 description: "Kotlin best practices and patterns for Android, server-side, and multiplatform development"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "languages"

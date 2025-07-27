@@ -3,8 +3,8 @@
 id: "03-error-prevention"
 title: "AI 03 Error Prevention"
 description: "Documents common mistakes, anti-patterns, or outdated syntax specific to this project to help the AI avoid them. Needs user customization"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "core"

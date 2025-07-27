@@ -3,8 +3,8 @@
 id: "Service-Integration"
 title: "Service Integration"
 description: "Implements code to interact with external or internal APIs, services, or systems, handling requests, responses, authentication, and error conditions based on API specifications"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"

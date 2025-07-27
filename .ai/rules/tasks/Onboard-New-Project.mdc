@@ -2,9 +2,9 @@
 # === Core Identification ===
 id: "Onboard-New-Project"
 title: "Onboard New Project"
-description: "Analyzes a new project and generates an initial set of VDK rules to onboard it into the VibeKit ecosystem"
+description: "Analyzes a new project and generates an initial set of VDK rules to onboard it into the VDK ecosystem"
 version: ">=1.2.0"
-lastUpdated: "2025-01-22"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"
@@ -58,11 +58,11 @@ discussionUrl: ""
 ---
 
 
-# Onboarding a New Project to VibeKit
+# Onboarding a New Project to VDK
 
 ## Objective
 
-To analyze a new or existing codebase and generate a foundational set of VibeKit VDK rules. This task automates the initial setup, making any project instantly "project-aware" for an AI assistant.
+To analyze a new or existing codebase and generate a foundational set of VDK rules. This task automates the initial setup, making any project instantly "project-aware" for an AI assistant.
 
 ## Core Workflow
 
@@ -70,7 +70,7 @@ This task should be executed by the VDK CLI and will use sequential thinking to 
 
 ### Step 1: Project Analysis
 
-- **Analyze `package.json`**: 
+- **Analyze `package.json`**:
   - Identify `dependencies`, `devDependencies`, and `peerDependencies` to determine the technology stack (e.g., React, Next.js, Express).
   - Parse `scripts` to understand common workflows (e.g., `dev`, `build`, `test`).
 - **Scan Directory Structure**:
@@ -106,4 +106,4 @@ This task should be executed by the VDK CLI and will use sequential thinking to 
 - Use the `Sequential-Thinking` MCP to structure the analysis.
 - Use the `Memory-MCP` to store findings during the analysis phase.
 - The VDK CLI should provide the file system access needed for the analysis.
-- This task is designed to be a powerful first-run experience for new VibeKit users.
+- This task is designed to be a powerful first-run experience for new VDK users.

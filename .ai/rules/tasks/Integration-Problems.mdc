@@ -3,8 +3,8 @@
 id: "Integration-Problems"
 title: "Integration Problems"
 description: "Diagnoses issues occurring at the integration points between different software components, microservices, internal/external APIs, or systems"
-version: ">=1.0.0"
-lastUpdated: "2025-01-22"
+version: ">=2.0.0"
+lastUpdated: "2025-07-25"
 
 # === Categorization ===
 category: "tasks"
