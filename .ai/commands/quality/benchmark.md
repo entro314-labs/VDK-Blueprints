@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["performance", "benchmarking", "profiling", "optimization", "load-testing"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Rust, Go, Java, TypeScript/JavaScript benchmarking with comprehensive profiling and load testing"
 ---
 
@@ -165,7 +165,7 @@ Steps:
      # Install flamegraph tools
      cargo install flamegraph
      sudo cargo flamegraph --bench bench_name
-     
+
      # perf-based profiling
      perf record --call-graph=dwarf ./target/release/app
      perf report
@@ -176,7 +176,7 @@ Steps:
      # Built-in pprof
      go tool pprof http://localhost:8080/debug/pprof/profile?seconds=30
      go tool pprof http://localhost:8080/debug/pprof/heap
-     
+
      # CPU profile during execution
      ./app -cpuprofile=cpu.prof
      go tool pprof cpu.prof
@@ -186,7 +186,7 @@ Steps:
    if [ -f "pom.xml" ]; then
      # JProfiler or async-profiler
      java -jar async-profiler.jar -d 30 -e cpu -f profile.html $(pgrep java)
-     
+
      # JVM built-in tools
      jstack $(pgrep java) > thread_dump.txt
      jmap -dump:format=b,file=heap.hprof $(pgrep java)
@@ -388,8 +388,8 @@ Steps:
      let response = http.get('http://localhost:8080/api/data');
      check(response, { 'status is 200': (r) => r.status === 200 });
      sleep(1);
-     
-     response = http.post('http://localhost:8080/api/process', 
+
+     response = http.post('http://localhost:8080/api/process',
        JSON.stringify({data: 'test'}),
        { headers: { 'Content-Type': 'application/json' } }
      );
@@ -508,15 +508,15 @@ Steps:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v4
-        
+
         - name: Run benchmarks
           run: |
             ./scripts/run-benchmarks.sh
-            
+
         - name: Compare with baseline
           run: |
             ./scripts/compare-performance.sh
-            
+
         - name: Comment PR with results
           uses: actions/github-script@v6
           with:

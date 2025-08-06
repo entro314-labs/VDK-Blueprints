@@ -57,7 +57,7 @@ installation:
 category: "workflow"
 tags: ["coordination", "parallel-development", "git-worktree", "team-workflow", "project-management"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Requires git worktree support and shared file system for coordination files"
 ---
 

@@ -57,7 +57,7 @@ installation:
 category: "workflow"
 tags: ["git", "conventional-commits", "commit-messages", "version-control", "automation"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Works with any git repository and follows conventionalcommits.org v1.0.0 specification"
 ---
 

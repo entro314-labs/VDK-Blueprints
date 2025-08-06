@@ -142,7 +142,7 @@ if (!apiKey) {
 }
 
 // ❌ Bad: Hardcoded secrets
-const apiKey = 'sk-1234567890abcdef';
+const apiKey = 'sk-xxxxxxxxxxxxxxxx';
 ```
 
 ### Input Validation

@@ -56,7 +56,7 @@ installation:
 category: "analysis"
 tags: ["explanation", "documentation", "code-analysis", "implementation-guide"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports all programming languages and architecture patterns"
 ---
 
@@ -129,13 +129,13 @@ function calculateTotal(items, options = {}) {  // [1] Function signature
   const subtotal = items.reduce((sum, item) => {  // [2] Subtotal calculation
     return sum + (item.price * item.quantity);
   }, 0);
-  
+
   const discount = options.coupon ?              // [3] Conditional discount
     applyDiscount(subtotal, options.coupon) : 0;
-    
+
   const tax = (subtotal - discount) * options.taxRate || 0;  // [4] Tax calculation
   const shipping = calculateShipping(items, options.location);  // [5] Shipping costs
-  
+
   return {                                       // [6] Return structured result
     subtotal,
     discount,
@@ -215,7 +215,7 @@ describe('calculateTotal', () => {
     const items = [{ price: 10, quantity: 2 }];
     expect(calculateTotal(items).total).toBe(20);
   });
-  
+
   it('applies tax correctly after discount', () => {
     const items = [{ price: 100, quantity: 1 }];
     const options = { taxRate: 0.1, coupon: 'SAVE10' }; // 10% off
@@ -325,7 +325,7 @@ describe('calculateTotal', () => {
   - Implement event store with optimistic concurrency control
   - Create event replay and projection mechanisms
 
-- [ ] **Message Infrastructure** 
+- [ ] **Message Infrastructure**
   - Set up Kafka cluster with proper partitioning
   - Implement schema registry for event validation
   - Create dead letter queue handling
@@ -375,8 +375,8 @@ interface DomainEvent {
 
 class EventStore {
   async appendEvents(
-    aggregateId: string, 
-    events: DomainEvent[], 
+    aggregateId: string,
+    events: DomainEvent[],
     expectedVersion: number
   ): Promise<void> {
     // Optimistic concurrency control
@@ -384,7 +384,7 @@ class EventStore {
     if (currentVersion !== expectedVersion) {
       throw new ConcurrencyError('Version conflict');
     }
-    
+
     // Atomic append to event stream
     await this.db.transaction(async (tx) => {
       for (const event of events) {
@@ -394,11 +394,11 @@ class EventStore {
         );
       }
     });
-    
+
     // Publish events to message bus
     await this.eventBus.publish(events);
   }
-  
+
   async getEvents(aggregateId: string): Promise<DomainEvent[]> {
     const result = await this.db.query(
       'SELECT * FROM events WHERE aggregate_id = $1 ORDER BY version',
@@ -417,14 +417,14 @@ class OrderEventHandler {
     // Idempotency check
     const processed = await this.isEventProcessed(event.id);
     if (processed) return;
-    
+
     try {
       // Business logic
       await this.createWelcomeOrder(event.data.userId);
-      
+
       // Mark as processed
       await this.markEventProcessed(event.id);
-      
+
       // Emit follow-up events
       await this.eventStore.appendEvents(event.data.userId, [
         new WelcomeOrderCreatedEvent({ userId: event.data.userId })

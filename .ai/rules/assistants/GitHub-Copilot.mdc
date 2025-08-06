@@ -138,7 +138,7 @@ GitHub Copilot is an AI pair programmer that offers context-aware code suggestio
   def test_user_authentication():
       # Given a valid username and password
       username = "test_user"
-      password = "valid_password"
+      password = os.getenv('TEST_PASSWORD', 'placeholder_password')
 
       # When authenticate is called
       result = authenticate(username, password)

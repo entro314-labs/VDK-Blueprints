@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["refactoring", "code-quality", "patterns", "cleanup"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java, Go, Rust, TypeScript, Python refactoring patterns"
 ---
 
@@ -177,7 +177,7 @@ public class AuthenticationRequest {
     private final String username;
     private final String password;
     private final Role requiredRole;
-    
+
     // Constructor, getters, validation
 }
 
@@ -343,7 +343,7 @@ list.stream()
 public final class User {
     private final String name;
     private final Set<Role> roles;
-    
+
     public static Builder builder() {
         return new Builder();
     }

@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["technical-debt", "code-quality", "security", "dependencies", "analysis"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Rust, Go, Java, TypeScript/Deno with comprehensive static analysis and security scanning"
 ---
 
@@ -149,7 +149,7 @@ Steps:
    rg "Rc<RefCell|Arc<Mutex" --type rust -n
    rg "clone\(\)" --type rust -c
 
-   # Go-specific  
+   # Go-specific
    rg "interface\{\}" --type go -n
    rg "panic\(|recover\(\)" --type go -n
    rg "//.*TODO|//.*FIXME|//.*HACK" --type go -n

@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["migration", "upgrade", "database", "infrastructure", "dependencies"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports database, API, dependency, and infrastructure migrations"
 ---
 
@@ -152,14 +152,14 @@ CREATE INDEX idx_user_preferences_user_id ON user_preferences(user_id);
 CREATE UNIQUE INDEX idx_user_preferences_key ON user_preferences(user_id, preference_key);
 
 -- Modify existing tables
-ALTER TABLE users 
+ALTER TABLE users
     ADD COLUMN email_verified BOOLEAN DEFAULT FALSE,
     ADD COLUMN last_login TIMESTAMP,
     ADD COLUMN preferences_migrated BOOLEAN DEFAULT FALSE;
 
 -- Data migration
-UPDATE users 
-SET email_verified = TRUE 
+UPDATE users
+SET email_verified = TRUE
 WHERE email IS NOT NULL AND created_at < '2023-01-01';
 
 -- Create audit triggers
@@ -184,7 +184,7 @@ DROP TRIGGER IF EXISTS users_audit_trigger ON users;
 DROP FUNCTION IF EXISTS audit_trigger_function();
 
 -- Revert table modifications
-ALTER TABLE users 
+ALTER TABLE users
     DROP COLUMN IF EXISTS email_verified,
     DROP COLUMN IF EXISTS last_login,
     DROP COLUMN IF EXISTS preferences_migrated;
@@ -212,7 +212,7 @@ UNION ALL
 SELECT 'orders', COUNT(*) FROM orders;
 
 -- Post-migration validation
-SELECT 
+SELECT
     (SELECT COUNT(*) FROM users WHERE email_verified IS NULL) as null_email_verified,
     (SELECT COUNT(*) FROM user_preferences) as new_preferences_count,
     (SELECT COUNT(*) FROM audit_log) as audit_entries;
@@ -400,35 +400,35 @@ class SpringBootMigrator {
 
   async migrate(dryRun: boolean = false): Promise<void> {
     console.log(`Starting Spring Boot migration (dry-run: ${dryRun})`);
-    
+
     for (const step of this.steps) {
       try {
         console.log(`Executing: ${step.name}`);
-        
+
         if (!dryRun) {
           await step.action();
-          
+
           const isValid = await step.validation();
           if (!isValid) {
             throw new Error(`Validation failed for step: ${step.name}`);
           }
-          
+
           console.log(`✅ ${step.name} completed successfully`);
         } else {
           console.log(`🔍 [DRY RUN] Would execute: ${step.name}`);
         }
       } catch (error) {
         console.error(`❌ Error in step: ${step.name}`, error);
-        
+
         if (!dryRun) {
           console.log(`🔄 Rolling back: ${step.name}`);
           await step.rollback();
         }
-        
+
         throw error;
       }
     }
-    
+
     console.log("✅ Migration completed successfully");
   }
 }
@@ -453,26 +453,26 @@ DECLARE
     affected_rows INTEGER;
 BEGIN
     LOOP
-        UPDATE users 
+        UPDATE users
         SET preferences_migrated = TRUE
         WHERE id IN (
-            SELECT id FROM users 
-            WHERE preferences_migrated = FALSE 
-            ORDER BY id 
+            SELECT id FROM users
+            WHERE preferences_migrated = FALSE
+            ORDER BY id
             LIMIT chunk_size OFFSET offset_val
         );
-        
+
         GET DIAGNOSTICS affected_rows = ROW_COUNT;
-        
+
         IF affected_rows = 0 THEN
             EXIT;
         END IF;
-        
+
         offset_val := offset_val + chunk_size;
-        
+
         -- Progress logging
         RAISE NOTICE 'Processed % rows, offset %', affected_rows, offset_val;
-        
+
         -- Brief pause to avoid overwhelming the database
         PERFORM pg_sleep(0.1);
     END LOOP;

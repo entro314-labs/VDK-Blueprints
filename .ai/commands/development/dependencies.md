@@ -56,7 +56,7 @@ installation:
 category: "development"
 tags: ["dependencies", "security", "maintenance", "optimization"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Node.js, Rust, Go, Java, Python, Deno projects"
 ---
 
@@ -76,7 +76,7 @@ Comprehensive dependency management for multi-language projects covering securit
 
 **Available Actions:**
 - `audit` - Security vulnerability scanning
-- `update` - Version management and updates  
+- `update` - Version management and updates
 - `analyze` - Dependency mapping and coupling analysis
 - `cleanup` - Remove unused and optimize dependencies
 - `report` - Generate comprehensive dependency report
@@ -99,7 +99,7 @@ Executes package manager specific commands:
 !go list -m all | nancy sleuth
 !pip-audit
 
-# Dependency trees  
+# Dependency trees
 !npm ls --depth=0
 !cargo tree
 !go mod graph
@@ -146,7 +146,7 @@ Executes package manager specific commands:
 - npm update lodash@4.17.21 (Security fix)
 - cargo update serde@1.0.152 (Bug fixes)
 
-### Phase 2: Minor Updates (Medium Risk)  
+### Phase 2: Minor Updates (Medium Risk)
 - npm update react@18.2.0 (New features, backward compatible)
 - go get -u github.com/gin-gonic/gin@v1.9.1
 
@@ -202,7 +202,7 @@ Executes package manager specific commands:
 2. **Generate Inventory**: Create complete list of direct and transitive dependencies
 3. **Baseline Metrics**: Establish current dependency count, size, and health scores
 
-### Phase 2: Security Assessment  
+### Phase 2: Security Assessment
 1. **Vulnerability Scanning**: Run language-specific security audits
 2. **License Compliance**: Check for license conflicts and copyleft requirements
 3. **Maintenance Status**: Assess package maintenance activity and community health
@@ -216,7 +216,7 @@ Executes package manager specific commands:
 
 ### Phase 4: Action Planning
 1. **Update Strategy**: Create phased update plan balancing security and stability
-2. **Cleanup Plan**: Identify safe removals and consolidation opportunities  
+2. **Cleanup Plan**: Identify safe removals and consolidation opportunities
 3. **Testing Requirements**: Define testing strategy for each change
 4. **Rollback Procedures**: Prepare safe rollback commands and git strategies
 
@@ -286,7 +286,7 @@ Respect project-specific dependency policies:
 # In CLAUDE.md
 ## Dependency Policies
 - Prefer Rust crates with >1M downloads
-- Avoid JavaScript packages not updated in 6 months  
+- Avoid JavaScript packages not updated in 6 months
 - Require security review for new cryptographic dependencies
 ```
 

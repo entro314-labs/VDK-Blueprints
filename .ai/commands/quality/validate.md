@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["validation", "linting", "security", "infrastructure", "testing"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java, Go, Rust, TypeScript/JavaScript, Kubernetes, Docker, and Terraform validation"
 ---
 

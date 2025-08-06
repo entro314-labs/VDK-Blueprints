@@ -57,7 +57,7 @@ installation:
 category: "workflow"
 tags: ["monitoring", "health-checks", "alerting", "observability", "kubernetes"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports HTTP health endpoints, Kubernetes probes, Prometheus metrics, and multiple notification channels"
 ---
 
@@ -293,29 +293,29 @@ pub async fn perform_health_check() -> HealthCheck {
     let start = Instant::now();
     let mut checks = vec![];
     let mut overall_status = HealthStatus::Healthy;
-    
+
     // Database check
     let db_check = check_database().await;
     if db_check.status == CheckStatus::Unhealthy {
         overall_status = HealthStatus::Unhealthy;
     }
     checks.push(db_check);
-    
+
     // Message queue check
     let mq_check = check_message_queue().await;
     if mq_check.status == CheckStatus::Degraded && overall_status == HealthStatus::Healthy {
         overall_status = HealthStatus::Degraded;
     }
     checks.push(mq_check);
-    
+
     // Disk space check
     let disk_check = check_disk_space();
     checks.push(disk_check);
-    
+
     // Memory check
     let memory_check = check_memory();
     checks.push(memory_check);
-    
+
     HealthCheck {
         status: overall_status,
         timestamp: chrono::Utc::now().to_rfc3339(),
@@ -326,7 +326,7 @@ pub async fn perform_health_check() -> HealthCheck {
 
 async fn check_database() -> ComponentCheck {
     let start = Instant::now();
-    
+
     match sqlx::query("SELECT 1").fetch_one(&*DB_POOL).await {
         Ok(_) => ComponentCheck {
             name: "database".to_string(),
@@ -364,12 +364,12 @@ var (
         Name: "health_check_duration_seconds",
         Help: "Duration of health checks",
     }, []string{"check_name"})
-    
+
     healthCheckStatus = promauto.NewGaugeVec(prometheus.GaugeOpts{
         Name: "health_check_status",
         Help: "Status of health checks (1=healthy, 0=unhealthy)",
     }, []string{"check_name"})
-    
+
     systemMetrics = promauto.NewGaugeVec(prometheus.GaugeOpts{
         Name: "system_resource_usage",
         Help: "System resource usage",

@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["debugging", "troubleshooting", "multi-language", "analysis"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java, Go, Rust, Deno, TypeScript, Fresh framework"
 ---
 
@@ -192,16 +192,16 @@ public boolean authenticate(String username, String password) {
         log.warn("Authentication attempted with invalid username");
         return false;
     }
-    
+
     // Safe user lookup with Optional
     Optional<User> userOpt = userRepository.findByUsernameOptional(username);
     if (!userOpt.isPresent()) {
         log.info("Authentication failed: user not found - {}", username);
         return false;
     }
-    
+
     User user = userOpt.get();
-    
+
     // Use proper password hashing comparison
     return passwordEncoder.matches(password, user.getPasswordHash());
 }
@@ -211,7 +211,7 @@ public boolean authenticate(String username, String password) {
 ```java
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsernameOptional(String username);
-    
+
     @Query("SELECT u FROM User u WHERE u.username = :username")
     Optional<User> findByUsername(@Param("username") String username);
 }
@@ -238,7 +238,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 // Add metrics for authentication failures
 @EventListener
 public void onAuthenticationFailure(AuthenticationFailureEvent event) {
-    meterRegistry.counter("auth.failure", 
+    meterRegistry.counter("auth.failure",
         "reason", event.getException().getClass().getSimpleName()
     ).increment();
 }
@@ -252,10 +252,10 @@ void authenticate_withNonExistentUser_returnsFalse() {
     // Given
     when(userRepository.findByUsernameOptional("nonexistent@example.com"))
         .thenReturn(Optional.empty());
-    
+
     // When
     boolean result = userService.authenticate("nonexistent@example.com", "password");
-    
+
     // Then
     assertFalse(result);
     verify(logger).info(contains("user not found"));

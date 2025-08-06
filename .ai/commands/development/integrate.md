@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["integration", "api", "database", "webhooks", "oauth", "monitoring"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports REST APIs, databases (PostgreSQL, Redis), message queues (RabbitMQ), and OAuth providers"
 ---
 
@@ -214,12 +214,12 @@ func NewQueueIntegration(url string) (*QueueIntegration, error) {
     if err != nil {
         return nil, err
     }
-    
+
     ch, err := conn.Channel()
     if err != nil {
         return nil, err
     }
-    
+
     return &QueueIntegration{
         conn:    conn,
         channel: ch,
@@ -231,7 +231,7 @@ func (q *QueueIntegration) Publish(queue string, message interface{}) error {
     if err != nil {
         return err
     }
-    
+
     return q.channel.Publish(
         "",    // exchange
         queue, // routing key
@@ -258,7 +258,7 @@ func (q *QueueIntegration) Subscribe(queue string, handler func([]byte) error) e
     if err != nil {
         return err
     }
-    
+
     go func() {
         for msg := range msgs {
             if err := handler(msg.Body); err != nil {
@@ -268,7 +268,7 @@ func (q *QueueIntegration) Subscribe(queue string, handler func([]byte) error) e
             }
         }
     }()
-    
+
     return nil
 }
 ```

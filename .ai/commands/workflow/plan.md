@@ -56,7 +56,7 @@ installation:
 category: "development"
 tags: ["planning", "task-management", "coordination", "project-management"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Requires git repository and task management system"
 ---
 

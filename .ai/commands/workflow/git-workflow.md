@@ -57,7 +57,7 @@ installation:
 category: "workflow"
 tags: ["git", "version-control", "branching", "collaboration", "workflow"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Works with any Git repository and supports GitHub/GitLab integration"
 ---
 

@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["tdd", "testing", "test-driven-development", "unit-tests", "coverage"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java (JUnit/TestNG), Go (testing), Rust (cargo test), TypeScript (Deno.test), and JavaScript testing frameworks"
 ---
 

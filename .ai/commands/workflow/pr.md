@@ -57,7 +57,7 @@ installation:
 category: "workflow"
 tags: ["pull-request", "code-review", "github", "automation", "team-collaboration"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Works with GitHub repositories and supports GitLab MR creation with appropriate configuration"
 ---
 

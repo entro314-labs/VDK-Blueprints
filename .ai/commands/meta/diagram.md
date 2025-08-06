@@ -57,7 +57,7 @@ installation:
 category: "meta"
 tags: ["documentation", "diagrams", "architecture", "visualization", "mermaid", "ascii"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports TypeScript, JavaScript, Go, Rust, Java projects with ASCII and Mermaid output formats"
 ---
 
@@ -141,21 +141,21 @@ flowchart TD
     A[User Request] --> B{Authenticated?}
     B -->|No| C[Login Page]
     B -->|Yes| D[Load Dashboard]
-    
+
     C --> E[Enter Credentials]
     E --> F{Valid?}
     F -->|No| C
     F -->|Yes| G[Generate Token]
     G --> D
-    
+
     D --> H[Fetch User Data]
     H --> I[Render Dashboard]
     I --> J{User Action}
-    
+
     J -->|View Reports| K[Load Reports]
     J -->|Edit Profile| L[Profile Form]
     J -->|Logout| M[Clear Session]
-    
+
     K --> N[Query Database]
     N --> O[Format Data]
     O --> P[Display Charts]
@@ -170,12 +170,12 @@ sequenceDiagram
     participant A as Auth Service
     participant D as Database
     participant Q as Queue
-    
+
     C->>G: POST /api/login
     G->>A: Validate credentials
     A->>D: Check user exists
     D-->>A: User data
-    
+
     alt Valid credentials
         A->>A: Generate JWT
         A-->>G: Token + User info
@@ -184,7 +184,7 @@ sequenceDiagram
         A-->>G: 401 Unauthorized
         G-->>C: 401 Unauthorized
     end
-    
+
     C->>G: GET /api/data (Token)
     G->>G: Validate token
     G->>Q: Log access event
@@ -204,7 +204,7 @@ classDiagram
         +logout()
         +updateProfile()
     }
-    
+
     class Order {
         +String id
         +String userId
@@ -214,14 +214,14 @@ classDiagram
         +submit()
         +cancel()
     }
-    
+
     class OrderItem {
         +String productId
         +int quantity
         +Decimal price
         +getSubtotal()
     }
-    
+
     class Product {
         +String id
         +String name
@@ -230,7 +230,7 @@ classDiagram
         +isAvailable()
         +updateStock()
     }
-    
+
     User "1" --> "*" Order : places
     Order "1" --> "*" OrderItem : contains
     OrderItem "*" --> "1" Product : references

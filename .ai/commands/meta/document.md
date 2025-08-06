@@ -56,7 +56,7 @@ installation:
 category: "meta"
 tags: ["documentation", "readme", "api-docs", "changelog", "automation"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports multiple languages and frameworks with automatic detection"
 ---
 

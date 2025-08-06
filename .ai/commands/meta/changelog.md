@@ -56,7 +56,7 @@ installation:
 category: "meta"
 tags: ["changelog", "release-notes", "git", "versioning", "documentation"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Works with any git repository, optimized for conventional commits"
 ---
 

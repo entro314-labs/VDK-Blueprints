@@ -55,7 +55,7 @@ installation:
 category: "analysis"
 tags: ["summary", "documentation", "communication", "analysis"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Works with any content type and format"
 ---
 

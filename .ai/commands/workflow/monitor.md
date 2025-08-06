@@ -58,7 +58,7 @@ installation:
 category: "operations"
 tags: ["monitoring", "observability", "prometheus", "grafana", "alerting"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Prometheus, Grafana, Jaeger, OpenTelemetry stack"
 ---
 
@@ -285,13 +285,13 @@ async fn handle_user_request(
 ) -> Result<UserResponse> {
     let span = tracing::Span::current();
     span.set_attribute("user.id", user_id.clone());
-    
+
     // Trace database query
     let user = db.get_user(&user_id).await?;
-    
+
     // Trace external API call
     let profile = external_api::get_profile(&user_id).await?;
-    
+
     Ok(UserResponse { user, profile })
 }
 ```
@@ -301,19 +301,19 @@ async fn handle_user_request(
 func (s *UserService) GetUser(ctx context.Context, req *pb.GetUserRequest) (*pb.GetUserResponse, error) {
     ctx, span := otel.Tracer("user-service").Start(ctx, "GetUser")
     defer span.End()
-    
+
     span.SetAttributes(
         attribute.String("user.id", req.UserId),
         attribute.String("operation", "get_user"),
     )
-    
+
     // Trace database operation
     user, err := s.db.GetUser(ctx, req.UserId)
     if err != nil {
         span.RecordError(err)
         return nil, err
     }
-    
+
     return &pb.GetUserResponse{User: user}, nil
 }
 ```
@@ -470,7 +470,7 @@ use tracing::{info, warn, error, instrument};
 #[instrument(fields(user_id = %user_id, order_id = %order_id))]
 async fn process_order(user_id: String, order_id: String) {
     info!("Processing order started");
-    
+
     match validate_order(&order_id).await {
         Ok(_) => info!("Order validation successful"),
         Err(e) => {
@@ -478,7 +478,7 @@ async fn process_order(user_id: String, order_id: String) {
             return;
         }
     }
-    
+
     info!(
         duration_ms = 150,
         items_count = 3,

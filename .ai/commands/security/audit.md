@@ -58,7 +58,7 @@ installation:
 category: "security"
 tags: ["security", "compliance", "audit", "vulnerability-scanning", "best-practices"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java, Go, Rust, JavaScript, Python, Kubernetes, Docker"
 ---
 
@@ -130,10 +130,10 @@ The command integrates with multiple security tools:
 ```markdown
 # Security Audit Report
 
-**Generated**: 2025-01-27 14:30:00 UTC  
-**Project**: E-commerce API Platform  
-**Audit Scope**: Comprehensive Security Assessment  
-**Tools Used**: Semgrep, Trivy, GitLeaks, Kubesec  
+**Generated**: 2025-01-27 14:30:00 UTC
+**Project**: E-commerce API Platform
+**Audit Scope**: Comprehensive Security Assessment
+**Tools Used**: Semgrep, Trivy, GitLeaks, Kubesec
 
 ## Executive Summary
 
@@ -154,9 +154,9 @@ The command integrates with multiple security tools:
 ## Critical Issues (Immediate Action Required)
 
 ### 🔴 [SEC-001] Hardcoded Database Credentials
-**File**: `src/config/database.go:23`  
-**Risk**: Critical  
-**CVSS Score**: 9.8  
+**File**: `src/config/database.go:23`
+**Risk**: Critical
+**CVSS Score**: 9.8
 
 ```go
 // VULNERABLE CODE
@@ -170,7 +170,7 @@ func connectDB() *sql.DB {
 }
 ```
 
-**Impact**: 
+**Impact**:
 - Database credentials exposed in source code
 - Potential unauthorized database access
 - Violation of secrets management best practices
@@ -183,7 +183,7 @@ func connectDB() *sql.DB {
     if dbURL == "" {
         log.Fatal("DATABASE_URL environment variable not set")
     }
-    
+
     db, err := sql.Open("postgres", dbURL)
     if err != nil {
         log.Fatal(err)
@@ -199,9 +199,9 @@ func connectDB() *sql.DB {
 4. Implement secret scanning in CI/CD
 
 ### 🔴 [SEC-002] SQL Injection Vulnerability
-**File**: `src/handlers/user.go:45`  
-**Risk**: Critical  
-**CVSS Score**: 9.3  
+**File**: `src/handlers/user.go:45`
+**Risk**: Critical
+**CVSS Score**: 9.3
 
 ```go
 // VULNERABLE CODE
@@ -231,9 +231,9 @@ func getUserByID(userID string) (*User, error) {
 ## High Priority Issues
 
 ### 🟠 [SEC-003] Weak JWT Token Validation
-**File**: `src/middleware/auth.go:67`  
-**Risk**: High  
-**CVSS Score**: 7.5  
+**File**: `src/middleware/auth.go:67`
+**Risk**: High
+**CVSS Score**: 7.5
 
 ```go
 // VULNERABLE CODE
@@ -257,7 +257,7 @@ func validateToken(tokenString string) (*jwt.Token, error) {
     if len(secret) < 32 {
         return nil, errors.New("JWT secret too weak")
     }
-    
+
     return jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
         // Validate signing algorithm
         if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
@@ -269,16 +269,16 @@ func validateToken(tokenString string) (*jwt.Token, error) {
 ```
 
 ### 🟠 [SEC-004] Missing Input Validation
-**File**: `src/handlers/order.go:89`  
-**Risk**: High  
-**CVSS Score**: 7.2  
+**File**: `src/handlers/order.go:89`
+**Risk**: High
+**CVSS Score**: 7.2
 
 ```go
 // VULNERABLE CODE
 func createOrder(w http.ResponseWriter, r *http.Request) {
     var order Order
     json.NewDecoder(r.Body).Decode(&order)  // No validation
-    
+
     // Direct processing without validation
     result := processOrder(order)
 }
@@ -297,19 +297,19 @@ func createOrder(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Invalid content type", http.StatusBadRequest)
         return
     }
-    
+
     var order Order
     if err := json.NewDecoder(r.Body).Decode(&order); err != nil {
         http.Error(w, "Invalid JSON", http.StatusBadRequest)
         return
     }
-    
+
     // Validate order data
     if err := validateOrder(order); err != nil {
         http.Error(w, err.Error(), http.StatusBadRequest)
         return
     }
-    
+
     result := processOrder(order)
 }
 
@@ -351,8 +351,8 @@ go mod verify
 ### Kubernetes Security Issues
 
 #### 🟠 [K8S-001] Missing Pod Security Standards
-**File**: `k8s/deployment.yaml`  
-**Risk**: High  
+**File**: `k8s/deployment.yaml`
+**Risk**: High
 
 ```yaml
 # CURRENT (INSECURE)
@@ -409,7 +409,7 @@ spec:
 ```
 
 #### 🟡 [K8S-002] Missing Network Policies
-**Risk**: Medium  
+**Risk**: Medium
 
 **Issue**: No network segmentation between services
 
@@ -459,8 +459,8 @@ spec:
 | 10. Logging and Monitoring | ⚠️ | Logging present, but incomplete |
 | 11. Security Testing | ❌ | No automated security testing |
 
-**Compliance Score**: 3/8 Requirements Met  
-**Certification Readiness**: Not Ready  
+**Compliance Score**: 3/8 Requirements Met
+**Certification Readiness**: Not Ready
 **Estimated Remediation**: 60-80 hours
 
 ## Remediation Roadmap
@@ -501,18 +501,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Run Semgrep
       uses: semgrep/semgrep-action@v1
       with:
         config: auto
-    
+
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: 'fs'
         scan-ref: '.'
-    
+
     - name: Run GitLeaks
       uses: gitleaks/gitleaks-action@v2
       env:
@@ -559,8 +559,8 @@ repos:
 - **Quarterly**: External security audit
 - **Annually**: Penetration testing
 
-**Report Generated**: 2025-01-27 14:30:00 UTC  
-**Next Audit Scheduled**: 2025-04-27  
+**Report Generated**: 2025-01-27 14:30:00 UTC
+**Next Audit Scheduled**: 2025-04-27
 **Audit ID**: AUDIT-2025-001-SEC
 ```
 

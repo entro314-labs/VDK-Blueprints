@@ -56,7 +56,7 @@ installation:
 category: "analysis"
 tags: ["research", "web-search", "analysis", "documentation", "technology-evaluation"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Requires Claude Code WebSearch and WebFetch tools"
 ---
 
@@ -76,7 +76,7 @@ Intelligent web research system that adapts research depth and methodology based
 
 **Research Depth Options:**
 - `--quick` - Fast research (2-3 sources, 5-10 minutes)
-- `--deep` - Comprehensive research (8-12 sources, 15-25 minutes)  
+- `--deep` - Comprehensive research (8-12 sources, 15-25 minutes)
 - `--comprehensive` - Exhaustive analysis (12+ sources, 30+ minutes)
 - Default: Adaptive based on query complexity
 
@@ -96,7 +96,7 @@ Intelligent web research system that adapts research depth and methodology based
 The command automatically adjusts research strategy based on query analysis:
 
 **Query Analysis**: Determines optimal research approach from query patterns
-**Source Diversity**: Balances official docs, community insights, and expert opinions  
+**Source Diversity**: Balances official docs, community insights, and expert opinions
 **Recency Weighting**: Prioritizes recent information for fast-moving technologies
 **Cross-Validation**: Verifies claims across multiple independent sources
 

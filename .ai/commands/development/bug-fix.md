@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["bug-fix", "debugging", "git", "github", "workflow"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Works with GitHub repositories and requires gh CLI for issue/PR management"
 ---
 

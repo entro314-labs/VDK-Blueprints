@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["cleanup", "technical-debt", "refactoring", "code-quality", "maintenance"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports JavaScript, TypeScript, Go, Rust, Java, and Python cleanup with automated safety checks"
 ---
 

@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["api", "rest", "grpc", "graphql", "endpoints", "backend"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java, Go, Rust, Node.js, Python frameworks with multiple API patterns"
 ---
 

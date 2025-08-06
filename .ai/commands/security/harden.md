@@ -57,7 +57,7 @@ installation:
 category: "security"
 tags: ["security", "hardening", "compliance", "containers", "kubernetes", "encryption"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Docker, Kubernetes, Go, Rust, Java, Node.js with SOC 2, PCI DSS, and HIPAA compliance"
 ---
 
@@ -236,10 +236,10 @@ func SecurityMiddleware() gin.HandlerFunc {
         c.Header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
         c.Header("Content-Security-Policy", "default-src 'self'")
         c.Header("Referrer-Policy", "strict-origin-when-cross-origin")
-        
+
         // Remove server identification
         c.Header("Server", "")
-        
+
         c.Next()
     })
 }
@@ -271,7 +271,7 @@ async fn security_headers_middleware<B>(
     next: Next<B>,
 ) -> Response {
     let mut response = next.run(request).await;
-    
+
     let headers = response.headers_mut();
     headers.insert("x-frame-options", HeaderValue::from_static("DENY"));
     headers.insert("x-content-type-options", HeaderValue::from_static("nosniff"));
@@ -284,7 +284,7 @@ async fn security_headers_middleware<B>(
         "content-security-policy",
         HeaderValue::from_static("default-src 'self'"),
     );
-    
+
     response
 }
 
@@ -321,7 +321,7 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(false));
-                
+
         return http.build();
     }
 }

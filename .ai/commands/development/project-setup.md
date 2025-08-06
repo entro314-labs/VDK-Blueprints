@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["project-setup", "templates", "scaffolding", "best-practices", "initialization"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Web, API, CLI, and Full-stack project types with multiple language and framework options"
 ---
 

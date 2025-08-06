@@ -57,7 +57,7 @@ installation:
 category: "meta"
 tags: ["visualization", "diagrams", "architecture", "flowcharts", "documentation"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Mermaid, PlantUML, and Graphviz output formats with multi-language code analysis"
 ---
 
@@ -97,37 +97,37 @@ func ProcessPayment(userID string, amount float64, paymentMethod string) (*Payme
     if err != nil {
         return nil, fmt.Errorf("user not found: %w", err)
     }
-    
+
     if user.Balance < amount {
         return nil, errors.New("insufficient funds")
     }
-    
+
     if paymentMethod == "credit_card" {
         if !ValidateCreditCard(user.CreditCard) {
             return nil, errors.New("invalid credit card")
         }
     }
-    
+
     payment := &Payment{
         UserID: userID,
         Amount: amount,
         Method: paymentMethod,
         Status: "pending",
     }
-    
+
     if err := SavePayment(payment); err != nil {
         return nil, fmt.Errorf("failed to save payment: %w", err)
     }
-    
+
     if err := ProcessExternalPayment(payment); err != nil {
         payment.Status = "failed"
         SavePayment(payment)
         return nil, fmt.Errorf("external payment failed: %w", err)
     }
-    
+
     payment.Status = "completed"
     SavePayment(payment)
-    
+
     return payment, nil
 }
 ```
@@ -158,7 +158,7 @@ flowchart TD
     P -->|Yes| T[Update Status to Completed]
     T --> U[Save Updated Payment]
     U --> V[Return Successful Payment]
-    
+
     style A fill:#e1f5fe
     style D fill:#ffebee
     style F fill:#ffebee
@@ -218,14 +218,14 @@ erDiagram
         string name
         timestamp created_at
     }
-    
+
     PROFILE {
         int64 id PK
         int64 user_id FK
         string bio
         string avatar
     }
-    
+
     ORDER {
         int64 id PK
         int64 user_id FK
@@ -233,7 +233,7 @@ erDiagram
         string status
         timestamp created_at
     }
-    
+
     ITEM {
         int64 id PK
         int64 order_id FK
@@ -241,7 +241,7 @@ erDiagram
         float64 price
         int quantity
     }
-    
+
     USER ||--o| PROFILE : "has one"
     USER ||--o{ ORDER : "has many"
     ORDER ||--o{ ITEM : "contains many"
@@ -285,27 +285,27 @@ graph TB
         Client[Client Apps]
         PaymentProvider[Payment Provider API]
     end
-    
+
     subgraph "API Layer"
         Gateway[API Gateway :80]
     end
-    
+
     subgraph "Application Services"
         Auth[Auth Service :8080]
         User[User Service :8081]
         Payment[Payment Service :8082]
     end
-    
+
     subgraph "Data Layer"
         DB[(PostgreSQL)]
         Cache[(Redis)]
     end
-    
+
     Client --> Gateway
     Gateway --> Auth
     Gateway --> User
     Gateway --> Payment
-    
+
     Auth --> DB
     Auth --> Cache
     User --> DB
@@ -313,7 +313,7 @@ graph TB
     Payment --> DB
     Payment --> User
     Payment --> PaymentProvider
-    
+
     style Client fill:#e3f2fd
     style Gateway fill:#f3e5f5
     style Auth fill:#e8f5e8
@@ -334,16 +334,16 @@ Analyzes API calls and interactions to create sequence diagrams:
 func HandleUserRegistration(w http.ResponseWriter, r *http.Request) {
     // 1. Validate input
     user := parseUserFromRequest(r)
-    
+
     // 2. Check if user exists
     existingUser := userService.GetByEmail(user.Email)
-    
+
     // 3. Create user
     newUser := userService.Create(user)
-    
+
     // 4. Send welcome email
     emailService.SendWelcomeEmail(newUser.Email)
-    
+
     // 5. Create audit log
     auditService.LogUserCreation(newUser.ID)
 }
@@ -360,29 +360,29 @@ sequenceDiagram
     participant Email as Email Service
     participant Audit as Audit Service
     participant DB as Database
-    
+
     Client->>+API: POST /api/users/register
     API->>+Auth: Validate API Key
     Auth->>-API: Valid
-    
+
     API->>+User: Create User Request
     User->>+DB: Check if email exists
     DB->>-User: Email available
-    
+
     User->>+DB: Insert new user
     DB->>-User: User created (ID: 123)
-    
+
     User->>+Email: Send welcome email
     Email-->>-User: Email queued
-    
+
     User->>+Audit: Log user creation
     Audit->>+DB: Insert audit record
     DB->>-Audit: Audit logged
     Audit-->>-User: Logged
-    
+
     User->>-API: User created successfully
     API->>-Client: 201 Created
-    
+
     Note over Email: Async email processing
     Email->>Email: Process welcome email
 ```
@@ -445,40 +445,40 @@ classDiagram
         <<trait>>
         +draw()
     }
-    
+
     class Clickable {
         <<trait>>
         +on_click()
     }
-    
+
     class Point {
         +x: i32
         +y: i32
     }
-    
+
     class Button {
         +text: String
         +position: Point
         +draw()
         +on_click()
     }
-    
+
     class Image {
         +src: String
         +position: Point
         +draw()
     }
-    
+
     class Panel {
         +children: Vec~Box~dyn Drawable~~
         +draw()
     }
-    
+
     Drawable <|.. Button : implements
     Clickable <|.. Button : implements
     Drawable <|.. Image : implements
     Drawable <|.. Panel : implements
-    
+
     Button --> Point : contains
     Image --> Point : contains
     Panel --> Drawable : contains
@@ -541,29 +541,29 @@ graph TB
     subgraph "Internet"
         Users[Users]
     end
-    
+
     subgraph "Kubernetes Cluster"
         subgraph "Ingress"
             Ingress[Ingress Controller<br/>app.example.com]
         end
-        
+
         subgraph "Services"
             Service[web-service<br/>ClusterIP:80]
         end
-        
+
         subgraph "Pods"
             Pod1[web-app-pod-1<br/>nginx:latest]
             Pod2[web-app-pod-2<br/>nginx:latest]
             Pod3[web-app-pod-3<br/>nginx:latest]
         end
     end
-    
+
     Users --> Ingress
     Ingress --> Service
     Service --> Pod1
     Service --> Pod2
     Service --> Pod3
-    
+
     style Users fill:#e3f2fd
     style Ingress fill:#f3e5f5
     style Service fill:#e8f5e8
@@ -618,7 +618,7 @@ Generates DOT files for complex dependency graphs:
 digraph Dependencies {
     rankdir=TB;
     node [shape=box];
-    
+
     "auth-service" -> "database";
     "user-service" -> "auth-service";
     "user-service" -> "database";
@@ -676,7 +676,7 @@ project-root/
 └── docs/
     └── diagrams/
         ├── payment-flow.md          # Function flowcharts
-        ├── database-schema.md       # Entity relationship diagrams  
+        ├── database-schema.md       # Entity relationship diagrams
         ├── system-architecture.md   # System and service diagrams
         ├── api-sequences.md         # API interaction sequences
         ├── class-relationships.md   # Class and module diagrams
@@ -693,7 +693,7 @@ Generates interactive diagrams with clickable elements:
 flowchart TD
     A["Start"] --> B["Process"]
     B --> C["End"]
-    
+
     click A "https://github.com/org/repo/blob/main/src/start.go" "View Source"
     click B "https://github.com/org/repo/blob/main/src/process.go" "View Source"
     click C "https://github.com/org/repo/blob/main/src/end.go" "View Source"
@@ -728,10 +728,10 @@ graph TD
     F --> C
     F --> D
     F --> E
-    
+
     style A fill:#ff9999
     style C fill:#ff9999
-    
+
     classDef warning fill:#ffeb3b,stroke:#f57f17,stroke-width:2px
     class A,C warning
 ```

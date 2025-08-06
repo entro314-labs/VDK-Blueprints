@@ -57,7 +57,7 @@ installation:
 category: "development"
 tags: ["onboarding", "setup", "environment", "team-integration", "knowledge-transfer"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports multi-language projects with modern tooling preferences (Rust, Go, Deno, Java)"
 ---
 
@@ -81,7 +81,7 @@ Steps:
    ```bash
    # Check and install modern alternatives
    which rg || echo "Install ripgrep for fast code search"
-   which fd || echo "Install fd for fast file finding" 
+   which fd || echo "Install fd for fast file finding"
    which bat || echo "Install bat for syntax-highlighted viewing"
    which eza || echo "Install eza for better file listings"
    which fzf || echo "Install fzf for fuzzy finding"
@@ -99,7 +99,7 @@ Steps:
      rustup component add clippy rustfmt
    fi
 
-   # Go  
+   # Go
    if [ -f "go.mod" ]; then
      # Install Go via official installer or package manager
      go install golang.org/x/tools/gopls@latest
@@ -189,7 +189,7 @@ Steps:
      code . # Open in VSCode if available
    fi
 
-   # Zed settings  
+   # Zed settings
    if [ -d ".zed" ]; then
      echo "Zed workspace configuration found"
    fi
@@ -198,7 +198,7 @@ Steps:
    if [ -d ".claude" ]; then
      echo "Claude Code configuration found"
      echo "Available commands:"
-     ls .claude/commands/ | sed 's/.md$//' | sed 's/^/  \//'  
+     ls .claude/commands/ | sed 's/.md$//' | sed 's/^/  \//'
    fi
    ```
 

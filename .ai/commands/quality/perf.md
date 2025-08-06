@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["performance", "optimization", "profiling", "load-testing", "benchmarking"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports Java, Go, Rust performance analysis with database optimization and distributed tracing"
 ---
 

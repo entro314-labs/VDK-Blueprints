@@ -58,7 +58,7 @@ installation:
 category: "operations"
 tags: ["deployment", "kubernetes", "helm", "kustomize", "ci-cd"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Requires Kubernetes 1.20+, Helm 3.x, configured kubectl context"
 ---
 
@@ -116,7 +116,7 @@ Creates secure secret templates with commands like:
 ```bash
 kubectl create secret generic app-secrets \
   --from-literal=DATABASE_URL='postgres://...' \
-  --from-literal=API_KEY='your-api-key' \
+  --from-literal=API_KEY="$API_KEY" \
   --dry-run=client -o yaml | kubectl apply -f -
 ```
 

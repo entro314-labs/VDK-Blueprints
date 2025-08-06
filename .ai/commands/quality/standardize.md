@@ -57,7 +57,7 @@ installation:
 category: "quality"
 tags: ["standardization", "code-style", "conventions", "refactoring", "consistency"]
 author: "VDK"
-lastUpdated: "2025-01-27"
+lastUpdated: "2025-07-05"
 compatibilityNotes: "Supports TypeScript/JavaScript, Go, Rust with comprehensive naming and structure standardization"
 ---
 
@@ -320,7 +320,7 @@ function standardizeApiHandler<T>(
 ): async (req: Request) => Promise<Response> {
   return async (req: Request) => {
     const requestId = crypto.randomUUID();
-    
+
     try {
       const data = await handler();
       return Response.json({
@@ -521,7 +521,7 @@ async function processUser(
 // Before
 const get_user_data = (userId) => { ... }
 
-// After  
+// After
 const getUserData = (userId: string): Promise<UserData> => { ... }
 ```
 ````
