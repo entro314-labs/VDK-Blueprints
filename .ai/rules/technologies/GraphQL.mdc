@@ -36,6 +36,28 @@ platforms:
     compatible: true
     priority: 7
     reviewType: "code-quality"
+  claude-desktop:
+    compatible: true
+    mcpIntegration: true
+    rules: true
+    priority: 8
+  zed:
+    compatible: true
+    mode: "project"
+    aiFeatures: true
+    performance: "high"
+  vscode:
+    compatible: true
+    extension: "framework-support"
+    mcpIntegration: true
+  webstorm:
+    compatible: true
+    nodeIntegration: true
+    typescript: true
+    mcpIntegration: true
+  generic-ai:
+    compatible: true
+    priority: 7
 
 # === Dependencies & Relationships ===
 requires: []
@@ -55,9 +77,10 @@ author: "community"
 contributors: ["entro314-labs"]
 tags: ["graphql", "technologies"]
 discussionUrl: ""
+schemaVersion: "2.1"
+license: "MIT"
+repositoryUrl: "https://github.com/entro314-labs/VDK-Blueprints"
 ---
-
-
 # GraphQL Best Practices
 
 ## Schema Design Principles

@@ -36,6 +36,38 @@ platforms:
     compatible: true
     priority: 7
     reviewType: "code-quality"
+  claude-desktop:
+    compatible: true
+    mcpIntegration: true
+    rules: true
+    priority: 9
+  windsurf-next:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "core-behavior"
+    characterLimit: 500
+    priority: 9
+  zed:
+    compatible: true
+    mode: "project"
+    aiFeatures: true
+    performance: "high"
+  vscode:
+    compatible: true
+    extension: "ai-context-schema"
+    mcpIntegration: true
+    commands: ["aiContext.apply", "aiContext.validate"]
+  webstorm:
+    compatible: true
+    nodeIntegration: true
+    typescript: true
+    mcpIntegration: true
+    inspections: ["JavaScriptPatterns", "TypeScriptPatterns"]
+  generic-ai:
+    compatible: true
+    configPath: ".ai/"
+    rulesPath: ".ai/rules/"
+    priority: 8
 
 # === Dependencies & Relationships ===
 requires: []
@@ -55,9 +87,10 @@ author: "community"
 contributors: ["entro314-labs"]
 tags: ["assistants", "vscode"]
 discussionUrl: ""
+schemaVersion: "2.1"
+license: "MIT"
+repositoryUrl: "https://github.com/entro314-labs/VDK-Blueprints"
 ---
-
-
 # VS Code AI Assistant Optimization
 
 VS Code is a popular code editor with integrated AI assistant capabilities through extensions. This guide provides best practices for optimizing interactions with VS Code's AI assistants to enhance code generation, comprehension, and maintenance tasks.

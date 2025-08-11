@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://github.com/your-org/VDK-Blueprints)
 [![Blueprints](https://img.shields.io/badge/Blueprints-109-green.svg)](#Blueprint-categories)
-[![Platforms](https://img.shields.io/badge/Platforms-4-orange.svg)](#supported-platforms)
+[![Platforms](https://img.shields.io/badge/Platforms-23-orange.svg)](#supported-platforms)
 
 > **Transform generic AI coding assistants into project-aware experts**
 
@@ -12,6 +12,7 @@ The VDK Blueprints repository is the centralized knowledge base for structured A
 ## 🚀 Quick Start
 
 ### For Developers
+
 ```bash
 # Clone the repository
 git clone https://github.com/your-org/VDK-Blueprints.git
@@ -23,6 +24,7 @@ cd VDK-Blueprints/.ai/rules
 ```
 
 ### For AI Assistants
+
 - **Claude Code**: Add `.ai/rules/` to your memory configuration
 - **Cursor**: Import rules to `.cursorrules` file
 - **Windsurf**: Load rules in workspace configuration
@@ -33,12 +35,14 @@ cd VDK-Blueprints/.ai/rules
 ## 🎯 What This Repository Provides
 
 ### 🧠 Intelligent Blueprint System
+
 - **109+ curated Blueprints** covering languages, frameworks, stacks, and tasks
-- **Multi-platform compatibility** with Claude Code, Cursor, Windsurf, GitHub Copilot
+- **Multi-platform compatibility** with 23+ AI assistants and IDEs including Claude Code, Claude Desktop, Cursor, Windsurf, VS Code family, JetBrains IDEs, Zed, and GitHub Copilot
 - **Project-aware guidance** that understands your specific technology stack
 - **Community-driven** with contribution workflows and templates
 
 ### 🏗️ Ecosystem Integration
+
 This repository is part of the **VDK three-tier architecture**:
 
 ```
@@ -122,28 +126,38 @@ This repository is part of the **VDK three-tier architecture**:
 | Platform | Status | Features | Integration |
 |----------|--------|----------|------------|
 | **[Claude Code](https://claude.ai/code)** | ✅ Ready | Tool integration, memory management, slash commands | [Setup Guide](.ai/docs/platform-integration.md#claude-code) |
+| **[Claude Desktop](https://claude.ai/desktop)** | ✅ Ready | MCP integration, rules system, context priority | [Setup Guide](.ai/docs/platform-integration.md#claude-desktop) |
 | **[Cursor](https://cursor.sh)** | ✅ Ready | Auto-completion, real-time assistance, file patterns | [Setup Guide](.ai/docs/platform-integration.md#cursor) |
-| **[Windsurf](https://windsurf.sh)** | ✅ Ready | Memory optimization, workspace awareness | [Setup Guide](.ai/docs/platform-integration.md#windsurf) |
+| **[Windsurf](https://windsurf.sh)** | ✅ Ready | Memory optimization, workspace awareness, XML formatting | [Setup Guide](.ai/docs/platform-integration.md#windsurf) |
+| **[Zed Editor](https://zed.dev)** | ✅ Ready | AI features, collaborative editing, high performance | [Setup Guide](.ai/docs/platform-integration.md#zed) |
+| **[VS Code Family](https://code.visualstudio.com)** | ✅ Ready | VS Code, Insiders, VSCodium support, MCP integration | [Setup Guide](.ai/docs/platform-integration.md#vscode) |
+| **[JetBrains IDEs](https://jetbrains.com)** | ✅ Ready | WebStorm, IntelliJ, PyCharm, PhpStorm + 6 more IDEs | [Setup Guide](.ai/docs/platform-integration.md#jetbrains) |
 | **[GitHub Copilot](https://github.com/features/copilot)** | ✅ Ready | Code review, suggestions, priority system | [Setup Guide](.ai/docs/platform-integration.md#github-copilot) |
 
 ### 🔄 Platform Integration Features
 
+- **AI Context Schema v2.1.0 Compliant**: Following the latest universal AI context standard
 - **Cross-Platform Compatibility**: Blueprints work consistently across all platforms
 - **Platform-Specific Optimization**: Tailored instructions for each AI assistant
+- **MCP Integration**: Model Context Protocol support for enhanced AI capabilities
 - **Automatic Blueprint Loading**: Seamless integration with minimal setup
 - **Priority Management**: Smart Blueprint activation based on context
+- **Enhanced Metadata**: Licensing, versioning, and provenance tracking
 
 ## 📖 Documentation
 
 ### 📚 User Guides
+
 - **[Platform Integration Guide](.ai/docs/platform-integration.md)** - Setup and configuration for each AI platform
 - **[Migration Guide](.ai/docs/migration-guide.md)** - Upgrading from legacy versions
 
 ### 👨‍💻 Developer Guides
+
 - **[Contributing Guide](.ai/docs/CONTRIBUTING.md)** - How to contribute Blueprints and improvements
 - **[Blueprint Writing Guide](.ai/docs/Blueprint-writing-guide.md)** - Comprehensive guide to writing effective Blueprints
 
 ### 🔧 Technical References
+
 - **[Schema Documentation](.ai/schemas/)** - Blueprint validation schemas and specifications
 - **[Template Library](.ai/templates/)** - Standardized templates for contributions
 
@@ -152,6 +166,7 @@ This repository is part of the **VDK three-tier architecture**:
 ### 1. Choose Your Integration Method
 
 #### Option A: Direct Integration (Recommended)
+
 ```bash
 # Clone repository
 git clone https://github.com/your-org/VDK-Blueprints.git
@@ -164,6 +179,7 @@ git clone https://github.com/your-org/VDK-Blueprints.git
 ```
 
 #### Option B: Via VDK CLI (Advanced)
+
 ```bash
 # Install CLI (coming soon)
 npm install -g @vdk-cli
@@ -176,7 +192,9 @@ vdk deploy --platforms claude-code,cursor
 ```
 
 #### Option C: Via VDK Hub (Team Management)
+
 Visit **[vdk.tools](https://vdk.tools)** for:
+
 - Web-based Blueprint generation
 - Team collaboration features
 - Custom Blueprint management
@@ -188,6 +206,7 @@ Visit **[vdk.tools](https://vdk.tools)** for:
 <summary><strong>Claude Code Setup</strong></summary>
 
 Add to your `CLAUDE.md` file:
+
 ```markdown
 # AI Blueprints Integration
 
@@ -197,12 +216,14 @@ Active Blueprints from VDK Blueprints repository:
 - Technology guidelines: .ai/rules/technologies/
 - Task workflows: .ai/rules/tasks/
 ```
+
 </details>
 
 <details>
 <summary><strong>Cursor Setup</strong></summary>
 
 Create or update your `.cursorrules` file:
+
 ```markdown
 # VDK Blueprints - Cursor Integration
 
@@ -212,12 +233,14 @@ Create or update your `.cursorrules` file:
 ## Language-Specific Guidelines
 {Include content from .ai/rules/languages/ based on project}
 ```
+
 </details>
 
 <details>
 <summary><strong>Windsurf Setup</strong></summary>
 
 In your Windsurf workspace configuration:
+
 ```json
 {
   "aiRules": {
@@ -227,12 +250,14 @@ In your Windsurf workspace configuration:
   }
 }
 ```
+
 </details>
 
 <details>
 <summary><strong>GitHub Copilot Setup</strong></summary>
 
 Configure in your GitHub Copilot settings:
+
 ```json
 {
   "github.copilot.advanced": {
@@ -242,6 +267,7 @@ Configure in your GitHub Copilot settings:
   }
 }
 ```
+
 </details>
 
 ## 🤝 Contributing
@@ -268,6 +294,7 @@ We welcome contributions from the community! Here's how to get involved:
 ### 🏆 Recognition
 
 Contributors are recognized through:
+
 - Blueprint metadata attribution
 - Community showcase features
 - Release note acknowledgments
@@ -286,18 +313,21 @@ Contributors are recognized through:
 ## 🗺️ Roadmap
 
 ### 🎯 Current Focus (Q1 2025)
+
 - [x] **Multi-platform Blueprint refactoring** - Complete ✅
 - [x] **Enhanced documentation** - Complete ✅
 - [ ] **Community onboarding** - In Progress 🔄
 - [ ] **CLI integration** - Planning 📋
 
 ### 🚀 Coming Soon (Q2 2025)
+
 - [ ] **Advanced Blueprint generation** - AI-assisted Blueprint creation
 - [ ] **Platform expansion** - Support for new AI assistants
 - [ ] **Enterprise features** - Team management and analytics
 - [ ] **Performance optimization** - Blueprint loading and execution improvements
 
 ### 🌟 Future Vision (Q3-Q4 2025)
+
 - [ ] **Intelligent Blueprint adaptation** - Context-aware Blueprint selection
 - [ ] **Cross-project learning** - Blueprint recommendations based on similar projects
 - [ ] **Integration marketplace** - Third-party Blueprint packages
@@ -327,6 +357,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### 🐛 Reporting Issues
 
 When reporting issues, please include:
+
 - AI assistant platform and version
 - Blueprint category and specific file
 - Expected vs actual behavior
@@ -336,6 +367,7 @@ When reporting issues, please include:
 ### 💡 Suggesting Features
 
 We love new ideas! Please:
+
 - Search existing issues first
 - Use our feature request template
 - Describe the use case and benefit
@@ -344,6 +376,7 @@ We love new ideas! Please:
 ## 🌟 Acknowledgments
 
 Special thanks to:
+
 - **Contributors**: Everyone who has contributed Blueprints, documentation, and feedback
 - **AI Assistant Teams**: Claude, Cursor, Windsurf, and GitHub Copilot teams for platform support
 - **Open Source Community**: For inspiration and collaboration

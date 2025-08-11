@@ -1,474 +1,359 @@
-# Platform Integration Guide
+# VDK Blueprints Platform Integration Guide
 
-This guide explains how to integrate VDK Blueprints with different AI assistant platforms, including setup, configuration, and optimization strategies.
+This comprehensive guide explains how to integrate VDK Blueprints with 23+ AI assistant platforms and IDEs, following the AI Context Schema v2.1.0 standard.
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Claude Code Integration](#claude-code-integration)
-- [Cursor Integration](#cursor-integration)
-- [Windsurf Integration](#windsurf-integration)
-- [GitHub Copilot Integration](#github-copilot-integration)
+- [AI Assistants](#ai-assistants)
+  - [Claude Code](#claude-code)
+  - [Claude Desktop](#claude-desktop)
+  - [GitHub Copilot](#github-copilot)
+  - [Generic AI](#generic-ai)
+- [AI-First Editors](#ai-first-editors)
+  - [Cursor](#cursor)
+  - [Windsurf](#windsurf)
+  - [Windsurf Next](#windsurf-next)
+- [Code Editors](#code-editors)
+  - [VS Code Family](#vs-code-family)
+  - [Zed Editor](#zed-editor)
+- [JetBrains IDEs](#jetbrains-ides)
 - [Multi-Platform Workflows](#multi-platform-workflows)
 - [Troubleshooting](#troubleshooting)
 
 ## Overview
 
-VDK Blueprints supports four major AI assistant platforms, each with unique capabilities and integration patterns:
+VDK Blueprints now supports 23+ AI assistant platforms and IDEs, each optimized for specific workflows:
 
-| Platform | Strengths | Integration Type | Rule Format |
-|----------|-----------|-----------------|-------------|
-| Claude Code | Tool integration, file operations | Native commands | MDC with frontmatter |
-| Cursor | Real-time assistance, autocomplete | Rule injection | MDC auto-attachment |
-| Windsurf | Memory optimization, context awareness | XML-tagged content | Compressed guidelines |
-| GitHub Copilot | Code review, suggestions | Guideline priorities | Review-focused rules |
+### Platform Categories
 
-## Claude Code Integration
+| Category | Platforms | Key Features |
+|----------|-----------|--------------|
+| **AI Assistants** | Claude Code, Claude Desktop, GitHub Copilot, Generic AI | Direct AI interaction, tool integration |
+| **AI-First Editors** | Cursor, Windsurf, Windsurf Next | Native AI features, real-time assistance |
+| **Code Editors** | VS Code, VS Code Insiders, VSCodium, Zed | Extension-based AI integration |
+| **JetBrains IDEs** | WebStorm, IntelliJ, PyCharm, PhpStorm + 6 more | Enterprise IDE AI capabilities |
 
-### Setup
+### AI Context Schema v2.1.0 Compliance
 
-1. **Install Claude Code**: Follow the official installation guide
-2. **Configure Memory**: Ensure CLAUDE.md is properly configured
-3. **Add Rules Directory**: Point Claude Code to your `.ai/rules/` directory
+All blueprints now include:
+- ✅ **Enhanced metadata**: Version tracking, licensing, repository info
+- ✅ **MCP integration**: Model Context Protocol support
+- ✅ **Platform-specific configurations**: Optimized for each platform
+- ✅ **Relationship management**: Dependencies, suggestions, conflicts
 
-### Memory Configuration
+## AI Assistants
 
-Add this to your `CLAUDE.md` file:
+### Claude Code
 
-```markdown
-# AI Rules Integration
+**Best for**: Direct AI interaction with tool access and memory management
 
-## Rule Sources
-- Local rules: .ai/rules/
-- Core behaviors: .ai/rules/core/
-- Language-specific: .ai/rules/languages/
-- Technology patterns: .ai/rules/technologies/
+#### Setup
+1. Install Claude Code from the official website
+2. Configure your CLAUDE.md file
+3. Add VDK Blueprints to your memory configuration
 
-## Active Rule Categories
-- Security practices (always active)
-- Code quality guidelines (always active)
-- Language-specific rules (auto-activated by file type)
-- Technology rules (activated by project dependencies)
-```
-
-### Command Integration
-
-#### Creating Slash Commands
-
-Convert rules to slash commands for frequently used patterns:
+#### Configuration
+Add to your `CLAUDE.md`:
 
 ```markdown
-# In .ai/commands/claude-code/workflow/create-component.md
----
-command: "/create-component"
-description: "Create a new React component with TypeScript"
-parameters:
-  - name: "componentName"
-    type: "string"
-    required: true
-  - name: "directory"
-    type: "string"
-    default: "components"
----
+# VDK Blueprints Integration
 
-Create a TypeScript React component following project patterns:
+## Active Blueprints
+- Core behaviors: Always active for consistent AI behavior
+- Language rules: Auto-activated based on project detection
+- Technology patterns: Context-aware activation
+- Task workflows: On-demand for specific development tasks
 
-1. Use Read tool to examine existing component structure
-2. Create component directory: {directory}/{componentName}/
-3. Generate component file with proper TypeScript interfaces
-4. Create index.ts for clean exports
-5. Validate against project patterns
+## Memory Configuration
+Priority: 8/10 for core blueprints, 7/10 for context-specific
+
+## MCP Integration
+Enabled for enhanced tool access and workflow automation
 ```
 
-#### MCP Integration
+#### Features
+- **Memory Files**: Persistent context across sessions
+- **Slash Commands**: Custom commands from blueprint definitions  
+- **Tool Integration**: File operations, code analysis, external tools
+- **MCP Support**: Enhanced capabilities through protocol servers
 
-For advanced tool integration:
+### Claude Desktop
 
-```yaml
-# In rule frontmatter
-platforms:
-  claude-code:
-    mcpIntegration: true
-    allowedTools: ["Read", "Write", "Edit", "mcp__custom_tool"]
-```
+**Best for**: Desktop AI workflows with MCP integration
 
-### Tool Usage Patterns
+#### Setup
+1. Install Claude Desktop application
+2. Configure MCP servers if needed
+3. Set up rules folder integration
 
-#### File Operations
-```markdown
-### Claude Code Implementation
-1. **Analysis Phase**
-   - Use `Read` tool to examine existing patterns
-   - Use `Grep` tool to find similar implementations
-   - Use `LS` tool to understand project structure
+#### Configuration
+- **Rules Directory**: `.claude-desktop/rules/`
+- **MCP Integration**: Full protocol support
+- **Context Priority**: 9/10 for core blueprints
 
-2. **Implementation Phase**
-   - Use `Write` tool for new files
-   - Use `Edit` tool for modifications
-   - Use `MultiEdit` for batch changes
+#### Features
+- **MCP Native**: Full Model Context Protocol support
+- **Rules System**: Organized blueprint loading
+- **Desktop Integration**: Native OS integration
 
-3. **Validation Phase**
-   - Use `Bash` tool to run tests
-   - Verify compilation with TypeScript
-   - Check linting with project tools
-```
-
-### Best Practices
-
-- **Memory Management**: Keep rules concise to fit in context window
-- **Tool Selection**: Use appropriate tools for each operation
-- **Error Handling**: Always validate operations and handle failures
-- **Project Awareness**: Respect existing project patterns and conventions
-
-## Cursor Integration
-
-### Setup
-
-1. **Install Cursor**: Download and install from cursor.sh
-2. **Configure Rules**: Add rules to your project's `.cursorrules` file
-3. **Enable Auto-attachment**: Configure file pattern matching
-
-### Rule Attachment
-
-#### Auto-attachment Configuration
-
-```yaml
-# In rule frontmatter
-platforms:
-  cursor:
-    compatible: true
-    activation: "auto-attached"
-    globs: ["**/*.tsx", "**/*.jsx", "**/*.ts", "**/*.js"]
-    priority: "high"
-```
-
-#### Manual Attachment
-
-For specialized rules, use agent-requested activation:
-
-```yaml
-platforms:
-  cursor:
-    activation: "agent-requested"
-    priority: "medium"
-```
-
-### .cursorrules Integration
-
-Create a consolidated rules file:
-
-```markdown
-# .cursorrules
-
-## Core Development Principles
-{Universal guidelines from core rules}
-
-## React Development
-{Guidelines from React-specific rules when *.tsx files are detected}
-
-## TypeScript Patterns
-{Guidelines from TypeScript rules when *.ts files are detected}
-
-## Project-Specific Patterns
-{Stack-specific rules based on detected dependencies}
-```
-
-### Rule Priority System
-
-Configure rule importance for Cursor's selection algorithm:
-
-```yaml
-platforms:
-  cursor:
-    priority: "high"    # Always included
-    priority: "medium"  # Included when space allows
-    priority: "low"     # Included only when specifically relevant
-```
-
-### Best Practices
-
-- **File Pattern Specificity**: Use precise glob patterns to avoid rule conflicts
-- **Content Optimization**: Keep rule content focused and actionable
-- **Priority Management**: Set appropriate priorities based on rule importance
-- **Testing**: Verify auto-attachment works as expected
-
-## Windsurf Integration
-
-### Setup
-
-1. **Install Windsurf**: Follow official installation instructions
-2. **Configure Workspace**: Set up workspace-level rule integration
-3. **Optimize Memory**: Configure character limits for performance
-
-### Memory Optimization
-
-Windsurf requires memory-optimized rule content:
-
-```yaml
-platforms:
-  windsurf:
-    compatible: true
-    mode: "workspace"
-    xmlTag: "react-patterns"
-    characterLimit: 300
-```
-
-### XML Tag Format
-
-Use XML tags to structure content for Windsurf:
-
-```markdown
-### Windsurf
-<react-patterns>
-- Use functional components with TypeScript interfaces
-- Export components as named exports for tree-shaking
-- Place components in dedicated directories with index files
-- Follow project naming conventions consistently
-</react-patterns>
-```
-
-### Character Limit Guidelines
-
-| Rule Complexity | Character Limit | Content Strategy |
-|----------------|----------------|------------------|
-| Simple | 200-300 | Key principles only |
-| Medium | 300-500 | Principles + examples |
-| Complex | 500-800 | Structured guidelines |
-
-### Content Compression Techniques
-
-#### Bullet Point Optimization
-```markdown
-❌ Verbose:
-- Create React components using functional component syntax instead of class components
-- Always include proper TypeScript interface definitions for component props
-- Use named exports rather than default exports to enable better tree-shaking
-
-✅ Compressed:
-- Use functional components with TypeScript interfaces
-- Export as named exports for tree-shaking
-- Follow established project patterns
-```
-
-#### Reference Patterns
-```markdown
-<component-creation>
-- Functional syntax: const Component = () => {}
-- TypeScript props: interface Props { title: string }
-- Named exports: export { Component }
-- Directory structure: components/Component/index.ts
-</component-creation>
-```
-
-### Best Practices
-
-- **Tag Naming**: Use descriptive, unique XML tag names
-- **Content Density**: Maximize information density within character limits
-- **Essential Focus**: Include only the most critical guidelines
-- **Workspace Scope**: Configure for workspace-wide or project-specific application
-
-## GitHub Copilot Integration
-
-### Setup
-
-1. **Install GitHub Copilot**: Enable in your IDE
-2. **Configure Priorities**: Set rule importance levels
-3. **Enable Review Mode**: Configure code review integration
-
-### Priority System
-
-Configure rule selection priority (1-10 scale):
-
-```yaml
-platforms:
-  github-copilot:
-    compatible: true
-    priority: 9          # Critical security rules
-    priority: 7          # Important code quality rules
-    priority: 5          # Standard conventions
-    priority: 3          # Style preferences
-```
-
-### Review Type Configuration
-
-Categorize rules by review focus:
-
-```yaml
-platforms:
-  github-copilot:
-    reviewType: "security"      # Security-focused validation
-    reviewType: "performance"   # Performance optimization
-    reviewType: "code-quality"  # General code quality
-    reviewType: "style"         # Code style and formatting
-```
-
-### Code Review Integration
-
-#### Inline Suggestions
-Configure rules to provide inline code suggestions:
-
-```markdown
 ### GitHub Copilot
-Focus on these aspects during code review:
 
-- **Type Safety**: Ensure proper TypeScript interface definitions
-- **Naming Conventions**: Verify consistent component and variable naming
-- **Performance**: Check for unnecessary re-renders and memory leaks
-- **Security**: Validate input sanitization and error handling
+**Best for**: Code review, suggestions, and repository-level guidance
+
+#### Setup
+1. Install GitHub Copilot extension
+2. Configure repository settings
+3. Set up guideline priorities
+
+#### Configuration
+Create `.github/copilot/guidelines.json`:
+
+```json
+{
+  "guidelines": [
+    {
+      "name": "VDK Core Practices",
+      "priority": 9,
+      "type": "code-quality",
+      "scope": "repository"
+    }
+  ]
+}
 ```
 
-#### Pull Request Review
-Configure automated review comments:
+#### Features
+- **Code Review**: Automated review with blueprint standards
+- **Priority System**: 1-10 priority for guideline application
+- **Repository Scope**: Organization or repo-level configuration
 
-```markdown
-### GitHub Copilot Review Points
+### Generic AI
 
-#### Required Checks
-- [ ] Component follows naming conventions
-- [ ] Props are properly typed with TypeScript
-- [ ] Exports use named export pattern
-- [ ] Directory structure matches project standards
+**Best for**: Universal AI platform compatibility
 
-#### Suggestions
-- Consider using useCallback for event handlers
-- Add error boundaries for complex components
-- Include proper ARIA attributes for accessibility
+#### Setup
+- **Config Path**: `.ai/`
+- **Rules Path**: `.ai/rules/`
+- **Priority**: 7/10 default
+
+This platform definition ensures compatibility with any AI system that supports the AI Context Schema.
+
+## AI-First Editors
+
+### Cursor
+
+**Best for**: Real-time AI assistance with intelligent auto-attachment
+
+#### Setup
+1. Install Cursor editor
+2. Configure rule auto-attachment
+3. Set up file pattern matching
+
+#### Configuration
+Rules automatically activate based on:
+- **File Patterns**: TypeScript files trigger TS rules
+- **Project Detection**: Framework detection enables stack rules
+- **Priority System**: High/Medium/Low priority levels
+
+#### Features
+- **Auto-Attachment**: Rules activate based on file context
+- **Real-time Assistance**: Live AI help during coding
+- **File Pattern Matching**: Smart rule activation
+
+### Windsurf
+
+**Best for**: Memory-optimized workspace with XML formatting
+
+#### Setup
+1. Install Windsurf editor
+2. Configure workspace settings
+3. Set character limits for optimization
+
+#### Configuration
+- **Mode**: Workspace-aware configuration
+- **XML Tags**: Structured content formatting
+- **Character Limits**: Optimized for performance (up to 6000 chars)
+
+#### Features
+- **Workspace Awareness**: Project-context understanding
+- **Memory Optimization**: Efficient content loading
+- **XML Formatting**: Structured rule presentation
+
+### Windsurf Next
+
+Enhanced version of Windsurf with additional capabilities:
+- **Improved Performance**: Better memory management
+- **Enhanced XML**: More sophisticated formatting
+- **Priority System**: 1-10 priority levels
+
+## Code Editors
+
+### VS Code Family
+
+**Platforms**: VS Code, VS Code Insiders, VSCodium
+
+#### Setup
+1. Install the AI Context Schema extension
+2. Configure workspace settings
+3. Enable MCP integration if available
+
+#### Configuration
+Add to `.vscode/settings.json`:
+
+```json
+{
+  "aiContext.autoActivate": true,
+  "aiContext.rulesPath": ".ai/rules/",
+  "aiContext.mcpIntegration": true
+}
 ```
 
-### Best Practices
+#### Features
+- **Extension System**: Rich AI extension ecosystem
+- **Settings Integration**: Deep editor configuration
+- **MCP Support**: Protocol integration where available
+- **Multi-Variant**: Supports stable, insiders, and open-source versions
 
-- **Priority Alignment**: Set priorities based on team standards and project criticality
-- **Review Focus**: Align review types with development workflow phases
-- **Actionable Feedback**: Provide specific, actionable guidance
-- **Integration Testing**: Verify review suggestions work with existing tools
+### Zed Editor
+
+**Best for**: High-performance editing with collaborative AI features
+
+#### Setup
+1. Install Zed editor
+2. Enable AI features
+3. Configure project-level settings
+
+#### Configuration
+- **Mode**: Project or global configuration
+- **AI Features**: Native AI assistance
+- **Performance**: High-performance optimization
+- **Collaborative**: Real-time collaboration support
+
+#### Features
+- **High Performance**: Optimized for speed
+- **Collaborative Editing**: Team-based AI assistance
+- **Native AI**: Built-in AI capabilities
+
+## JetBrains IDEs
+
+**Supported IDEs**: IntelliJ IDEA, WebStorm, PyCharm, PhpStorm, RubyMine, CLion, DataGrip, GoLand, Rider, Android Studio
+
+### General Setup
+1. Install your preferred JetBrains IDE
+2. Enable AI assistant plugins
+3. Configure blueprint integration
+
+### IDE-Specific Features
+
+#### WebStorm
+- **Node.js Integration**: Automatic Node project detection
+- **TypeScript Support**: Enhanced TS development
+- **Inspections**: JavaScript and TypeScript code analysis
+
+#### PyCharm
+- **Python Interpreter**: Virtual environment support
+- **Virtual Env**: Automatic environment detection
+- **Python Inspections**: Python-specific code analysis
+
+#### IntelliJ IDEA
+- **Multi-Language**: Support for Java, Kotlin, Scala
+- **Plugin Ecosystem**: Rich extension support
+- **Enterprise Features**: Advanced project management
+
+### Universal JetBrains Configuration
+- **MCP Integration**: Available in 2025.1+ versions
+- **File Templates**: Blueprint-based code generation
+- **Inspections**: AI-powered code quality checks
 
 ## Multi-Platform Workflows
 
-### Unified Development Experience
+### Cross-Platform Development
+1. **Consistent Rules**: Same blueprints work across all platforms
+2. **Priority Management**: Platform-specific priority optimization
+3. **Context Sharing**: Shared project context across tools
 
-#### Rule Synchronization
-Maintain consistency across platforms:
+### Team Workflows
+1. **Standardized Configuration**: Team-wide blueprint adoption
+2. **Platform Flexibility**: Team members can use preferred tools
+3. **Consistent Guidance**: Same AI behavior across different platforms
 
-```yaml
-# Unified rule configuration
-platforms:
-  claude-code:
-    compatible: true
-    memory: true
-  cursor:
-    compatible: true
-    activation: "auto-attached"
-  windsurf:
-    compatible: true
-    characterLimit: 400
-  github-copilot:
-    compatible: true
-    priority: 8
-```
-
-#### Cross-Platform Testing
-Test rules across all declared platforms:
-
-1. **Claude Code**: Test tool interactions and command execution
-2. **Cursor**: Verify auto-completion and suggestions
-3. **Windsurf**: Check memory optimization and XML rendering
-4. **GitHub Copilot**: Validate review feedback and priorities
-
-### Team Collaboration
-
-#### Shared Configuration
-Create team-wide configuration files:
-
-```bash
-# Project structure for team sharing
-.ai/
-├── team-config/
-│   ├── claude-memory.md      # Shared Claude Code memory
-│   ├── cursor-rules.md       # Team Cursor rules
-│   ├── windsurf-workspace.md # Windsurf workspace config
-│   └── copilot-guidelines.md # Copilot review guidelines
-```
-
-#### Platform Migration
-Guide for migrating between platforms:
-
-1. **Export Current Rules**: Document active rules and configurations
-2. **Map Capabilities**: Identify equivalent features on target platform
-3. **Adapt Content**: Modify rule content for target platform constraints
-4. **Test Integration**: Verify functionality on new platform
-5. **Train Team**: Provide training on new platform usage
+### Migration Between Platforms
+1. **Zero Lock-in**: Easy switching between AI assistants
+2. **Configuration Portability**: Rules work across platforms
+3. **Gradual Adoption**: Mix and match platforms as needed
 
 ## Troubleshooting
 
 ### Common Issues
 
-#### Rule Not Loading
-**Problem**: Rule doesn't appear in AI assistant
-
-**Solutions**:
-- Verify frontmatter compatibility settings
-- Check file path and naming conventions
-- Validate YAML frontmatter syntax
-- Confirm platform-specific configuration
-
-#### Memory Limits Exceeded
-**Problem**: Rule content too large for platform
-
-**Solutions**:
-- Compress content using techniques from Windsurf section
-- Split complex rules into smaller, focused rules
-- Use external references for detailed examples
-- Optimize character usage in platform-specific sections
-
-#### Platform Conflicts
-**Problem**: Rule behaves differently across platforms
-
-**Solutions**:
-- Review platform-specific instructions for consistency
-- Test rule behavior on each platform individually
-- Adjust content for platform capabilities and constraints
-- Document known platform differences
+#### Blueprint Not Loading
+- **Check Path**: Verify `.ai/rules/` directory structure
+- **Validate Schema**: Ensure blueprint follows AI Context Schema v2.1.0
+- **Platform Compatibility**: Confirm platform is marked as compatible
 
 #### Performance Issues
-**Problem**: Rule loading impacts AI assistant performance
+- **Character Limits**: Respect platform-specific limits (Windsurf: 6000 chars)
+- **Priority Settings**: Use appropriate priority levels
+- **Rule Selection**: Activate only necessary blueprints
 
-**Solutions**:
-- Optimize rule priorities and activation patterns
-- Reduce active rule count through better targeting
-- Use lazy loading for large rule sets
-- Monitor platform resource usage
+#### MCP Integration Problems
+- **Server Configuration**: Verify MCP servers are properly configured
+- **Compatibility**: Check platform MCP support status
+- **Permissions**: Ensure proper MCP permissions
 
-### Debugging Strategies
+### Platform-Specific Troubleshooting
 
-#### Rule Validation
-```bash
-# Validate rule frontmatter
-jsonschema -i rule.yaml .ai/schemas/rule-schema.json
+#### Claude Code
+- **Memory Files**: Check CLAUDE.md syntax
+- **Tool Permissions**: Verify allowed tools configuration
+- **Command Registration**: Ensure slash commands are properly defined
 
-# Check file naming conventions
-find .ai/rules -name "*.mdc" | grep -v "^[a-z0-9-]*\.mdc$"
+#### Cursor
+- **Auto-Attachment**: Verify glob patterns match your files
+- **Priority Conflicts**: Check for conflicting rule priorities
+- **File Types**: Ensure file type arrays are correctly specified
 
-# Verify platform compatibility
-grep -r "compatible: false" .ai/rules/
+#### JetBrains IDEs
+- **Plugin Version**: Update to latest AI assistant plugins
+- **Project Structure**: Verify IDE recognizes project type
+- **Inspection Configuration**: Check inspection settings
+
+## Advanced Configuration
+
+### Custom Platform Definitions
+For platforms not explicitly supported, use the generic platform fallback:
+
+```yaml
+platforms:
+  your-custom-platform:
+    compatible: true
+    notes: "Configuration notes for your platform"
 ```
 
-#### Platform Testing
-```bash
-# Test Claude Code integration
-claude-code --validate-memory .ai/rules/
+### Blueprint Relationship Management
+Leverage relationship fields for complex setups:
 
-# Test Cursor rule attachment
-cursor --validate-rules .cursorrules
-
-# Check Windsurf character limits
-wc -c .ai/rules/**/*.mdc | awk '$1 > 800 {print $2 " exceeds limit"}'
+```yaml
+requires: ["typescript-base"]  # Hard dependencies
+suggests: ["testing-patterns"] # Recommended additions
+conflicts: ["vue-patterns"]    # Incompatible blueprints
+supersedes: ["legacy-rules"]   # Replaced blueprints
 ```
 
-### Support Resources
+### Schema Version Migration
+Track migration progress with schema versioning:
+
+```yaml
+schemaVersion: "2.1"  # AI Context Schema v2.1.0 compliant
+```
+
+This ensures future compatibility and enables systematic upgrades across your development environment.
+
+## Getting Help
 
 - **Documentation**: Comprehensive guides in `.ai/docs/`
-- **Community**: GitHub Discussions for questions and feedback
-- **Examples**: Reference implementations in existing rules
-- **Schemas**: Validation schemas for rule structure verification
+- **Examples**: Sample configurations in `.ai/templates/`
+- **Community**: GitHub Discussions for community support
+- **Issues**: GitHub Issues for bug reports and feature requests
 
-Remember: Platform integration is an iterative process. Start with basic integration and refine based on usage patterns and feedback.
+The VDK Blueprints platform integration system provides unprecedented flexibility while maintaining consistency across your entire AI-powered development workflow.

@@ -36,6 +36,21 @@ platforms:
     compatible: true
     priority: 7
     reviewType: "code-quality"
+  claude-desktop:
+    compatible: true
+    mcpIntegration: true
+    rules: true
+    priority: 7
+  zed:
+    compatible: true
+    mode: "project"
+    aiFeatures: true
+  vscode:
+    compatible: true
+    mcpIntegration: true
+  generic-ai:
+    compatible: true
+    priority: 6
 
 # === Dependencies & Relationships ===
 requires: []
@@ -55,9 +70,10 @@ author: "community"
 contributors: ["entro314-labs"]
 tags: ["devops", "tasks"]
 discussionUrl: ""
+schemaVersion: "2.1"
+license: "MIT"
+repositoryUrl: "https://github.com/entro314-labs/VDK-Blueprints"
 ---
-
-
 # Process: DevOps Mode
 
 ## 1. Role & Responsibility

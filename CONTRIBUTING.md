@@ -5,12 +5,14 @@ Thank you for your interest in contributing to VDK Blueprints! This project thri
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Git installed on your system
 - Basic understanding of AI coding assistants (Claude Code, Cursor, Windsurf, or GitHub Copilot)
 - Familiarity with Markdown and YAML
 - Experience with at least one supported technology stack
 
 ### Development Setup
+
 ```bash
 # Fork and clone the repository
 git clone https://github.com/your-username/VDK-Blueprints.git
@@ -28,41 +30,51 @@ ls -la .ai/rules/
 We welcome several types of contributions:
 
 ### 1. New AI Rules/Blueprints
+
 Add support for new technologies, frameworks, or development patterns.
 
 **Examples:**
+
 - New framework support (e.g., Svelte 6, Angular 18)
 - Programming language patterns (e.g., Rust, Go)
 - Development workflows (e.g., AI-assisted testing, deployment automation)
 
 ### 2. Rule Improvements
+
 Enhance existing rules with better patterns, examples, or platform optimizations.
 
 **Examples:**
+
 - Adding code examples to existing rules
 - Improving platform compatibility
 - Optimizing for memory constraints
 
 ### 3. Platform Support
+
 Add or improve support for AI assistant platforms.
 
 **Examples:**
+
 - New AI assistant integration
 - Platform-specific optimizations
 - Tool integration improvements
 
 ### 4. Documentation
+
 Improve guides, examples, and reference materials.
 
 **Examples:**
+
 - Tutorial improvements
 - New example projects
 - API documentation enhancements
 
 ### 5. Bug Fixes
+
 Fix issues with existing rules or documentation.
 
 **Examples:**
+
 - Correcting rule metadata
 - Fixing broken examples
 - Resolving platform compatibility issues
@@ -70,6 +82,7 @@ Fix issues with existing rules or documentation.
 ## 🛠️ Development Workflow
 
 ### 1. Before You Start
+
 - Search [existing issues](https://github.com/your-org/VDK-Blueprints/issues) to avoid duplicates
 - Check the [roadmap](https://github.com/your-org/VDK-Blueprints/projects) for planned features
 - Join our [Discord community](https://discord.gg/vibekit) to discuss your ideas
@@ -77,6 +90,7 @@ Fix issues with existing rules or documentation.
 ### 2. Creating New Rules
 
 #### Use the Rule Template
+
 ```bash
 # Copy the template
 cp .ai/templates/rule-template.mdc .ai/rules/technologies/your-technology.mdc
@@ -86,6 +100,7 @@ cp .ai/templates/rule-template.mdc .ai/rules/technologies/your-technology.mdc
 ```
 
 #### Rule Structure
+
 Every rule must include:
 
 ```yaml
@@ -126,6 +141,7 @@ conflicts: []           # Conflicting rules
 ```
 
 #### Rule Content Guidelines
+
 - **Be Specific**: Provide clear, actionable guidance
 - **Include Examples**: Show real code patterns
 - **Consider Context**: Explain when to apply the rule
@@ -134,6 +150,7 @@ conflicts: []           # Conflicting rules
 ### 3. Testing Your Changes
 
 #### Validate Rule Schema
+
 ```bash
 # Validate single rule (if validation script exists)
 ./scripts/validate-rule.py .ai/rules/technologies/your-rule.mdc
@@ -145,6 +162,7 @@ conflicts: []           # Conflicting rules
 ```
 
 #### Test with AI Assistants
+
 1. **Claude Code**: Add rule to CLAUDE.md and test behavior
 2. **Cursor**: Add to .cursorrules and verify auto-activation
 3. **Windsurf**: Test memory optimization
@@ -153,6 +171,7 @@ conflicts: []           # Conflicting rules
 ### 4. Submitting Your Contribution
 
 #### Commit Guidelines
+
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```bash
@@ -164,6 +183,7 @@ git commit -m "refactor: optimize rule for Windsurf memory constraints"
 ```
 
 #### Pull Request Process
+
 1. **Create descriptive PR title and description**
 2. **Use the PR template** (auto-populated)
 3. **Link related issues** using keywords (e.g., "Closes #123")
@@ -215,6 +235,7 @@ Any additional context, implementation details, or notes for reviewers.
 ### Content Guidelines
 
 #### ✅ Do
+
 - Use clear, concise language
 - Provide practical, tested examples
 - Include context about when to apply patterns
@@ -223,6 +244,7 @@ Any additional context, implementation details, or notes for reviewers.
 - Follow established patterns in similar rules
 
 #### ❌ Don't
+
 - Include untested code examples
 - Make assumptions about user knowledge
 - Conflict with existing rules without justification
@@ -232,6 +254,7 @@ Any additional context, implementation details, or notes for reviewers.
 ### Metadata Best Practices
 
 #### Platform Compatibility
+
 ```yaml
 platforms:
   claude-code:
@@ -245,6 +268,7 @@ platforms:
 ```
 
 #### Dependencies
+
 ```yaml
 requires: ["typescript-modern"]     # Must have these rules
 suggests: ["react19", "tailwind4"]  # Works well with these
@@ -252,6 +276,7 @@ conflicts: ["vue3"]                 # Cannot coexist
 ```
 
 ### Code Examples
+
 ```typescript
 // ✅ Good: Clear, focused example
 const UserProfile = ({ userId }: { userId: string }) => {
@@ -273,6 +298,7 @@ const ComplexComponent = ({ data, config, handlers, ...props }) => {
 ## 🔍 Code Review Process
 
 ### Review Criteria
+
 - **Correctness**: Rule guidance is accurate and helpful
 - **Completeness**: All required metadata is present
 - **Clarity**: Examples and descriptions are clear
@@ -281,6 +307,7 @@ const ComplexComponent = ({ data, config, handlers, ...props }) => {
 - **Consistency**: Follows project conventions
 
 ### Review Timeline
+
 - **Initial Review**: Within 48 hours
 - **Feedback Response**: Please respond within 7 days
 - **Final Review**: Within 24 hours of addressing feedback
@@ -289,17 +316,20 @@ const ComplexComponent = ({ data, config, handlers, ...props }) => {
 ## 📚 Resources
 
 ### Documentation
+
 - **[Development Guide](wikidocs/development-guide/)** - Comprehensive contributing guide
 - **[API Reference](wikidocs/api-reference/)** - Schema and metadata documentation
 - **[Examples](wikidocs/examples/)** - Real-world usage examples
 - **[Rules Reference](wikidocs/rules-reference/)** - Complete rule catalog
 
 ### Templates
+
 - **[Rule Template](.ai/templates/rule-template.mdc)** - Standard rule structure
 - **[Platform Template](.ai/templates/platform-template.json)** - Platform configuration
 - **[Command Template](.ai/templates/command-template.md)** - Custom command structure
 
 ### Community
+
 - **[GitHub Discussions](https://github.com/your-org/VDK-Blueprints/discussions)** - Ideas and Q&A
 - **[Discord Community](https://discord.gg/vibekit)** - Real-time chat
 - **[Issue Tracker](https://github.com/your-org/VDK-Blueprints/issues)** - Bug reports and feature requests
@@ -307,6 +337,7 @@ const ComplexComponent = ({ data, config, handlers, ...props }) => {
 ## 🏆 Recognition
 
 Contributors are recognized through:
+
 - **Rule Attribution**: Your name in rule metadata
 - **Contributors List**: Featured in README.md
 - **Release Notes**: Acknowledgment in release announcements
@@ -316,12 +347,14 @@ Contributors are recognized through:
 ## 📞 Getting Help
 
 ### Before Asking for Help
+
 1. Check the [documentation](wikidocs/)
 2. Search [existing issues and discussions](https://github.com/your-org/VDK-Blueprints/issues)
 3. Review similar rules for patterns
 4. Test your changes thoroughly
 
 ### Where to Get Help
+
 - **GitHub Discussions**: For general questions and ideas
 - **GitHub Issues**: For specific bugs or feature requests
 - **Discord**: For real-time community support

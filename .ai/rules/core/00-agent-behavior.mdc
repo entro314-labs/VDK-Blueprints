@@ -23,6 +23,11 @@ platforms:
     namespace: "project"
     allowedTools: ["Read", "Write", "Edit", "Grep", "Bash"]
     mcpIntegration: false
+  claude-desktop:
+    compatible: true
+    mcpIntegration: true
+    rules: true
+    priority: 9
   cursor:
     compatible: true
     activation: "always"
@@ -33,10 +38,37 @@ platforms:
     mode: "workspace"
     xmlTag: "agent-behavior"
     characterLimit: 500
+  windsurf-next:
+    compatible: true
+    mode: "workspace"
+    xmlTag: "agent-behavior"
+    characterLimit: 500
+    priority: 9
   github-copilot:
     compatible: true
     priority: 9
     reviewType: "code-quality"
+  zed:
+    compatible: true
+    mode: "project"
+    aiFeatures: true
+    performance: "high"
+  vscode:
+    compatible: true
+    extension: "ai-context-schema"
+    mcpIntegration: true
+    commands: ["aiContext.apply", "aiContext.validate"]
+  webstorm:
+    compatible: true
+    nodeIntegration: true
+    typescript: true
+    mcpIntegration: true
+    inspections: ["JavaScriptPatterns", "TypeScriptPatterns"]
+  generic-ai:
+    compatible: true
+    configPath: ".ai/"
+    rulesPath: ".ai/rules/"
+    priority: 8
 
 # === Dependencies & Relationships ===
 requires: []
@@ -56,8 +88,10 @@ author: "community"
 contributors: ["entro314-labs"]
 tags: ["behavior", "core", "assistant", "principles"]
 discussionUrl: ""
+schemaVersion: "2.1"
+license: "MIT"
+repositoryUrl: "https://github.com/entro314-labs/VDK-Blueprints"
 ---
-
 # AI Developer Assistant - Core Principles
 
 ## Role & Responsibility

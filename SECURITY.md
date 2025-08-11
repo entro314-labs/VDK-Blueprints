@@ -90,6 +90,7 @@ When contributing blueprints, ensure:
 ### 🚫 Prohibited Content
 
 Blueprints must not contain:
+
 - Executable code that could harm systems
 - Instructions for bypassing security measures
 - Patterns that encourage insecure practices
@@ -126,6 +127,7 @@ Blueprints must not contain:
 ### 📢 Security Notifications
 
 Security updates are communicated through:
+
 - **GitHub Security Advisories**: For repository watchers
 - **Release Notes**: For all users
 - **Discord Channel**: Real-time notifications
@@ -144,21 +146,25 @@ Security updates are communicated through:
 ### 🛠️ Platform-Specific Security
 
 #### Claude Code
+
 - Enable memory restrictions for large blueprint sets
 - Review tool permissions before activation
 - Use workspace isolation for sensitive projects
 
 #### Cursor
+
 - Configure file access patterns appropriately
 - Review auto-completion suggestions in security-sensitive code
 - Use project-specific rule sets
 
 #### Windsurf
+
 - Enable memory optimization to prevent information leakage
 - Configure workspace boundaries
 - Review collaborative features for sensitive projects
 
 #### GitHub Copilot
+
 - Configure suggestion filtering for sensitive repositories
 - Review integration permissions
 - Use enterprise features for additional security controls
@@ -190,6 +196,7 @@ We recognize security researchers who help improve our security:
 ### 🆘 Emergency Contact
 
 For critical security issues requiring immediate attention:
+
 - **Email**: [urgent-security@entro314-labs.com](mailto:urgent-security@entro314-labs.com)
 - **Subject**: `[URGENT SECURITY] Brief description`
 

@@ -36,6 +36,23 @@ platforms:
     compatible: true
     priority: 8
     reviewType: "code-quality"
+  claude-desktop:
+    compatible: true
+    mcpIntegration: true
+    rules: true
+    priority: 8
+  zed:
+    compatible: true
+    mode: "project"
+    aiFeatures: true
+    performance: "high"
+  vscode:
+    compatible: true
+    extension: "language-support"
+    mcpIntegration: true
+  generic-ai:
+    compatible: true
+    priority: 7
 
 # === Dependencies & Relationships ===
 requires: []
@@ -55,9 +72,10 @@ author: "community"
 contributors: ["entro314-labs"]
 tags: ["python3", "languages"]
 discussionUrl: ""
+schemaVersion: "2.1"
+license: "MIT"
+repositoryUrl: "https://github.com/entro314-labs/VDK-Blueprints"
 ---
-
-
 # Python 3 Best Practices
 
 ## Project Structure & Packaging
